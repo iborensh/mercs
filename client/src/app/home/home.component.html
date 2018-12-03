@@ -1,0 +1,29 @@
+
+    <section>
+          <div style="background-color: #739900">
+              <div class="text-center" style="color: white">
+                <p style="font-size: 70px;">mercs.com</p>
+                <h1>Hire yourself a mercenary band</h1>
+                  <br>
+           </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-3 text-xs-center">
+        </div>
+        <div class="col-xl-3 text-xs-center">
+                <img  src="/assets/images/knight.jpg" alt="">
+        </div>
+        <div class="col-xl-3 text-xs-center">
+            <div class="card mb-3" style="border: #2b81af" *ngFor="let button of buttons">
+                <br>
+                <br>
+               <button type="button" routerLink="{{button.link}}" class="{{button.class}}" >{{button.label}}</button>
+            </div>
+        </div>
+        <div class="col-xl-3 text-xs-center">
+        </div>
+    </div>
+
+    </section>
+
+

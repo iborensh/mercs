@@ -1,0 +1,32 @@
+<div class="login-page" [@routerTransition]>
+    <br>
+    <br>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/oneflag.png" width="150px" class="user-avatar" />
+            <h1>Mercs Login</h1>
+            <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" formControlName="name" class="form-control input-underline input-lg" id="1" placeholder="User name">
+                    <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+                    <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+                  </div>
+                        <div *ngIf="wrongName">No such user name - please register</div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" formControlName="password" class="form-control input-underline input-lg" id="2" placeholder="Password">
+                    <div *ngIf="submitted && messageForm.controls.password.errors" class="error">
+                    <div *ngIf="messageForm.controls.password.errors.required">Your password is required</div>
+                  </div>
+                        <div *ngIf="submitted && wrongPassword">Wrong password</div>
+                    </div>
+                </div>
+                <!--<imput class="btn rounded-btn" type="submit" [routerLink]="['']"> Log in-->
+                &nbsp;<input type="submit" value="Log in" class="btn rounded-btn">
+                <a class="btn rounded-btn" [routerLink]="['/newUser']">Register</a>
+            </form>
+        </div>
+    </div>
+</div>

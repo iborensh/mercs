@@ -1,0 +1,27 @@
+//.btn {
+//  margin-left: 10px;
+//  margin-right: 10px;
+//}
+/* Boostrap Buttons Styling */
+
+.btn-default {
+  font-family: Raleway-SemiBold;
+  font-size: 150%;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 100%;
+  border: 3px solid black;
+  border-radius: 40px;
+  background: black;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-default-red {
+    @extend .btn-default;
+    background: darkred;
+}
+
+.btn-default:hover {
+  background: darkblue;
+  border: 3px solid black;
+}

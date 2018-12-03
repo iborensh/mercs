@@ -1,0 +1,106 @@
+<!--<ul class="tree">-->
+<!--<li>-->
+<!--<input type="checkbox" checked="checked" id="c1" />-->
+<!--<label class="tree_label" for="c1">Level 0</label>-->
+<!--<ul>-->
+<!--<li>-->
+<!--<input type="checkbox" checked="checked" id="c2" />-->
+<!--<label for="c2" class="tree_label">Level 1</label>-->
+<!--<ul>-->
+<!--<li><span class="tree_label">Level 2</span></li>-->
+<!--<li><span class="tree_label">Level 2</span></li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--<li>-->
+<!--<input type="checkbox" id="c3" />-->
+<!--<label for="c3" class="tree_label">Looong level 1 <br/>label text <br/>with line-breaks</label>-->
+<!--<ul>-->
+<!--<li><span class="tree_label">Level 2</span></li>-->
+<!--<li>-->
+<!--<input type="checkbox" id="c4" />-->
+<!--<label for="c4" class="tree_label"><span class="tree_custom">Specified tree item view</span></label>-->
+<!--<ul>-->
+<!--<li><span class="tree_label">Level 3</span></li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</li>-->
+
+
+<!--<li>-->
+<!--<input type="checkbox" id="c5" />-->
+<!--<label class="tree_label" for="c5">Level 0</label>-->
+<!--<ul>-->
+<!--<li>-->
+<!--<input type="checkbox" id="c6" />-->
+<!--<label for="c6" class="tree_label">Level 1</label>-->
+<!--<ul>-->
+<!--<li><span class="tree_label">Level 2</span></li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--<li>-->
+<!--<input type="checkbox" id="c7" />-->
+<!--<label for="c7" class="tree_label">Level 1</label>-->
+<!--<ul>-->
+<!--<li><span class="tree_label">Level 2</span></li>-->
+<!--<li>-->
+<!--<input type="checkbox" id="c8" />-->
+<!--<label for="c8" class="tree_label">Level 2</label>-->
+<!--<ul>-->
+<!--<li><span class="tree_label">Level 3</span></li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
+
+
+<ul>
+    <li *ngFor="let choose of newSchemaFromDb; let first = first; let last = last">
+        <input id="{{choose.value}}" type="radio" name="rad" [checked]="first"/><label for="{{choose.value}}">
+        <div>{{choose.label}}
+            <button *ngFor="let chose of chosen[choose.value]" type="button" class="btn btn-info special">{{chose}}
+            </button>
+        </div>
+    </label>
+        <div class="accslide">
+            <div class="content">
+                <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-3"><h1>{{choose.label}}</h1></div>
+                        <div class="col-6">
+                <br>
+                <div class="card-deck">
+                    <div *ngFor="let task of choose.options">
+                        <div clickColor
+                             *ngIf="first || (chosen[choose.father] && chosen[choose.father].includes(task.father))"
+                             (click)="console(task.value, choose.value)" id="{{task.value}}"
+                             class="card border-primary mb-3"
+                             style="max-width: 10rem; max-height: 20rem; cursor: pointer;">
+                            <div class="card-header">{{task.label}}</div>
+                            <div class="card-body text-primary">
+                                <h5 class="card-title">{{task.explanation}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="finish">
+
+                            <div class="typewriter">
+                                <h4>I need {{chosen.titles[0]}} to do {{chosen.technology[0]}} with
+                                    {{chosen.name[0]}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <label *ngIf="!last" for="{{choose.next}}" class="label2">Next</label>
+            <h4 style="float: right; cursor: pointer" *ngIf="last" (click)="finishClick()">Finish</h4>
+        </div>
+    </li>
+</ul>

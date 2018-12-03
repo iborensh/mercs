@@ -1,0 +1,27 @@
+<div class="row"><div class="col-xl-3"></div>
+<div class="col-xl-3">
+<div id="hexagon" class="hexagon" routerLink="/newUser" (mouseenter)="mouseHovering()" (mouseleave)="mouseLeft()">
+    <h2>I want to HIRE</h2>
+    <br>
+    <br>
+    <img src="/assets/images/knight.jpg" class="smallImg">
+    <br>
+    <br>
+    <h6 *ngIf="isHovering">Publish Missions, hire mercenary bands, get things done.</h6>
+    <h1 *ngIf="isHovering">WARLORD</h1>
+</div>
+</div>
+    <div class="col-xl-3">
+<div id="hexagon2" class="hexagon" routerLink="/newUser" (mouseenter)="mouseHovering2()" (mouseleave)="mouseLeft2()">
+    <h2>I want to WORK</h2>
+    <br>
+    <br>
+    <img src="/assets/images/knight.jpg" class="smallImg">
+    <br>
+    <br>
+    <h6 *ngIf="isHovering2">Perform missions. Get money, fame and experience.</h6>
+    <h1 *ngIf="isHovering2">MERCENARY
+</h1>
+</div>
+</div>
+</div>

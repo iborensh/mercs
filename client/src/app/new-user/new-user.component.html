@@ -1,0 +1,44 @@
+<div class="register-page" [@routerTransition]>
+    <br>
+    <br>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/oneflag.png" width="150px" class="user-avatar"/>
+            <h1>Mercs register</h1>
+            <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+                <!-- Grid row -->
+                <div class="form-group row" *ngFor="let name of items">
+                    <!-- Material input -->
+                    <label for="inputEmail3MD" class="col-sm-2 col-form-label">{{name}}</label>
+                    <div class="col-sm-10">
+                        <div class="md-form mt-0">
+                            <input formControlName="{{name}}" type="text" class="form-control" id="inputEmail3MD"
+                                   placeholder="{{name}}">
+                            <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+                                <div *ngIf="messageForm.controls.name.errors.required">Your {{name}} is required</div>
+                            </div>
+                            <div *ngIf="alreadyExist">This user name already exist please choose another</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3MD" class="col-sm-2 col-form-label">user type</label>
+                    <div class="col-sm-10">
+                        <div class="md-form mt-0">
+                            <select formControlName="userType" class="form-control">
+                                <option [value]="user" *ngFor="let user of userTypes">
+                                    {{user}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Register" class="btn rounded-btn">
+                <a class="btn rounded-btn" [routerLink]="['/login']">Login</a>
+
+            </form>
+
+        </div>
+    </div>
+    <div class="col-xl-3"></div>
+</div>
