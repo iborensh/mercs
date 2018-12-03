@@ -60,7 +60,7 @@
 
 
 <ul>
-    <li *ngFor="let choose of newSchemaFromDb; let first = first; let last = last">
+    <li *ngFor="let choose of v0; let first = first; let last = last">
         <input id="{{choose.value}}" type="radio" name="rad" [checked]="first"/><label for="{{choose.value}}">
         <div>{{choose.label}}
             <button *ngFor="let chose of chosen[choose.value]" type="button" class="btn btn-info special">{{chose}}
@@ -78,7 +78,7 @@
                 <div class="card-deck">
                     <div *ngFor="let task of choose.options">
                         <div clickColor
-                             *ngIf="first || (chosen[choose.father] && chosen[choose.father].includes(task.father))"
+                             *ngIf="first || task.father === '' || (chosen[choose.father] && chosen[choose.father].includes(task.father))"
                              (click)="console(task.value, choose.value)" id="{{task.value}}"
                              class="card border-primary mb-3"
                              style="max-width: 10rem; max-height: 20rem; cursor: pointer;">
