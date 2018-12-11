@@ -19,7 +19,7 @@
                     <div *ngFor="let task of choose.options">
                         <div clickColor
                              *ngIf="first || task.father === '' || (chosen[choose.father] && chosen[choose.father].includes(task.father))"
-                             (click)="console(task.value, choose.value)" id="{{task.value}}"
+                             (click)="addToChosen(task.value, choose.value)" id="{{task.value}}"
                              class="card border-primary mb-3"
                              style="max-width: 10rem; max-height: 20rem; cursor: pointer;">
                             <div class="card-header">{{task.label}}</div>
@@ -29,10 +29,10 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="finish">
+                <div *ngIf="finish && last">
                             <div class="typewriter">
-                                <h4>I need {{chosen.titles[0]}} to do {{chosen.technology[0]}} with
-                                    {{chosen.name[0]}}</h4>
+                                <h4>I need {{chosen.type}} to do {{chosen.field}} with
+                                    {{chosen.attributes}}</h4>
                             </div>
                         </div>
                     </div>

@@ -6,8 +6,7 @@ from bson.objectid import ObjectId
 from flask import jsonify
 from pymongo import MongoClient
 
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 
 class DbHandling(object):
@@ -47,28 +46,10 @@ class DbHandling(object):
         """
         user = json_settings['user']
         name = json_settings['project_name']
-        if list(self.db_projects.find({'project_name': name})):
-            return 'already exist'
-        if 'settings' in json_settings:
-            settings = json_settings['settings']
-        else:
-            with open('{}/static/yamls/settings.json'.format(os.getcwd())) as f:
-                all_setting = json.load(f)
-            settings = all_setting['default_general_settings']
-        ans = self.db_projects.update({'user': user, 'project_name': name},
-                                 {'$set': {'user': user, 'project_name': name, 'content': json_settings['content'],
-                                           'start_on': datetime.datetime.utcnow(), 'status': 'started',
-                                           'settings': settings, 'modified_on': datetime.datetime.utcnow(),
-                                           'description': json_settings['description']}}, upsert=True)
-        flag = True
-        for k, v in ans.items():
-            if k == 'upserted':
-                id = str(v)
-            if k == 'updatedExisting':
-                flag = v
-        if not flag:
-            return self.get_project(id)
-        return jsonify({'id': 'already_exist'})
+        ans = self.db_projects.insert(
+            {'user': user, 'start_on': datetime.datetime.utcnow(), 'content': json_settings['content'],
+             'status': 'started', 'modified_on': datetime.datetime.utcnow()})
+        return self.get_project(str(ans))
 
     def insert_user(self, json):
         """
@@ -79,7 +60,7 @@ class DbHandling(object):
         name = json['name']
         json.update({'admin': 'no'})
         ans = self.db_users.update({'name': name},
-                              {'$set': json}, upsert=True)
+                                   {'$set': json}, upsert=True)
         flag = True
         for k, v in ans.items():
             if k == 'upserted':

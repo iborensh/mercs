@@ -7,6 +7,7 @@ import { HomeComponent } from "./home/home.component";
 import { UserTypeComponent} from "./user-type/user-type.component";
 import { GroupsListComponent} from "./groups-list/groups-list.component";
 import { UploadProjectComponent} from "./upload-project/upload-project.component";
+import { SearchProjectComponent} from "./search-project/search-project.component";
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -19,6 +20,7 @@ const routes: Routes = [
     { path: 'newUser', component: NewUserComponent },
     { path: 'user-type', component: UserTypeComponent },
     { path: 'upload-project', component: UploadProjectComponent },
+    { path: 'search-project', component: SearchProjectComponent },
     { path: 'home', component: HomeComponent },
     { path: 'groups-list', component: GroupsListComponent },
     { path: '**', redirectTo: 'not-found' }

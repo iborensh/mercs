@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { routerTransition } from '../router.animations';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { AuthService } from "../auth.service";
-import { DataService } from "../data.service";
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {routerTransition} from '../router.animations';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {AuthService} from "../auth.service";
+import {DataService} from "../data.service";
 import * as _ from 'lodash';
 
 
@@ -16,36 +16,37 @@ import * as _ from 'lodash';
 })
 export class LoginComponent implements OnInit {
     constructor(public router: Router, private formBuilder: FormBuilder, private http: HttpClient,
-                private auth: AuthService, private dataService: DataService) {}
+                private auth: AuthService, private dataService: DataService) {
+    }
 
     messageForm: FormGroup;
-  submitted = false;
-  success = false;
+    submitted = false;
+    success = false;
     wrongPassword = false;
     wrongName = false;
     login_check;
 
     ngOnInit() {
         this.messageForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+            name: ['', Validators.required],
+            password: ['', Validators.required]
+        });
 
     }
 
     onSubmit() {
-    this.submitted = true;
-    if (this.messageForm.invalid) {
-        return;
-    }
-    this.success = true;
+        this.submitted = true;
+        if (this.messageForm.invalid) {
+            return;
+        }
+        this.success = true;
 
-    this.http.get('/api/users/'+this.messageForm.controls.name.value).subscribe(data => {
-                if(Object.keys(data).length === 0){
+        this.http.get('/api/users/' + this.messageForm.controls.name.value).subscribe(data => {
+                if (Object.keys(data).length === 0) {
                     this.wrongName = true;
                     return
                 }
-                else if(data[0].password != this.messageForm.controls.password.value){
+                else if (data[0].password != this.messageForm.controls.password.value) {
                     this.wrongPassword = true;
                     return
                 }
@@ -59,8 +60,5 @@ export class LoginComponent implements OnInit {
                 console.log("Error", error);
             }
         );
-
-
-}
-
+    }
 }
