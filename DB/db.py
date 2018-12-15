@@ -11,7 +11,7 @@ app = Flask(__name__)
 db_functions = DbHandling()
 
 
-app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy   dog'
+app.config['SECRET_KEY'] = 'this is secret key'
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
@@ -52,6 +52,8 @@ def projects(id=None):
     if request.method == 'GET':
         if id == None:
             return jsonify(db_functions.get_all_projects(None))
+        else:
+            return jsonify(db_functions.get_all_projects(id))
     elif request.method == 'POST':
         data = json.loads(request.data, strict=False)
         return db_functions.insert_project(data)
@@ -65,6 +67,21 @@ def projects(id=None):
             db_functions.db_projects.remove({})
             return jsonify({'number_of_removed_projects': 5})
     return jsonify({'id': id})
+
+@app.route("/api/user-projects", methods=['GET', 'POST', 'PUT', 'DELETE'])
+@app.route("/api/user-projects/<user_id>", methods=['GET', 'POST', 'PUT', 'DELETE'])
+def user_projects(user_id=None):
+    """
+    project get, put, post, delete
+    :param id:
+    :return:
+    """
+    if request.method == 'GET':
+        if user_id == None:
+            return 'Please send user ID'
+        else:
+            return jsonify(db_functions.get_projects_by_user(user_id))
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5002, debug=False, threaded=True)

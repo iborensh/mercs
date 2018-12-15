@@ -24,15 +24,15 @@ class DbHandling(object):
         """
         if not collection:
             if user:
-                p = self.db_projects.find({'user': user})
+                proj = self.db_projects.find({'user': user})
             else:
-                p = self.db_projects.find({})
+                proj = self.db_projects.find({})
         else:
             if user:
-                p = self.db_users.find({'name': user})
+                proj = self.db_users.find({'name': user})
             else:
-                p = self.db_users.find({})
-        projects = [{k: str(v) if k == '_id' else v for k, v in i.iteritems()} for i in p]
+                proj = self.db_users.find({})
+        projects = [{k: str(v) if k == '_id' else v for k, v in i.iteritems()} for i in proj]
         if not collection:
             return projects
         else:
@@ -47,7 +47,7 @@ class DbHandling(object):
         user = json_settings['user']
         name = json_settings['project_name']
         ans = self.db_projects.insert(
-            {'user': user, 'start_on': datetime.datetime.utcnow(), 'content': json_settings['content'],
+            {'user': user, 'name': name, 'start_on': datetime.datetime.utcnow(), 'content': json_settings['content'],
              'status': 'started', 'modified_on': datetime.datetime.utcnow()})
         return self.get_project(str(ans))
 

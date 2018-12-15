@@ -7,6 +7,8 @@ import { HomeComponent } from "./home/home.component";
 import { UserTypeComponent} from "./user-type/user-type.component";
 import { GroupsListComponent} from "./groups-list/groups-list.component";
 import { UploadProjectComponent} from "./upload-project/upload-project.component";
+import { MyProjectsWarlordComponent} from "./my-projects-warlord/my-projects-warlord.component";
+import { EditProjectComponent} from "./edit-project/edit-project.component";
 import { SearchProjectComponent} from "./search-project/search-project.component";
 
 const routes: Routes = [
@@ -21,6 +23,8 @@ const routes: Routes = [
     { path: 'user-type', component: UserTypeComponent },
     { path: 'upload-project', component: UploadProjectComponent },
     { path: 'search-project', component: SearchProjectComponent },
+    { path: 'my-projects-warlord', component: MyProjectsWarlordComponent },
+    { path: 'edit-project', component: EditProjectComponent },
     { path: 'home', component: HomeComponent },
     { path: 'groups-list', component: GroupsListComponent },
     { path: '**', redirectTo: 'not-found' }

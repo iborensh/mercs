@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-search-project',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchProjectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+    projects;
 
   ngOnInit() {
+      this.http.get('/api/projects').subscribe(data => {
+          this.projects = data;
+            },
+            error => {
+                console.log("Error", error);
+            }
+        );
   }
 
 }

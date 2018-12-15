@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit {
           this.buttons = [
               {"label": "Hire group", "link": ["/user-type"], "class": "btn btn-default"},
               {"label": "upload project", "link": ["/upload-project"], "class": "btn btn-default"},
-              {"label": "look for project to buy", "link": [""], "class": "btn btn-default"},
-              {"label": "default", "link": ["home"], "class": "btn btn-default"},
+              {"label": "My projects", "link": ["/my-projects-warlord"], "class": "btn btn-default"},
+              {"label": "look for project to buy", "link": ["home"], "class": "btn btn-default"},
           ];
       }
           else if(this.userType === 'worker'){

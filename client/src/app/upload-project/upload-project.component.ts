@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {isNumeric} from "rxjs/internal/util/isNumeric";
 import {isString} from "util";
 import * as _ from 'lodash';
+import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {DataService} from "../data.service";
 
@@ -12,7 +13,7 @@ import {DataService} from "../data.service";
 })
 export class UploadProjectComponent implements OnInit {
 
-    constructor(private dataService: DataService, private http: HttpClient) {}
+    constructor(private dataService: DataService, private http: HttpClient, public router: Router) {}
 
     v0 = [
 	{"label": "Type", "value": "type", "father":"", "next": "field", "options":
@@ -138,7 +139,11 @@ export class UploadProjectComponent implements OnInit {
                 console.log("Error", error);
             }
         );
-        this.finish = true
+        this.finish = true;
+        setTimeout(() => {
+     this.router.navigate(['my-projects-warlord']);
+
+    }, 4000);
     }
 
     ngOnInit() {

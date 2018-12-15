@@ -18,6 +18,9 @@ import { GroupsListComponent } from './groups-list/groups-list.component';
 import { UploadProjectComponent } from './upload-project/upload-project.component';
 import { ClickColorDirective } from './click-color.directive';
 import { SearchProjectComponent } from './search-project/search-project.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
+import { MyProjectsWarlordComponent } from './my-projects-warlord/my-projects-warlord.component';
+import { MyProjectsMerceneryComponent } from './my-projects-mercenery/my-projects-mercenery.component';
 
 
 
@@ -50,7 +53,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         ReactiveFormsModule,
         AppRoutingModule
     ],
-    declarations: [AppComponent, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent, UploadProjectComponent, ClickColorDirective, SearchProjectComponent],
+    declarations: [AppComponent, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent, UploadProjectComponent, ClickColorDirective, SearchProjectComponent, EditProjectComponent, MyProjectsWarlordComponent, MyProjectsMerceneryComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
