@@ -2,7 +2,7 @@
 
 work from home - it's easy!!!
 
-## [Demo](http://rawgit.com/start-angular/SB-Admin-BS4-Angular-6/master/dist/)
+## [Demo](http://google.com)
 
 ### Introduction
 
