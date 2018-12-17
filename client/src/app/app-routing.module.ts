@@ -10,6 +10,7 @@ import { UploadProjectComponent} from "./upload-project/upload-project.component
 import { MyProjectsWarlordComponent} from "./my-projects-warlord/my-projects-warlord.component";
 import { EditProjectComponent} from "./edit-project/edit-project.component";
 import { SearchProjectComponent} from "./search-project/search-project.component";
+import { EditProfileMerceneryComponent } from "./edit-profile-mercenery/edit-profile-mercenery.component"
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -24,6 +25,7 @@ const routes: Routes = [
     { path: 'upload-project', component: UploadProjectComponent },
     { path: 'search-project', component: SearchProjectComponent },
     { path: 'my-projects-warlord', component: MyProjectsWarlordComponent },
+    { path: 'edit-profile-mercenery', component: EditProfileMerceneryComponent },
     { path: 'edit-project', component: EditProjectComponent },
     { path: 'home', component: HomeComponent },
     { path: 'groups-list', component: GroupsListComponent },
