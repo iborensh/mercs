@@ -12,93 +12,108 @@ export class EditSkillsComponent implements OnInit {
   constructor() { }
 
   v0 = [
-	{"label": "Type", "value": "type", "father":"", "next": "field", "options":
+	{"label": "Software development", "value": "SD", "father":"", "options":
 		[
-			{"label": "Research", "value": "research", "explanation": "understand something"},
-			{"label": "Develop", "value": "develop", "explanation": "create something"},
-        	{"label": "Design", "value": "design", "explanation": "make something sparkle"},
-        	{"label": "Test", "value": "test", "explanation": "how good is something"},
+            {"label": "SQL", "value": "SQL", "father":"DataBase", "explanation": ""},
+            {"label": "NO-SQL", "value": "SQL", "father":"DataBase", "explanation": ""},
+            {"label": "Big Data", "value": "Big Data", "father":"DataBase", "explanation": ""},
+            {"label": "General", "value": "General", "father":"DataBase", "explanation": ""},
+
+            {"label": "IOS", "value": "IOS", "father":"Mobile", "explanation": ""},
+            {"label": "Android", "value": "Android", "father":"Mobile", "explanation": ""},
+            {"label": "General", "value": "General", "father":"Mobile", "explanation": ""},
+
+            {"label": "Administration", "value": "Administration", "father":"Networks", "explanation": ""},
+            {"label": "Security", "value": "Security", "father":"Networks", "explanation": ""},
+            {"label": "Administration", "value": "Administration", "father":"Networks", "explanation": ""},
+            {"label": "Switches", "value": "Switches", "father":"Networks", "explanation": ""},
+            {"label": "Routers", "value": "Routers", "father":"Networks", "explanation": ""},
+            {"label": "VPNs", "value": "VPNs", "father":"Networks", "explanation": ""},
+            {"label": "Firewall", "value": "Firewall", "father":"Networks", "explanation": ""},
+            {"label": "IP", "value": "IP", "father":"Networks", "explanation": ""},
+            {"label": "VoIP", "value": "VoiP", "father":"Networks", "explanation": ""},
+            {"label": "Data centers", "value": "Data centers", "father":"Networks", "explanation": ""},
+            {"label": "General", "value": "General", "father":"Networks", "explanation": ""},
+
+            {"label": "CSS", "value": "CSS", "father":"Web", "explanation": ""},
+            {"label": "Javascript", "value": "Javascript", "father":"Web", "explanation": ""},
+            {"label": "PHP", "value": "PHP", "father":"Web", "explanation": ""},
+            {"label": "HTML5", "value": "HTML5", "father":"Web", "explanation": ""},
+            {"label": "Node.js", "value": "Node.js", "father":"Web", "explanation": ""},
+            {"label": "React.js", "value": "React.js", "father":"Web", "explanation": ""},
+            {"label": "General", "value": "General", "father":"Web", "explanation": ""},
+
+            {"label": "Wireframes", "value": "Wireframes", "father":"UI", "explanation": ""},
+            {"label": "Bootstrap", "value": "Bootstrap", "father":"UI", "explanation": ""},
+            {"label": "Responsive", "value": "Responsive", "father":"UI", "explanation": ""},
+            {"label": "General", "value": "General", "father":"UI", "explanation": ""},
+
+            {"label": "Linux", "value": "Linux", "father":"OS", "explanation": ""},
+            {"label": "Windows", "value": "Window", "father":"OS", "explanation": ""},
+            {"label": "MacOs", "value": "MacOs", "father":"OS", "explanation": ""},
+            {"label": "Memory", "value": "Memory", "father":"OS", "explanation": ""},
+            {"label": "Compilers", "value": "Compilers", "father":"OS", "explanation": ""},
+            {"label": "General", "value": "General", "father":"OS", "explanation": ""},
+
+            {"label": "Embedded", "value": "Embedded", "father":"Arch", "explanation": ""},
+            {"label": "RealTime", "value": "RealTime", "father":"Arch", "explanation": ""},
+            {"label": "Containers", "value": "Containers", "father":"Arch", "explanation": ""},
+            {"label": "MicroServices", "value": "Microservices", "father":"Arch", "explanation": ""},
+            {"label": "BlockChain", "value": "Blockchain", "father":"Arch", "explanation": ""},
+            {"label": "Security", "value": "Security", "father":"Arch", "explanation": ""},
+            {"label": "General", "value": "General", "father":"Arch", "explanation": ""},
+
+            {"label": "Python", "value": "Python", "father":"Coding", "explanation": ""},
+            {"label": "Java", "value": "Java", "father":"Coding", "explanation": ""},
+            {"label": "C++", "value": "C++", "father":"Coding", "explanation": ""},
+            {"label": "Scala", "value": "Scala", "father":"Coding", "explanation": ""},
+            {"label": "Go", "value": "Go", "father":"Coding", "explanation": ""},
+            {"label": "General", "value": "General", "father":"Coding", "explanation": ""},
+
+            {"label": "Automation", "value": "Automation", "father":"QA", "explanation": ""},
+            {"label": "Manual", "value": "Manual", "father":"QA", "explanation": ""},
+            {"label": "CI frameworks", "value": "CI frameworks", "father":"QA", "explanation": ""},
+            {"label": "Testing tools", "value": "Testing tools", "father":"QA", "explanation": ""},
+            {"label": "Test design", "value": "Test design", "father":"QA", "explanation": ""},
+            {"label": "General", "value": "General", "father":"QA", "explanation": ""},
+
+
     	]
 	},
 
-	{"label": "Field", "value": "field", "father":"", "next": "outcome", "options":
+	{"label": "Hardware development", "value": "HD", "father":"", "options":
 		[
-			{"label": "Commerce", "value": "commerce", "father":"", "explanation": "retail, commodoties, stuff"},
-			{"label": "Ecommerce", "value": "ecommerce", "father":"", "explanation": "virtual stores, stock"},
-			{"label": "Education", "value": "education", "father":"", "explanation": "teach them to fish"},
-			{"label": "Entertainment", "value": "entertainment", "father":"", "explanation": "entertain the people"},
-			{"label": "Social", "value": "social", "father":"", "explanation": "social, communities"},
-			{"label": "Legal", "value": "legal", "father":"", "explanation": "I am the law"},
-			{"label": "Finance", "value": "finance", "father":"", "explanation": "blockchain, stocks, finance"},
-			{"label": "Security", "value": "security", "father":"", "explanation": "cyber, monitoring, anomalies"},
+
+
+
 		]
 	},
-    {"label": "Outcome","value":"outcome", "father":"type", "next": "attributes", "options":
+    {"label": "Analytics","value":"AR", "options":
         [
 			{"label": "Report", "value": "report", "father":"research", "explanation": "an internal report"},
-			{"label": "Blog", "value": "blog", "father":"research", "explanation": "a blog post"},
 
-			{"label": "Application", "value": "application", "father":"develop", "explanation": "a mobile application"},
-			{"label": "Website", "value": "website", "father":"develop", "explanation": "a website"},
-			{"label": "Game", "value": "game", "father":"develop", "explanation": "a game"},
-			{"label": "API", "value": "api", "father":"develop", "explanation": "an api"},
-			{"label": "Software tool", "value": "software tool", "father":"develop", "explanation": "general software"},
-			{"label": "HW prototype", "value": "hw prototype", "father":"develop", "explanation": "something physical"},
-
-
-			{"label": "Application", "value": "application", "father":"design", "explanation": "a mobile application ux/design"},
-			{"label": "Website", "value": "website", "father":"design", "explanation": "a website ux/design"},
-			{"label": "Game", "value": "game", "father":"design", "explanation": "game ux/design"},
-			{"label": "Software tool", "value": "software tool", "father":"design", "explanation": "general software"},
-			{"label": "HW module", "value": "hw module", "father":"design", "explanation": "something physical"},
-			{"label": "Building", "value": "building", "father":"design", "explanation": "architectural plans"},
-			{"label": "Application", "value": "application", "father":"test", "explanation": "a mobile application"},
-			{"label": "Website", "value": "website", "father":"test", "explanation": "a website"},
-			{"label": "Game", "value": "game", "father":"test", "explanation": "a game"},
-			{"label": "API", "value": "api", "father":"test", "explanation": "an api"},
-			{"label": "Software tool", "value": "software tool", "father":"test", "explanation": "general software"},
-			{"label": "HW prototype", "value": "hw prototype", "father":"test", "explanation": "something physical"},
         	]
     },
-    {"label": "Attributes", "value": "attributes", "father":"type", "next": "language", "options":
+    {"label": "Marketing", "value": "MT", "options":
 		[
 			{"label": "Deep learning", "value": "deep learning", "father":"research", "explanation": ""},
-			{"label": "Statistics", "value": "statistics", "father":"research", "explanation": ""},
-			{"label": "physics", "value": "physics", "father":"research", "explanation": ""},
-			{"label": "mathematics", "value": "mathematics", "father":"research", "explanation": ""},
-			{"label": "blockchain", "value": "blockchain", "father":"research", "explanation": ""},
-
-			{"label": "Wix", "value": "wix", "father":"design", "explanation": "proficiancy with wix"},
-			{"label": "Autocad", "value": "autocad", "father":"design", "explanation": "proficiancy with autocad"},
-			{"label": "Wireframe", "value": "wireframe", "father":"design", "explanation": "proficiancy with wireframe"},
-
-			{"label": "IOS", "value": "ios", "father":"develop", "explanation": "ios development background"},
-			{"label": "Android", "value": "android", "father":"develop", "explanation": "android development background"},
-
-			{"label": "CI", "value": "ci", "father":"test", "explanation": "continous integration"},
-			{"label": "Manual", "value": "manual", "father":"test", "explanation": "manual testing"},
-			{"label": "Automation", "value": "automation", "father":"test", "explanation": "develop automatic tests"},
 
 		]
 	},
-	{"label": "Language", "value": "language", "next": "time", "options":
+	{"label": "Design", "value": "DN", "options":
 		[
-			{"label": "English", "value": "english", "father":"", "explanation": ""},
-			{"label": "Spanish", "value": "spanish", "father":"", "explanation": ""},
-			{"label": "Chinese", "value": "chinese", "father":"", "explanation": ""},
-			{"label": "French", "value": "frence", "father":"", "explanation": ""},
-			{"label": "German", "value": "german", "father":"", "explanation": ""},
+			{"label": "Web design", "value": "web design", "father":"", "explanation": ""},
+			{"label": "Graphic design", "value": "graphic design", "father":"", "explanation": ""},
+			{"label": "Animation", "value": "animation", "father":"", "explanation": ""},
+			{"label": "Wireframing", "value": "wireframe", "father":"", "explanation": ""},
+			{"label": "Art", "value": "art", "father":"", "explanation": ""},
 
 		]
 	},
-	{"label": "Time", "value": "time", "next": "", "options":
+	{"label": "Tools", "value": "TL", "options":
 		[
 			{"label": "Week", "value": "a week", "father":"", "explanation": ""},
-			{"label": "Two weeks", "value": "two weeks", "father":"", "explanation": ""},
-			{"label": "Three weeks", "value": "three weeks", "father":"", "explanation": ""},
-			{"label": "Month", "value": "a month", "father":"", "explanation": ""},
-			{"label": "Three months", "value": "three months", "father":"", "explanation": ""},
-			{"label": "Six months", "value": "six months", "father":"", "explanation": ""},
+
 
 		]
 	}];
