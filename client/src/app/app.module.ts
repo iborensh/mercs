@@ -22,6 +22,7 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
 import { MyProjectsWarlordComponent } from './my-projects-warlord/my-projects-warlord.component';
 import { MyProjectsMerceneryComponent } from './my-projects-mercenery/my-projects-mercenery.component';
 import { EditProfileMerceneryComponent } from './edit-profile-mercenery/edit-profile-mercenery.component';
+import { EditSkillsComponent } from './edit-skills/edit-skills.component';
 
 
 
@@ -54,7 +55,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         ReactiveFormsModule,
         AppRoutingModule
     ],
-    declarations: [AppComponent, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent, UploadProjectComponent, ClickColorDirective, SearchProjectComponent, EditProjectComponent, MyProjectsWarlordComponent, MyProjectsMerceneryComponent, EditProfileMerceneryComponent],
+    declarations: [AppComponent, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent, UploadProjectComponent, ClickColorDirective, SearchProjectComponent, EditProjectComponent, MyProjectsWarlordComponent, MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
