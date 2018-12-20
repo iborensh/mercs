@@ -14,7 +14,7 @@ export class EditSkillsComponent implements OnInit {
   v0 = [
 	{"label": "Software development", "value": "SD", "father":"", "options":
 		[
-            {"label": "SQL", "value": "SQL", "father":"DataBase", "explanation": ""},
+            {"label": "SQL", "value": "SQL", "father":"DataBase", rank: "", my_rank:"", "explanation": ""},
             {"label": "NO-SQL", "value": "SQL", "father":"DataBase", "explanation": ""},
             {"label": "Big Data", "value": "Big Data", "father":"DataBase", "explanation": ""},
             {"label": "General", "value": "General", "father":"DataBase", "explanation": ""},
