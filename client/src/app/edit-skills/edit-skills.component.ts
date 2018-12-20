@@ -12,72 +12,88 @@ export class EditSkillsComponent implements OnInit {
   constructor() { }
 
   v0 = [
-	{"label": "Software development", "value": "SD", "father":"", "options":
-		[
-            {"label": "SQL", "value": "SQL", "father":"DataBase", rank: "", my_rank:"", "explanation": ""},
-            {"label": "NO-SQL", "value": "SQL", "father":"DataBase", "explanation": ""},
-            {"label": "Big Data", "value": "Big Data", "father":"DataBase", "explanation": ""},
-            {"label": "General", "value": "General", "father":"DataBase", "explanation": ""},
-
-            {"label": "IOS", "value": "IOS", "father":"Mobile", "explanation": ""},
-            {"label": "Android", "value": "Android", "father":"Mobile", "explanation": ""},
-            {"label": "General", "value": "General", "father":"Mobile", "explanation": ""},
-
-            {"label": "Administration", "value": "Administration", "father":"Networks", "explanation": ""},
-            {"label": "Security", "value": "Security", "father":"Networks", "explanation": ""},
-            {"label": "Administration", "value": "Administration", "father":"Networks", "explanation": ""},
-            {"label": "Switches", "value": "Switches", "father":"Networks", "explanation": ""},
-            {"label": "Routers", "value": "Routers", "father":"Networks", "explanation": ""},
-            {"label": "VPNs", "value": "VPNs", "father":"Networks", "explanation": ""},
-            {"label": "Firewall", "value": "Firewall", "father":"Networks", "explanation": ""},
-            {"label": "IP", "value": "IP", "father":"Networks", "explanation": ""},
-            {"label": "VoIP", "value": "VoiP", "father":"Networks", "explanation": ""},
-            {"label": "Data centers", "value": "Data centers", "father":"Networks", "explanation": ""},
-            {"label": "General", "value": "General", "father":"Networks", "explanation": ""},
-
-            {"label": "CSS", "value": "CSS", "father":"Web", "explanation": ""},
-            {"label": "Javascript", "value": "Javascript", "father":"Web", "explanation": ""},
-            {"label": "PHP", "value": "PHP", "father":"Web", "explanation": ""},
-            {"label": "HTML5", "value": "HTML5", "father":"Web", "explanation": ""},
-            {"label": "Node.js", "value": "Node.js", "father":"Web", "explanation": ""},
-            {"label": "React.js", "value": "React.js", "father":"Web", "explanation": ""},
-            {"label": "General", "value": "General", "father":"Web", "explanation": ""},
-
-            {"label": "Wireframes", "value": "Wireframes", "father":"UI", "explanation": ""},
-            {"label": "Bootstrap", "value": "Bootstrap", "father":"UI", "explanation": ""},
-            {"label": "Responsive", "value": "Responsive", "father":"UI", "explanation": ""},
-            {"label": "General", "value": "General", "father":"UI", "explanation": ""},
-
-            {"label": "Linux", "value": "Linux", "father":"OS", "explanation": ""},
-            {"label": "Windows", "value": "Window", "father":"OS", "explanation": ""},
-            {"label": "MacOs", "value": "MacOs", "father":"OS", "explanation": ""},
-            {"label": "Memory", "value": "Memory", "father":"OS", "explanation": ""},
-            {"label": "Compilers", "value": "Compilers", "father":"OS", "explanation": ""},
-            {"label": "General", "value": "General", "father":"OS", "explanation": ""},
-
-            {"label": "Embedded", "value": "Embedded", "father":"Arch", "explanation": ""},
-            {"label": "RealTime", "value": "RealTime", "father":"Arch", "explanation": ""},
-            {"label": "Containers", "value": "Containers", "father":"Arch", "explanation": ""},
-            {"label": "MicroServices", "value": "Microservices", "father":"Arch", "explanation": ""},
-            {"label": "BlockChain", "value": "Blockchain", "father":"Arch", "explanation": ""},
-            {"label": "Security", "value": "Security", "father":"Arch", "explanation": ""},
-            {"label": "General", "value": "General", "father":"Arch", "explanation": ""},
-
-            {"label": "Python", "value": "Python", "father":"Coding", "explanation": ""},
-            {"label": "Java", "value": "Java", "father":"Coding", "explanation": ""},
-            {"label": "C++", "value": "C++", "father":"Coding", "explanation": ""},
-            {"label": "Scala", "value": "Scala", "father":"Coding", "explanation": ""},
-            {"label": "Go", "value": "Go", "father":"Coding", "explanation": ""},
-            {"label": "General", "value": "General", "father":"Coding", "explanation": ""},
-
-            {"label": "Automation", "value": "Automation", "father":"QA", "explanation": ""},
-            {"label": "Manual", "value": "Manual", "father":"QA", "explanation": ""},
-            {"label": "CI frameworks", "value": "CI frameworks", "father":"QA", "explanation": ""},
-            {"label": "Testing tools", "value": "Testing tools", "father":"QA", "explanation": ""},
-            {"label": "Test design", "value": "Test design", "father":"QA", "explanation": ""},
-            {"label": "General", "value": "General", "father":"QA", "explanation": ""},
-
-
+	{"label": "Software development", "value": "SD", "options":
+		[{"label": "Database", "value": "DB", "options":
+            [
+                {"label": "SQL", "value": "SQL", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "NO-SQL", "value": "No-SQL", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Big Data", "value": "Big Data", max_rank: 5, my_rank: 0,"explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0,"explanation": ""}
+            ]},
+        [{"label": "Mobile", "value": "Mobile", "options":
+            [
+                {"label": "IOS", "value": "IOS" ,max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Android", "value": "Android", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""}
+            ]},
+        [{"label": "Networks", "value": "Networks", "options":
+            [
+                {"label": "Administration", "value": "Administration", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Security", "value": "Security", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Administration", "value": "Administration", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Switches", "value": "Switches", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Routers", "value": "Routers", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "VPNs", "value": "VPNs", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Firewall", "value": "Firewall", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "IP", "value": "IP", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "VoIP", "value": "VoiP", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Data centers", "value": "Data centers", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""}
+            ]},
+        [{"label": "Web", "value": "Web", "options":
+            [
+                {"label": "CSS", "value": "CSS", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Javascript", "value": "Javascript", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "PHP", "value": "PHP", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "HTML5", "value": "HTML5", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Node.js", "value": "Node.js", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "React.js", "value": "React.js", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""}
+            ]},
+        [{"label": "UI" , "value": "UI", "options":
+            [
+                {"label": "Wireframes", "value": "Wireframes", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Bootstrap", "value": "Bootstrap", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Responsive", "value": "Responsive", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
+        [{"label": "OS", "value": "OS", "options":
+            [
+                {"label": "Linux", "value": "Linux", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Windows", "value": "Window", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "MacOs", "value": "MacOs", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Memory", "value": "Memory", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Compilers", "value": "Compilers", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""}
+            ]},
+        [{"label": "Arch", "value": "Arch", "options":
+            [
+                {"label": "Embedded", "value": "Embedded", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "RealTime", "value": "RealTime", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Containers", "value": "Containers", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "MicroServices", "value": "Microservices", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "BlockChain", "value": "Blockchain", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Security", "value": "Security", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""}
+            ]},
+        [{"label": "Coding", "value": "Coding", "options":
+            [
+                {"label": "Python", "value": "Python", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Java", "value": "Java", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "C++", "value": "C++", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Scala", "value": "Scala", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Go", "value": "Go", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
+        [{"label": "QA", "value": "QA", "options":
+            [
+            {"label": "Automation", "value": "Automation", max_rank: 5, my_rank: 0, "explanation": ""},
+            {"label": "Manual", "value": "Manual", max_rank: 5, my_rank: 0, "explanation": ""},
+            {"label": "CI frameworks", "value": "CI frameworks", max_rank: 5, my_rank: 0, "explanation": ""},
+            {"label": "Testing tools", "value": "Testing tools", max_rank: 5, my_rank: 0, "explanation": ""},
+            {"label": "Test design", "value": "Test design", max_rank: 5, my_rank: 0, "explanation": ""},
+            {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
     	]
 	},
 
