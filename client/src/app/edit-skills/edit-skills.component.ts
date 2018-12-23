@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
+import {forEach} from "@angular/router/src/utils/collection";
 
 
 @Component({
@@ -12,108 +13,106 @@ export class EditSkillsComponent implements OnInit {
   constructor() { }
 
   v0 = [
-	{"label": "Type", "value": "type", "father":"", "next": "field", "options":
-		[
-			{"label": "Research", "value": "research", "explanation": "understand something"},
-			{"label": "Develop", "value": "develop", "explanation": "create something"},
-        	{"label": "Design", "value": "design", "explanation": "make something sparkle"},
-        	{"label": "Test", "value": "test", "explanation": "how good is something"},
+	{"label": "Software development", "value": "SD", "options":
+		[{"label": "Database", "value": "DB", "options":
+            [
+                {"label": "SQL", "value": "SQL", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "NO-SQL", "value": "No-SQL", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Big Data", "value": "Big Data", max_rank: 5, my_rank: 0,"explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0,"explanation": ""}
+            ]},
+        {"label": "Mobile", "value": "Mobile", "options":
+            [
+                {"label": "IOS", "value": "IOS" ,max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Android", "value": "Android", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""}
+            ]},
+        {"label": "Networks", "value": "Networks", "options":
+            [
+                {"label": "Administration", "value": "Administration", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Security", "value": "Security", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Administration", "value": "Administration", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Switches", "value": "Switches", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Routers", "value": "Routers", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "VPNs", "value": "VPNs", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Firewall", "value": "Firewall", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "IP", "value": "IP", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "VoIP", "value": "VoiP", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Data centers", "value": "Data centers", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""}
+            ]},
+        {"label": "Web", "value": "Web", "options":
+            [
+                {"label": "CSS", "value": "CSS", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Javascript", "value": "Javascript", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "PHP", "value": "PHP", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "HTML5", "value": "HTML5", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Node.js", "value": "Node.js", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "React.js", "value": "React.js", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""}
+            ]},
+        {"label": "UI" , "value": "UI", "options":
+            [
+                {"label": "Wireframes", "value": "Wireframes", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Bootstrap", "value": "Bootstrap", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Responsive", "value": "Responsive", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
+        {"label": "OS", "value": "OS", "options":
+            [
+                {"label": "Linux", "value": "Linux", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Windows", "value": "Window", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "MacOs", "value": "MacOs", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Memory", "value": "Memory", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Compilers", "value": "Compilers", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""}
+            ]},
+        {"label": "Arch", "value": "Arch", "options":
+            [
+                {"label": "Embedded", "value": "Embedded", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "RealTime", "value": "RealTime", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Containers", "value": "Containers", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "MicroServices", "value": "Microservices", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "BlockChain", "value": "Blockchain", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Security", "value": "Security", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""}
+            ]},
+        {"label": "Coding", "value": "Coding", "options":
+            [
+                {"label": "Python", "value": "Python", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Java", "value": "Java", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "C++", "value": "C++", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Scala", "value": "Scala", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Go", "value": "Go", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
+        {"label": "QA", "value": "QA", "options":
+            [
+            {"label": "Automation", "value": "Automation", max_rank: 5, my_rank: 0, "explanation": ""},
+            {"label": "Manual", "value": "Manual", max_rank: 5, my_rank: 0, "explanation": ""},
+            {"label": "CI frameworks", "value": "CI frameworks", max_rank: 5, my_rank: 0, "explanation": ""},
+            {"label": "Testing tools", "value": "Testing tools", max_rank: 5, my_rank: 0, "explanation": ""},
+            {"label": "Test design", "value": "Test design", max_rank: 5, my_rank: 0, "explanation": ""},
+            {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
     	]
-	},
-
-	{"label": "Field", "value": "field", "father":"", "next": "outcome", "options":
-		[
-			{"label": "Commerce", "value": "commerce", "father":"", "explanation": "retail, commodoties, stuff"},
-			{"label": "Ecommerce", "value": "ecommerce", "father":"", "explanation": "virtual stores, stock"},
-			{"label": "Education", "value": "education", "father":"", "explanation": "teach them to fish"},
-			{"label": "Entertainment", "value": "entertainment", "father":"", "explanation": "entertain the people"},
-			{"label": "Social", "value": "social", "father":"", "explanation": "social, communities"},
-			{"label": "Legal", "value": "legal", "father":"", "explanation": "I am the law"},
-			{"label": "Finance", "value": "finance", "father":"", "explanation": "blockchain, stocks, finance"},
-			{"label": "Security", "value": "security", "father":"", "explanation": "cyber, monitoring, anomalies"},
-		]
-	},
-    {"label": "Outcome","value":"outcome", "father":"type", "next": "attributes", "options":
-        [
-			{"label": "Report", "value": "report", "father":"research", "explanation": "an internal report"},
-			{"label": "Blog", "value": "blog", "father":"research", "explanation": "a blog post"},
-
-			{"label": "Application", "value": "application", "father":"develop", "explanation": "a mobile application"},
-			{"label": "Website", "value": "website", "father":"develop", "explanation": "a website"},
-			{"label": "Game", "value": "game", "father":"develop", "explanation": "a game"},
-			{"label": "API", "value": "api", "father":"develop", "explanation": "an api"},
-			{"label": "Software tool", "value": "software tool", "father":"develop", "explanation": "general software"},
-			{"label": "HW prototype", "value": "hw prototype", "father":"develop", "explanation": "something physical"},
-
-
-			{"label": "Application", "value": "application", "father":"design", "explanation": "a mobile application ux/design"},
-			{"label": "Website", "value": "website", "father":"design", "explanation": "a website ux/design"},
-			{"label": "Game", "value": "game", "father":"design", "explanation": "game ux/design"},
-			{"label": "Software tool", "value": "software tool", "father":"design", "explanation": "general software"},
-			{"label": "HW module", "value": "hw module", "father":"design", "explanation": "something physical"},
-			{"label": "Building", "value": "building", "father":"design", "explanation": "architectural plans"},
-			{"label": "Application", "value": "application", "father":"test", "explanation": "a mobile application"},
-			{"label": "Website", "value": "website", "father":"test", "explanation": "a website"},
-			{"label": "Game", "value": "game", "father":"test", "explanation": "a game"},
-			{"label": "API", "value": "api", "father":"test", "explanation": "an api"},
-			{"label": "Software tool", "value": "software tool", "father":"test", "explanation": "general software"},
-			{"label": "HW prototype", "value": "hw prototype", "father":"test", "explanation": "something physical"},
-        	]
-    },
-    {"label": "Attributes", "value": "attributes", "father":"type", "next": "language", "options":
-		[
-			{"label": "Deep learning", "value": "deep learning", "father":"research", "explanation": ""},
-			{"label": "Statistics", "value": "statistics", "father":"research", "explanation": ""},
-			{"label": "physics", "value": "physics", "father":"research", "explanation": ""},
-			{"label": "mathematics", "value": "mathematics", "father":"research", "explanation": ""},
-			{"label": "blockchain", "value": "blockchain", "father":"research", "explanation": ""},
-
-			{"label": "Wix", "value": "wix", "father":"design", "explanation": "proficiancy with wix"},
-			{"label": "Autocad", "value": "autocad", "father":"design", "explanation": "proficiancy with autocad"},
-			{"label": "Wireframe", "value": "wireframe", "father":"design", "explanation": "proficiancy with wireframe"},
-
-			{"label": "IOS", "value": "ios", "father":"develop", "explanation": "ios development background"},
-			{"label": "Android", "value": "android", "father":"develop", "explanation": "android development background"},
-
-			{"label": "CI", "value": "ci", "father":"test", "explanation": "continous integration"},
-			{"label": "Manual", "value": "manual", "father":"test", "explanation": "manual testing"},
-			{"label": "Automation", "value": "automation", "father":"test", "explanation": "develop automatic tests"},
-
-		]
-	},
-	{"label": "Language", "value": "language", "next": "time", "options":
-		[
-			{"label": "English", "value": "english", "father":"", "explanation": ""},
-			{"label": "Spanish", "value": "spanish", "father":"", "explanation": ""},
-			{"label": "Chinese", "value": "chinese", "father":"", "explanation": ""},
-			{"label": "French", "value": "frence", "father":"", "explanation": ""},
-			{"label": "German", "value": "german", "father":"", "explanation": ""},
-
-		]
-	},
-	{"label": "Time", "value": "time", "next": "", "options":
-		[
-			{"label": "Week", "value": "a week", "father":"", "explanation": ""},
-			{"label": "Two weeks", "value": "two weeks", "father":"", "explanation": ""},
-			{"label": "Three weeks", "value": "three weeks", "father":"", "explanation": ""},
-			{"label": "Month", "value": "a month", "father":"", "explanation": ""},
-			{"label": "Three months", "value": "three months", "father":"", "explanation": ""},
-			{"label": "Six months", "value": "six months", "father":"", "explanation": ""},
-
-		]
 	}];
 
   titleChoose = '';
   options = [];
 
   ngOnInit() {
-      this.titleChoose = 'type';
-      this.options = this.v0[0].options;
+      this.titleChoose = 'DB';
+      this.options = _.find(this.v0[0].options, { 'value':this.titleChoose }).options;
+  }
+
+  intToArray(num){
+      return _.fill(Array(num), null);
   }
 
   currentTitle(titleChoose){
       this.titleChoose = titleChoose;
-      this.options = _.find(this.v0, { 'value':titleChoose }).options;
+      this.options = _.find(this.v0[0].options, { 'value':this.titleChoose }).options;
   }
 
 }
