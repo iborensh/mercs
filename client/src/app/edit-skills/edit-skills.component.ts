@@ -107,7 +107,7 @@ export class EditSkillsComponent implements OnInit {
                 {"label": "SoC", "value": "SoC", max_rank: 5, my_rank: 0, "explanation": ""},
                 {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
             ]},
-        [{"label": "HW SW", "value": "HW design", "options":
+        [{"label": "HW SW", "value": "HW SW", "options":
             [
                 {"label": "Simulations", "value": "simulations", max_rank: 5, my_rank: 0, "explanation": ""},
                 {"label": "Verilog", "value": "verilog", max_rank: 5, my_rank: 0, "explanation": ""},
@@ -135,20 +135,32 @@ export class EditSkillsComponent implements OnInit {
 
 	},
     {"label": "Analytics","value":"Analytics", "options":
-        [{"label": "", "value": "", "options":
+        [{"label": "Quantitative", "value": "Quantitative", "options":
             [
-                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
-                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
-                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
-                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
-                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Statistics", "value": "statistics", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Math", "value": "math", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Modeling", "value": "modeling", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Finance", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Risk", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
             ]},
-        [{"label": "", "value": "", "options":
+        [{"label": "Tools", "value": "tools", "options":
             [
-                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
-                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
-                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
-                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "R", "value": "R", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Python science", "value": "python science", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Deep learning", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Matlab", "value": "Matlab", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Machine learning", "value": "machine learning", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
+        [{"label": "Data science", "value": "data science", "options":
+            [
+                {"label": "Supervised", "value": "supervised", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Unsupervised", "value": "unsupervised", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "RNN", "value": "RNN", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "CNN", "value": "CNN", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "NLP", "value": "NLP", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Reinforced", "value": "Reinforced", max_rank: 5, my_rank: 0, "explanation": ""},
                 {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
             ]},
     },
@@ -159,6 +171,15 @@ export class EditSkillsComponent implements OnInit {
 		]
 	},
 	{"label": "Design", "value": "DN", "options":
+		[
+			{"label": "Web design", "value": "web design", "father":"", "explanation": ""},
+			{"label": "Graphic design", "value": "graphic design", "father":"", "explanation": ""},
+			{"label": "Animation", "value": "animation", "father":"", "explanation": ""},
+			{"label": "Wireframing", "value": "wireframe", "father":"", "explanation": ""},
+			{"label": "Art", "value": "art", "father":"", "explanation": ""},
+
+		]
+    {"label": "Research", "value": "Research", "options":
 		[
 			{"label": "Web design", "value": "web design", "father":"", "explanation": ""},
 			{"label": "Graphic design", "value": "graphic design", "father":"", "explanation": ""},
