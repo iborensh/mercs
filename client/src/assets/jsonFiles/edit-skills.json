@@ -1,18 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import * as _ from 'lodash';
-import {forEach} from "@angular/router/src/utils/collection";
-import {HttpClient} from '@angular/common/http';
-
-@Component({
-  selector: 'app-edit-skills',
-  templateUrl: './edit-skills.component.html',
-  styleUrls: ['./edit-skills.component.scss']
-})
-export class EditSkillsComponent implements OnInit {
-
-  constructor(private http: HttpClient) { }
-
-  v0 = [
+[
 	{"label": "Software development", "value": "SD", "options":
 		[{"label": "Database", "value": "DB", "options":
             [
@@ -96,24 +82,4 @@ export class EditSkillsComponent implements OnInit {
             {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
             ]},
     	]
-	}];
-
-
-  titleChoose = '';
-  options = [];
-
-  ngOnInit() {
-      this.titleChoose = 'DB';
-      this.options = _.find(this.v0[0].options, { 'value':this.titleChoose }).options;
-  }
-
-  intToArray(num){
-      return _.fill(Array(num), null);
-  }
-
-  currentTitle(titleChoose){
-      this.titleChoose = titleChoose;
-      this.options = _.find(this.v0[0].options, { 'value':this.titleChoose }).options;
-  }
-
-}
+	}]
