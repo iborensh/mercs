@@ -98,17 +98,59 @@ export class EditSkillsComponent implements OnInit {
 	},
 
 	{"label": "Hardware development", "value": "HD", "father":"", "options":
-		[
+        [{"label": "Architectures", "value": "Architectures", "options":
+            [
+                {"label": "Microcontrollers", "value": "microcontrollers", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Microprocessors", "value": "microprocessors", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "ASIC", "value": "ASIC", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "FPGA", "value": "FPGA", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "SoC", "value": "SoC", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
+        [{"label": "HW SW", "value": "HW design", "options":
+            [
+                {"label": "Simulations", "value": "simulations", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Verilog", "value": "verilog", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "RTL", "value": "RTL", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Firmware", "value": "firmware", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
+        [{"label": "Sensors", "value": "sensors", "options":
+            [
+                {"label": "Imaging", "value": "imaging", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Sound", "value": "sound", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "DSP", "value": "DSP", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Motion", "value": "motion", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
+        [{"label": "Testing", "value": "testing", "options":
+            [
+                {"label": "Automation", "value": "Automation", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Pre-silicon", "value": "pre-silicon", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Post-silicon", "value": "post-silicon", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Testing tools", "value": "Testing tools", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "Test design", "value": "Test design", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
 
-
-
-		]
 	},
-    {"label": "Analytics","value":"AR", "options":
-        [
-			{"label": "Report", "value": "report", "father":"research", "explanation": "an internal report"},
-
-        	]
+    {"label": "Analytics","value":"Analytics", "options":
+        [{"label": "", "value": "", "options":
+            [
+                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
+        [{"label": "", "value": "", "options":
+            [
+                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "", "value": "", max_rank: 5, my_rank: 0, "explanation": ""},
+                {"label": "General", "value": "General", max_rank: 5, my_rank: 0, "explanation": ""},
+            ]},
     },
     {"label": "Marketing", "value": "MT", "options":
 		[
