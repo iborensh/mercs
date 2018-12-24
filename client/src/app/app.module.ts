@@ -23,6 +23,7 @@ import { MyProjectsWarlordComponent } from './my-projects-warlord/my-projects-wa
 import { MyProjectsMerceneryComponent } from './my-projects-mercenery/my-projects-mercenery.component';
 import { EditProfileMerceneryComponent } from './edit-profile-mercenery/edit-profile-mercenery.component';
 import { EditSkillsComponent } from './edit-skills/edit-skills.component';
+import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -44,6 +45,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         BrowserAnimationsModule,
         HttpClientModule,
         NgbDropdownModule.forRoot(),
+        NgbCarouselModule.forRoot(),
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -55,7 +57,9 @@ export const createTranslateLoader = (http: HttpClient) => {
         ReactiveFormsModule,
         AppRoutingModule
     ],
-    declarations: [AppComponent, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent, UploadProjectComponent, ClickColorDirective, SearchProjectComponent, EditProjectComponent, MyProjectsWarlordComponent, MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent],
+    declarations: [AppComponent, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent,
+        UploadProjectComponent, ClickColorDirective, SearchProjectComponent, EditProjectComponent, MyProjectsWarlordComponent,
+        MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })

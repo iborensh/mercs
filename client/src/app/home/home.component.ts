@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
           else if(this.userType === 'worker'){
           this.buttons = [
       {"label": "offer to project", "link": [""], "class": "btn btn-default"},
-      {"label": "edit profile", "link": ["edit-profile-mercenery"], "class": "btn btn-default"},
+      {"label": "edit profile", "link": ["/edit-profile-mercenery"], "class": "btn btn-default"},
       {"label": "upload ready project", "link": [""], "class": "btn btn-default"},
       {"label": "default", "link": [""], "class": "btn btn-default"},
       ];

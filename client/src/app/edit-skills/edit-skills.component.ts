@@ -98,7 +98,7 @@ export class EditSkillsComponent implements OnInit {
     	]
 	}];
 
-
+  route = "app-edit-skills";
   titleChoose = '';
   options = [];
 
