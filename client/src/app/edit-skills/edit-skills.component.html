@@ -1,5 +1,7 @@
 <br>
     <br>
+
+<div class="container-fluid">
 <div class="row">
     <div class="col-3">
         <br>
@@ -9,23 +11,29 @@
 </div>
     </div>
     <div class="col-9">
-
-
-        <button *ngFor="let choose of v0; let last = last" type="button"
+        <button *ngFor="let choose of v0[0].options; let last = last" type="button"
                 (click)="currentTitle(choose.value)"
                 class="btn btn-outline-primary mx-3 my-4">{{choose.value}}
         </button>
-    <div style="width: 18rem;" *ngFor="let option of options">
-        <div class="card bg-light my-2 " >
+    </div>
+</div>
+   <div  *ngFor="let option of options">
+    <div class="row">
+
+
+        <div class="col-3"></div>
+        <div class="col-3">
+        <div class="card bg-light" >
             <div class="card-body text-center">
                 <p class="card-text">{{option.label}} </p>
             </div>
         </div>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
+        </div>
+        <div class="col-2">
+            <br>
+        <span *ngFor="let _ of intToArray(option.max_rank)" class="fa fa-star checked"></span>
     </div>
         </div>
+        <br>
 </div>
+    </div>
