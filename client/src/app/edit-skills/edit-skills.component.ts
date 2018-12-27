@@ -55,7 +55,7 @@ export class EditSkillsComponent implements OnInit {
                 {"label": "Wireframes", "value": "Wireframes", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Bootstrap", "value": "Bootstrap", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Responsive", "value": "Responsive", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
+                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""}
             ]},
         {"label": "OS", "value": "OS", "options":
             [
@@ -79,11 +79,11 @@ export class EditSkillsComponent implements OnInit {
         {"label": "Coding", "value": "Coding", "options":
             [
                 {"label": "Python", "value": "Python", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-                {"label": "Java", "value": "Java", m"max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
+                {"label": "Java", "value": "Java", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "C++", "value": "C++", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Scala", "value": "Scala", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Go", "value": "Go", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
+                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""}
             ]},
         {"label": "QA", "value": "QA", "options":
             [
@@ -92,8 +92,8 @@ export class EditSkillsComponent implements OnInit {
             {"label": "CI frameworks", "value": "CI frameworks", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
             {"label": "Testing tools", "value": "Testing tools", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
             {"label": "Test design", "value": "Test design", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-            {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-            ]},
+            {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""}
+            ]}
     	]},
     {"label": "Hardware development", "value": "HD", "father":"", "options":
         [{"label": "Architectures", "value": "Architectures", "options":
@@ -103,35 +103,34 @@ export class EditSkillsComponent implements OnInit {
                 {"label": "ASIC", "value": "ASIC", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "FPGA", "value": "FPGA", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "SoC", "value": "SoC", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
+                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""}
             ]},
-        [{"label": "HW SW", "value": "HW design", "options":
+        {"label": "HW SW", "value": "HW design", "options":
             [
                 {"label": "Simulations", "value": "simulations", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Verilog", "value": "verilog", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "RTL", "value": "RTL", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Firmware", "value": "firmware", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
+                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""}
             ]},
-        [{"label": "Sensors", "value": "sensors", "options":
+        {"label": "Sensors", "value": "sensors", "options":
             [
                 {"label": "Imaging", "value": "imaging", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Sound", "value": "sound", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "DSP", "value": "DSP", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Motion", "value": "motion", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
+                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""}
             ]},
-        [{"label": "Testing", "value": "testing", "options":
+        {"label": "Testing", "value": "testing", "options":
             [
                 {"label": "Automation", "value": "Automation", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Pre-silicon", "value": "pre-silicon", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Post-silicon", "value": "post-silicon", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Testing tools", "value": "Testing tools", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Test design", "value": "Test design", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-            ]},
-
-	]},
+                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""}
+            ]}
+        ]},
     {"label": "Analytics","value":"Analytics", "options":
         [{"label": "Quantitative", "value": "Quantitative", "options":
             [
@@ -140,18 +139,18 @@ export class EditSkillsComponent implements OnInit {
                 {"label": "Modeling", "value": "modeling", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Finance", "value": "", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Risk", "value": "", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
+                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""}
             ]},
-        [{"label": "Tools", "value": "tools", "options":
+        {"label": "Tools", "value": "tools", "options":
             [
                 {"label": "R", "value": "R", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Python science", "value": "python science", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Deep learning", "value": "", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Matlab", "value": "Matlab", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Machine learning", "value": "machine learning", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
+                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""}
             ]},
-        [{"label": "Data science", "value": "data science", "options":
+        {"label": "Data science", "value": "data science", "options":
             [
                 {"label": "Supervised", "value": "supervised", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Unsupervised", "value": "unsupervised", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
@@ -159,10 +158,10 @@ export class EditSkillsComponent implements OnInit {
                 {"label": "CNN", "value": "CNN", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "NLP", "value": "NLP", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
                 {"label": "Reinforced", "value": "Reinforced", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
-                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""},
+                {"label": "General", "value": "General", "max_rank": 5, "my_rank": 0, "base_cost": 3, "explanation": ""}
             ]}
-
-	    ]};
+	    ]}
+    ]
 
   route = "app-edit-skills";
   titleChoose = '';
