@@ -16,7 +16,7 @@ export class UploadProjectComponent implements OnInit {
     constructor(private dataService: DataService, private http: HttpClient, public router: Router) {}
 
     v0 = [
-	{"label": "Type", "value": "type", "father":"", "next": "field", "options":
+	{"label": "Type", "value": "type", "father":"", "next": "field", "multiple": true, "options":
 		[
 			{"label": "Research", "value": "research", "explanation": "understand something"},
 			{"label": "Develop", "value": "develop", "explanation": "create something"},
@@ -25,7 +25,7 @@ export class UploadProjectComponent implements OnInit {
     	]
 	},
 
-	{"label": "Field", "value": "field", "father":"", "next": "outcome", "options":
+	{"label": "Field", "value": "field", "father":"", "next": "outcome", "multiple": true, "options":
 		[
 			{"label": "Commerce", "value": "commerce", "father":"", "explanation": "retail, commodoties, stuff"},
 			{"label": "Ecommerce", "value": "ecommerce", "father":"", "explanation": "virtual stores, stock"},
@@ -37,7 +37,7 @@ export class UploadProjectComponent implements OnInit {
 			{"label": "Security", "value": "security", "father":"", "explanation": "cyber, monitoring, anomalies"},
 		]
 	},
-    {"label": "Outcome","value":"outcome", "father":"type", "next": "attributes", "options":
+    {"label": "Outcome","value":"outcome", "father":"type", "next": "attributes", "multiple": true, "options":
         [
 			{"label": "Report", "value": "report", "father":"research", "explanation": "an internal report"},
 			{"label": "Blog", "value": "blog", "father":"research", "explanation": "a blog post"},
@@ -64,7 +64,7 @@ export class UploadProjectComponent implements OnInit {
 			{"label": "HW prototype", "value": "hw prototype", "father":"test", "explanation": "something physical"},
         	]
     },
-    {"label": "Attributes", "value": "attributes", "father":"type", "next": "language", "options":
+    {"label": "Attributes", "value": "attributes", "father":"type", "next": "language", "multiple": true, "options":
 		[
 			{"label": "Deep learning", "value": "deep learning", "father":"research", "explanation": ""},
 			{"label": "Statistics", "value": "statistics", "father":"research", "explanation": ""},
@@ -85,7 +85,7 @@ export class UploadProjectComponent implements OnInit {
 
 		]
 	},
-	{"label": "Language", "value": "language", "next": "time", "options":
+	{"label": "Language", "value": "language", "next": "time", "multiple": true, "options":
 		[
 			{"label": "English", "value": "english", "father":"", "explanation": ""},
 			{"label": "Spanish", "value": "spanish", "father":"", "explanation": ""},
@@ -95,7 +95,7 @@ export class UploadProjectComponent implements OnInit {
 
 		]
 	},
-	{"label": "Time", "value": "time", "next": "", "options":
+	{"label": "Time", "value": "time", "next": "", "multiple": true, "options":
 		[
 			{"label": "Week", "value": "a week", "father":"", "explanation": ""},
 			{"label": "Two weeks", "value": "two weeks", "father":"", "explanation": ""},
