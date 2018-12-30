@@ -53,8 +53,18 @@ def map2goals(map_json):
 
     return paths_list
 
-def goals2skills(goals_file):
-    return "skills"
+def goals2skills(goals,skill_list):
+    for merc_type in skill_list:
+        merc_options = merc_type['options']
+        for option in merc_options:
+            sub_options = option['options']
+            for sub_option in sub_options:
+                try:
+                    print sub_option['label'], sub_option['requirements']
+                except:
+                    ""
+    for g in goals:
+        print g.path
 
 def skills2reward(sills_file):
     return "reward"
