@@ -40,8 +40,7 @@ def map2goals(map_json):
             self.attributes = attributes
 
         def print_path(self):
-            print
-            "produce a ", self.field, self.outcome, "using ", self.attributes
+            print "produce a ", self.field, self.outcome, "using ", self.attributes
 
     paths_list = []
     for m_type in json_input['content']['type']:
@@ -54,17 +53,23 @@ def map2goals(map_json):
     return paths_list
 
 def goals2skills(goals,skill_list):
+    rqr_dict = {}
     for merc_type in skill_list:
         merc_options = merc_type['options']
         for option in merc_options:
             sub_options = option['options']
             for sub_option in sub_options:
                 try:
-                    print sub_option['label'], sub_option['requirements']
+                    rqr_dict[sub_option['label']]= {"required_by" : sub_option['requirements'] , "base_cost" :sub_option['base_cost']}
                 except:
                     ""
     for g in goals:
-        print g.path
+        for k in rqr_dict:
+            for itm in rqr_dict[k]['required_by']:
+                if set(itm) < set(g.path):
+                    print('***',k, "required in", g.path , 'because of', rqr_dict[k]['required_by'], "with cost:", rqr_dict[k]['base_cost'])
+                else:
+                    print(k, "not required in", g.path)
 
 def skills2reward(sills_file):
     return "reward"
