@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
             name: ['', Validators.required],
             password: ['', Validators.required]
         });
-
     }
 
     onSubmit() {

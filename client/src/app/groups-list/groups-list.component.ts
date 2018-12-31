@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {DataService} from "../data.service";
+import * as _ from 'lodash';
+
 
 @Component({
   selector: 'app-groups-list',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupsListComponent implements OnInit {
     currentRate = 8;
-  constructor() { }
+  constructor(private http: HttpClient, private dataService: DataService) { }
+
+  bands;
+  project = {};
 
   ngOnInit() {
+      this.project = this.dataService.ChosenProject;
+      console.log(this.project);
+      this.http.get('/api/bands').subscribe(data => {
+          this.bands = data;
+            },
+            error => {
+                console.log("Error", error);
+            }
+        );
   }
 
 }

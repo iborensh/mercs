@@ -29,6 +29,14 @@ export class DataService {
     return this.http.get('http://localhost:5002/api/users')
   }
 
+  private chosenProject = {};
 
+  get ChosenProject(){
+      return this.chosenProject;
+  }
+
+  set ChosenProject(data){
+      this.chosenProject = data;
+  }
 
 }

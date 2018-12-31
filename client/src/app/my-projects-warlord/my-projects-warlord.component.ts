@@ -25,4 +25,8 @@ export class MyProjectsWarlordComponent implements OnInit {
         );
   }
 
+  deletFromList(id) {
+      this.projects.remove()
+  }
+
 }

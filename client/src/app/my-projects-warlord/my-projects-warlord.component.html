@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container-fluid">
     <div class="row">
-      <div *ngFor="let project of projects" class="col-sm-4">
+      <div *ngFor="let project of projects; let i = index" class="col-sm-4">
         <div class="card">
           <img class="card-img-top img-fluid" src="http://placehold.it/750x325" alt="Card image cap">
           <div class="card-block">
@@ -12,7 +12,7 @@
             <li class="list-group-item">moshe</li>
           </ul>
           <div class="card-block">
-            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">reach them</a>
           </div>
         </div>
       </div>

@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+
+
 
 @Component({
     selector: 'app-edit-profile-mercenery',
@@ -10,9 +14,9 @@ export class EditProfileMerceneryComponent implements OnInit {
 
     images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
     // images = ['/assets/images/software.jpeg', '/assets/images/hardware.jpeg', '/assets/images/software.jpeg'];
-    constructor() {
+    constructor(private formBuilder: FormBuilder, private http: HttpClient) {
     }
-
+    messageForm: FormGroup;
     percent = '75%';
     skills = [{"label": "Education", "value": "education", "percent": "30%"},
         {"label": "Certificate", "value": "certificate", "percent": "55%"},
@@ -21,6 +25,17 @@ export class EditProfileMerceneryComponent implements OnInit {
         {"label": "Projects", "value": "projects", "percent": "99%"}];
 
     ngOnInit() {
+        this.messageForm = this.formBuilder.group({
+            education: ['', Validators.required],
+            certificate: ['', Validators.required],
+            experience: ['', Validators.required],
+            job_title: ['', Validators.required],
+            projects: ['', Validators.required]
+        });
+    }
+
+    onSubmit() {
+        console.log(this.messageForm)
     }
 
 }

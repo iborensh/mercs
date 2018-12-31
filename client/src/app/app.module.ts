@@ -24,6 +24,8 @@ import { MyProjectsMerceneryComponent } from './my-projects-mercenery/my-project
 import { EditProfileMerceneryComponent } from './edit-profile-mercenery/edit-profile-mercenery.component';
 import { EditSkillsComponent } from './edit-skills/edit-skills.component';
 import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChatComponent } from './chat/chat.component';
+import { SelectBandComponent } from './select-band/select-band.component';
 
 
 
@@ -59,7 +61,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     ],
     declarations: [AppComponent, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent,
         UploadProjectComponent, ClickColorDirective, SearchProjectComponent, EditProjectComponent, MyProjectsWarlordComponent,
-        MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent],
+        MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent, ChatComponent, SelectBandComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })

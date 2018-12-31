@@ -140,8 +140,9 @@ export class UploadProjectComponent implements OnInit {
             }
         );
         this.finish = true;
+        this.dataService.ChosenProject = data;
         setTimeout(() => {
-     this.router.navigate(['my-projects-warlord']);
+     this.router.navigate(['groups-list']);
 
     }, 4000);
     }
