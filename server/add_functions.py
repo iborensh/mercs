@@ -53,23 +53,26 @@ def map2goals(map_json):
     return paths_list
 
 def goals2skills(goals,skill_list):
-    rqr_dict = {}
+    rqr_skills_dict = {}
+    skills_dict = {}
     for merc_type in skill_list:
         merc_options = merc_type['options']
         for option in merc_options:
             sub_options = option['options']
             for sub_option in sub_options:
                 try:
-                    rqr_dict[sub_option['label']]= {"required_by" : sub_option['requirements'] , "base_cost" :sub_option['base_cost']}
+                    skills_dict[sub_option['label']]= {"required_by" : sub_option['requirements'] , "base_cost" :sub_option['base_cost']}
                 except:
                     ""
     for g in goals:
-        for k in rqr_dict:
-            for itm in rqr_dict[k]['required_by']:
+        for k in skills_dict:
+            for itm in skills_dict[k]['required_by']:
                 if set(itm) < set(g.path):
-                    print('***',k, "required in", g.path , 'because of', rqr_dict[k]['required_by'], "with cost:", rqr_dict[k]['base_cost'])
+                    print('***',k, "required in", g.path , 'because of', skills_dict[k]['required_by'], "with cost:", skills_dict[k]['base_cost'])
+                    rqr_skills_dict[k] = skills_dict[k]
                 else:
                     print(k, "not required in", g.path)
+    return rqr_skills_dict
 
 def skills2reward(sills_file):
     return "reward"
