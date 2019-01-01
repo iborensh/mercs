@@ -17,7 +17,7 @@
           </ul>
           <div class="card-block">
           <button (click)="bands.splice(i, 1)" type="button" class="btn btn-danger">dismiss</button>
-              <button type="button" class="btn btn-success">reach out</button>
+              <button routerLink="['band-profile/{{band._id}}']" type="button" class="btn btn-success">reach out</button>
           </div>
         </div>
       </div>

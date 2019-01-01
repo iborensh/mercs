@@ -14,6 +14,7 @@ import { EditProfileMerceneryComponent } from "./edit-profile-mercenery/edit-pro
 import { EditSkillsComponent} from "./edit-skills/edit-skills.component";
 import { ChatComponent} from "./chat/chat.component";
 import { SelectBandComponent} from "./select-band/select-band.component";
+import { BandProfileComponent} from "./band-profile/band-profile.component";
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -34,6 +35,7 @@ const routes: Routes = [
     { path: 'edit-project', component: EditProjectComponent },
     { path: 'home', component: HomeComponent },
     { path: 'chat', component: ChatComponent },
+    { path: 'band-profile/:id', component: BandProfileComponent },
     { path: 'groups-list', component: GroupsListComponent },
     { path: '**', redirectTo: 'not-found' }
 ];

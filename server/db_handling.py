@@ -155,9 +155,6 @@ class DbHandling(object):
         else:
             project = list(self.db_bands.find({'_id': ObjectId(band_id)}))[0]
         bands = [{k: str(v) if k == '_id' else v for k, v in i.iteritems()} for i in project]
-
-        import pprint
-        pprint.pprint(bands)
         return bands
 
     def delete_band(self, band_id):
