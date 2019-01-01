@@ -1,37 +1,4 @@
-json_input = {
-"_id" : ObjectId("5c24a0911814972bf2ee10e8"),
-"status" : "started",
-"name" : "mosh",
-"content" : {
-"language" : [
-"german"
-],
-"field" : [
-"commerce",
-"entertainment"
-],
-"time" : [
-"two weeks",
-"a month"
-],
-"attributes" : [
-"statistics",
-"physics"
-],
-"outcome" : [
-"blog"
-],
-"type" : [
-"research"
-]
-},
-"start_on" : ISODate("2018-12-27T09:51:13.725Z"),
-"user" : "5c24a06adabd5472ba0de28c",
-"modified_on" : ISODate("2018-12-27T09:51:13.725Z")
-}
-
-
-def map2goals(map_json):
+def map2goals(map_file):
     class Path:
         def __init__(self, m_type, field, outcome, attributes):
             self.m_type = m_type
@@ -43,37 +10,72 @@ def map2goals(map_json):
             print "produce a ", self.field, self.outcome, "using ", self.attributes
 
     paths_list = []
-    for m_type in json_input['content']['type']:
-        for field in json_input['content']['field']:
-            for outcome in json_input['content']['outcome']:
-                for attributes in json_input['content']['attributes']:
+    for m_type in map_file['content']['type']:
+        for field in map_file['content']['field']:
+            for outcome in map_file['content']['outcome']:
+                for attributes in map_file['content']['attributes']:
                     p = Path(m_type, field, outcome, attributes)
                     paths_list.append(p)
 
     return paths_list
 
-def goals2skills(goals,skill_list):
-    #comment
+def goals2skills(goals,skill_list, debug_flag=0):
     rqr_skills_dict = {}
     skills_dict = {}
+
+    # build a dict with skill_label, required_by, "base_cost"
     for merc_type in skill_list:
         merc_options = merc_type['options']
         for option in merc_options:
             sub_options = option['options']
             for sub_option in sub_options:
                 try:
-                    skills_dict[sub_option['label']]= {"required_by" : sub_option['requirements'] , "base_cost" :sub_option['base_cost']}
+                    if len(sub_option['required_by']) == 0:     # if "required_by" = [], use the skill label as the "required_by"
+                        required_by = [sub_option['label']]
+                    else:
+                        required_by = sub_option['required_by']
+                    skills_dict[sub_option['label']]= {"required_by" : required_by , "base_cost" :sub_option['base_cost']}
                 except:
                     ""
+    # iterate over each path and check which skills are required for it
     for g in goals:
-        for k in skills_dict:
-            for itm in skills_dict[k]['required_by']:
-                if set(itm) < set(g.path):
-                    print('***',k, "required in", g.path , 'because of', skills_dict[k]['required_by'], "with cost:", skills_dict[k]['base_cost'])
+        if debug_flag == 1:
+            print "------------------- path -----------------"
+        for k in skills_dict.keys():
+            required_by_list = skills_dict[k]['required_by']
+            for itm in required_by_list:
+                if itm in g.path:
+                    if debug_flag == 1:
+                        print('***',k, "required in", g.path , 'because of', itm, "with cost:", skills_dict[k]['base_cost'])
                     rqr_skills_dict[k] = skills_dict[k]
+                    break   # fount at least one required itm which is in the tested path - break to the next skill
                 else:
-                    print(k, "not required in", g.path)
+                    if debug_flag == 1:
+                        print(k, "not required in", g.path)
+                    continue    # the current skill itm is not in the required list. move to next itm of the list
     return rqr_skills_dict
 
-def skills2reward(sills_file):
-    return "reward"
+def skills2reward(skills, map_file, skills2days_ratio=10, reward_per_day=1000, debug_flag=0):
+    from math import ceil
+    skill_sum = 0
+    
+   # calculate: required_days = sum(required_skills/skills2days_ratio)
+    for k in skills:
+        if debug_flag == 1:
+            print k, skills[k]['base_cost']
+        skill_sum += skills[k]['base_cost']
+    required_days = ceil(skill_sum/skills2days_ratio)
+    
+    # find the user input
+    usr_options_dict = {'week': 5,'two weeks': 10, 'three weeks': 15, 'month' :25 , 'two months' : 50, 'three months': 75, 'six months' : 150}
+    usr_time_input = usr_options_dict[map_file['content']['time'][0]]
+    
+    #calculate the factor between actually required to what the user wants:
+    time_factor = required_days/usr_time_input
+    
+    #calculate reward
+    if debug_flag == 1:
+        print required_days, reward_per_day, time_factor , usr_time_input
+    reward =  required_days * reward_per_day * time_factor
+
+    return reward
