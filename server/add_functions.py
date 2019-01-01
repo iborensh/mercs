@@ -53,6 +53,7 @@ def map2goals(map_json):
     return paths_list
 
 def goals2skills(goals,skill_list):
+    #comment
     rqr_skills_dict = {}
     skills_dict = {}
     for merc_type in skill_list:
