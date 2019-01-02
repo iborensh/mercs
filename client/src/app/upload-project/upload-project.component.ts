@@ -95,7 +95,11 @@ export class UploadProjectComponent implements OnInit {
 
 		]
 	},
+<<<<<<< HEAD
 	{"label": "Time", "value": "time", "next": "", "multiple": true, "options":
+=======
+	{"label": "Time", "value": "time", "next": "finish", "options":
+>>>>>>> 27ade9e010a344f54453ef623b807907ad45a287
 		[
 			{"label": "Week", "value": "a week", "father":"", "explanation": ""},
 			{"label": "Two weeks", "value": "two weeks", "father":"", "explanation": ""},
@@ -105,8 +109,10 @@ export class UploadProjectComponent implements OnInit {
 			{"label": "Six months", "value": "six months", "father":"", "explanation": ""},
 
 		]
-	}];
-
+	},
+    {"label": "Finish", "value": "finish", "next": "", "options":
+		[]}];
+    projectName = '';
     options = [];
     finish = false;
     chosen = {};
@@ -131,7 +137,7 @@ export class UploadProjectComponent implements OnInit {
 
     finishClick(){
         console.log(this.chosen);
-        let data = {'user': this.userId, 'project_name': 'mosh', 'content': this.chosen};
+        let data = {'user': this.userId, 'project_name': this.projectName, 'content': this.chosen};
         this.http.post('/api/projects', data).subscribe(data => {
         // this.router.navigate(['login']);
             },
@@ -140,8 +146,9 @@ export class UploadProjectComponent implements OnInit {
             }
         );
         this.finish = true;
+        this.dataService.ChosenProject = data;
         setTimeout(() => {
-     this.router.navigate(['my-projects-warlord']);
+     this.router.navigate(['groups-list']);
 
     }, 4000);
     }

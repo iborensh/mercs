@@ -1,14 +1,16 @@
 <div class="container-fluid">
     <br>
+
     <div class="row">
         <div class="col-4">
-            <form>
+            <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
                 <div class="form-group row" *ngFor="let skill of skills">
                     <label for={{skill.value}} class="col-sm-2 col-form-label col-form-label-lg">{{skill.label}}</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-lg" id={{skill.value}} placeholder={{skill.label}}>
+                        <input type="text" formControlName={{skill.value}} class="form-control form-control-lg" id={{skill.value}} placeholder={{skill.label}}>
                     </div>
                 </div>
+                <input type="submit" value="Log in" class="btn rounded-btn">
             </form>
         </div>
         <div class="col-4">
@@ -25,7 +27,7 @@
         </div>
         <div class="col-4">
             <h1 style="text-align: center">Choose your character</h1>
-<ngb-carousel *ngIf="images">
+<ngb-carousel *ngIf="images" data-interval="false">
   <ng-template ngbSlide>
     <img [src]="images[0]" alt="Random first slide">
     <div class="carousel-caption">
@@ -50,19 +52,11 @@
 </ngb-carousel>
         </div>
     </div>
+        <div type="submit" class="btn rounded-btn"><h1>edit skills</h1></div>
+
+        <!--<div type="submit" class="btn rounded-btn" routerLink="/edit-skills"><h1>edit skills</h1></div>-->
 </div>
-<!--<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">-->
-  <!--<a class="navbar-brand" routerLink="/edit-skills">Logo</a>-->
-  <!--<ul class="navbar-nav">-->
-    <!--<li class="nav-item">-->
-      <!--<a class="nav-link" routerLink="/edit-skills">Link</a>-->
-    <!--</li>-->
-    <!--<li class="nav-item">-->
-      <!--<a class="nav-link" routerLink="/edit-skills">Link</a>-->
-    <!--</li>-->
-  <!--</ul>-->
-<!--</nav>-->
 
+<!--<input type="submit" value="Log in" class="btn rounded-btn">-->
 
-<div routerLink="/edit-skills"><h1>edit skills</h1></div>
 

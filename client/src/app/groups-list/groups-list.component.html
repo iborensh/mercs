@@ -1,28 +1,28 @@
-<div class="row">
-<div class="card-deck">
-  <div class="card">
-    <img class="card-img-top" src="/assets/images/game1.jpeg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">group 1</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
+
+<div class="container">
+    <div class="card bg-light text-dark">
+    <div class="card-body">project: {{project.project_name}}</div>
   </div>
-  <div class="card">
-    <img class="card-img-top" src="/assets/images/game2.jpeg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">group 2</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src="/assets/images/game3.jpeg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">group 3</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let band of bands; let i = index" class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="/assets/images/{{band.image}}" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">{{band.name}}</h4>
+            <p class="card-text">{{band.status}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">moshe</li>
+          </ul>
+          <div class="card-block">
+          <button (click)="bands.splice(i, 1)" type="button" class="btn btn-danger">dismiss</button>
+              <button routerLink="['band-profile/{{band._id}}']" type="button" class="btn btn-success">reach out</button>
+          </div>
+        </div>
+      </div>
+        <br>
     </div>
   </div>
 </div>
-    </div>
+

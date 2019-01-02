@@ -12,6 +12,9 @@ import { EditProjectComponent} from "./edit-project/edit-project.component";
 import { SearchProjectComponent} from "./search-project/search-project.component";
 import { EditProfileMerceneryComponent } from "./edit-profile-mercenery/edit-profile-mercenery.component";
 import { EditSkillsComponent} from "./edit-skills/edit-skills.component";
+import { ChatComponent} from "./chat/chat.component";
+import { SelectBandComponent} from "./select-band/select-band.component";
+import { BandProfileComponent} from "./band-profile/band-profile.component";
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -24,12 +27,15 @@ const routes: Routes = [
     { path: 'newUser', component: NewUserComponent },
     { path: 'user-type', component: UserTypeComponent },
     { path: 'upload-project', component: UploadProjectComponent },
+    { path: 'select-band', component: SelectBandComponent },
     { path: 'search-project', component: SearchProjectComponent },
     { path: 'edit-skills', component: EditSkillsComponent },
     { path: 'my-projects-warlord', component: MyProjectsWarlordComponent },
     { path: 'edit-profile-mercenery', component: EditProfileMerceneryComponent },
     { path: 'edit-project', component: EditProjectComponent },
     { path: 'home', component: HomeComponent },
+    { path: 'chat', component: ChatComponent },
+    { path: 'band-profile/:id', component: BandProfileComponent },
     { path: 'groups-list', component: GroupsListComponent },
     { path: '**', redirectTo: 'not-found' }
 ];

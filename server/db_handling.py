@@ -14,6 +14,7 @@ class DbHandling(object):
         self.client = MongoClient()
         self.db_projects = self.client['grouplink']['projects']
         self.db_users = self.client['grouplink']['users']
+        self.db_bands = self.client['grouplink']['bands']
 
     def get_all_projects(self, user, collection=None):
         """
@@ -117,3 +118,50 @@ class DbHandling(object):
         """
         self.db_projects.remove({'_id': ObjectId(project_id)})
         return jsonify({'id': project_id})
+
+    def insert_band(self, data):
+        """
+        update project by id
+        :param project_id:
+        :param data:
+        :return:
+        """
+        data = json.loads(json.dumps(data))
+        data['start_on'] = datetime.datetime.utcnow()
+        ans = self.db_bands.insert(data)
+        return str(ans)
+
+    def update_band(self, band_id, data):
+        """
+        update project by id
+        :param project_id:
+        :param data:
+        :return:
+        """
+        data = json.loads(json.dumps(data))
+        data['modified_on'] = datetime.datetime.utcnow()
+        ans = self.db_bands.update({'_id': ObjectId(band_id)}, {'$set': data}, False, True)
+        return self.get_band(band_id)
+
+    def get_band(self, band_id):
+        """
+        get project by id
+        :param project_id:
+        :param collection:
+        :return:
+        """
+        if not band_id:
+            project = self.db_bands.find({})
+        else:
+            project = list(self.db_bands.find({'_id': ObjectId(band_id)}))[0]
+        bands = [{k: str(v) if k == '_id' else v for k, v in i.iteritems()} for i in project]
+        return bands
+
+    def delete_band(self, band_id):
+        """
+        delete project by id
+        :param id:
+        :return:
+        """
+        self.db_bands.remove({'_id': ObjectId(band_id)})
+        return jsonify({'id': band_id})

@@ -68,6 +68,33 @@ def projects(id=None):
             return jsonify({'number_of_removed_projects': 5})
     return jsonify({'id': id})
 
+@app.route("/api/bands", methods=['GET', 'POST', 'DELETE'])
+@app.route("/api/bands/<id>", methods=['GET', 'POST', 'PUT', 'DELETE'])
+def bands(id=None):
+    """
+    project get, put, post, delete
+    :param id:
+    :return:
+    """
+    if request.method == 'GET':
+        if id == None:
+            return jsonify(db_functions.get_band(None))
+        else:
+            return jsonify(db_functions.get_band(id))
+    elif request.method == 'POST':
+        data = json.loads(request.data, strict=False)
+        return db_functions.insert_band(data)
+    elif request.method == 'PUT':
+        data = json.loads(request.data, strict=False)
+        return db_functions.update_band(id, data)
+    elif request.method == 'DELETE':
+        if id:
+            return db_functions.delete_band(id)
+        else:
+            db_functions.db_bands.remove({})
+            return jsonify({'number_of_removed_projects': 5})
+    return jsonify({'id': id})
+
 @app.route("/api/user-projects", methods=['GET', 'POST', 'PUT', 'DELETE'])
 @app.route("/api/user-projects/<user_id>", methods=['GET', 'POST', 'PUT', 'DELETE'])
 def user_projects(user_id=None):
