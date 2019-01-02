@@ -95,11 +95,8 @@ export class UploadProjectComponent implements OnInit {
 
 		]
 	},
-<<<<<<< HEAD
 	{"label": "Time", "value": "time", "next": "", "multiple": true, "options":
-=======
-	{"label": "Time", "value": "time", "next": "finish", "options":
->>>>>>> 27ade9e010a344f54453ef623b807907ad45a287
+
 		[
 			{"label": "Week", "value": "a week", "father":"", "explanation": ""},
 			{"label": "Two weeks", "value": "two weeks", "father":"", "explanation": ""},
@@ -107,7 +104,6 @@ export class UploadProjectComponent implements OnInit {
 			{"label": "Month", "value": "a month", "father":"", "explanation": ""},
 			{"label": "Three months", "value": "three months", "father":"", "explanation": ""},
 			{"label": "Six months", "value": "six months", "father":"", "explanation": ""},
-
 		]
 	},
     {"label": "Finish", "value": "finish", "next": "", "options":
