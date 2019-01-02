@@ -7,7 +7,7 @@ body {
 }
 
 /* DEMO-SPECIFIC STYLES */
-.typewriter h4 {
+.typewriter h2 {
   color: black;
   font-family: monospace;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
@@ -16,7 +16,7 @@ body {
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
   animation:
-    typing 3.5s steps(30, end),
+    typing 5.5s steps(50, end),
     blink-caret .5s step-end infinite;
 }
 
@@ -77,6 +77,12 @@ input {
   position: absolute;
   top: -9999px;
   left: -9999px;
+}
+
+.input2 {
+    position: relative;
+    top: 0px;
+    left: 0px;
 }
 
 // Make the label a vertical bar
