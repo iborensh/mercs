@@ -28,6 +28,6 @@ def add_to_validation_queue(type_token, **kwargs):
                           "publication" : add_publication,
                           "award": add_award
                             }
-    func2call = input_tokens[user_input]
+    func2call = input_tokens[type_token]
     func2call(kwargs)
 
