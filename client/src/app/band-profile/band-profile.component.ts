@@ -15,5 +15,4 @@ export class BandProfileComponent implements OnInit {
       this.id = this.route.snapshot.paramMap.get('id');
       console.log(this.id)
   }
-
 }

@@ -123,8 +123,7 @@ export class UploadProjectComponent implements OnInit {
             }
         }
         else{
-            this.chosen[title] = [];
-            this.chosen[title].push(chosen);
+            this.chosen[title] = [chosen];
         }
     }
     next(id){
@@ -143,10 +142,9 @@ export class UploadProjectComponent implements OnInit {
         );
         this.finish = true;
         this.dataService.ChosenProject = data;
-        setTimeout(() => {
+        // setTimeout(() => {
      this.router.navigate(['groups-list']);
-
-    }, 4000);
+    // }, 4000);
     }
 
     ngOnInit() {

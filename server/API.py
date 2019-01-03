@@ -109,6 +109,14 @@ def user_projects(user_id=None):
         else:
             return jsonify(db_functions.get_projects_by_user(user_id))
 
+@app.route("/api/generate-project", methods=['POST'])
+def generate_project_data_from_upload_project():
+    """
+    Shahar put your functions call here
+    :return:
+    """
+    pass
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5002, debug=False, threaded=True)

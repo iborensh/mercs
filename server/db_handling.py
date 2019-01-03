@@ -1,4 +1,5 @@
 import datetime
+import bcrypt
 import json
 import sys, os
 from os import path
@@ -59,7 +60,7 @@ class DbHandling(object):
         :return:
         """
         name = json['name']
-        json.update({'admin': 'no'})
+        json.update({'admin': False})
         ans = self.db_users.update({'name': name},
                                    {'$set': json}, upsert=True)
         flag = True
