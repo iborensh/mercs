@@ -1,36 +1,37 @@
 class Mercenery(object):
     def __init__(self):
         pass
-    self.def add_education_degree(degree):
+
+    def add_education_degree(self, degree):
         print "degree"
         from university_ranking import University_ranking
 
-    self.def add_education_course(course):
+    def add_education_course(self, course):
         print "course"
 
-    self.def add_patent(patent):
+    def add_patent(self, patent):
         print "patent"
 
-    self.def add_project(project):
+    def add_project(self, project):
         print "project"
 
-    self.def add_work_experience(work_experience):
+    def add_work_experience(self, work_experience):
         print "work_experience"
 
-    selfdef add_publication(publication):
+    def add_publication(self, publication):
         print "publication"
 
-    self.def add_award(award):
+    def add_award(self, award):
         print "award"
 
-    self.def add_to_validation_queue(type_token, **kwargs):
-        input_tokens = {"degree": add_education_degree,
-                          "course": add_education_course,
-                          "patent": add_patent,
-                          "project": add_project,
-                          "work_experience": add_work_experience,
-                          "publication" : add_publication,
-                          "award": add_award
+    def add_to_validation_queue(self, usr_input_type, **kwargs):
+        input_types = {"degree": self.add_education_degree,
+                          "course": self.add_education_course,
+                          "patent": self.add_patent,
+                          "project": self.add_project,
+                          "work_experience": self.add_work_experience,
+                          "publication" : self.add_publication,
+                          "award": self.add_award
                             }
-        func2call = input_tokens[type_token]
+        func2call = input_types[usr_input_type]
         func2call(kwargs)
