@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify, send_file
 import time, datetime, json, os, yaml
 import sys
 from db_handling import DbHandling
+from new_mission_functions import newMissionFunctions
 from os import path
 from flask_cors import CORS, cross_origin
 
@@ -115,7 +116,10 @@ def generate_project_data_from_upload_project():
     Shahar put your functions call here
     :return:
     """
-    pass
+    new_mission = newMissionFunctions()
+    if request.method == 'POST':
+        data = json.loads(request.data, strict=False)
+        print new_mission.map2goals(data)
 
 
 if __name__ == "__main__":
