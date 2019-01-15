@@ -1,4 +1,6 @@
+
 from university_ranking import UniversityRanking
+
 
 class Mercenery(object):
     def __init__(self):
@@ -35,6 +37,7 @@ class Mercenery(object):
 
     # ADD ACHIEVEMENTS TO Q
     def achievment2queue(self, usr_input_type, **kwargs):
+
         input_types = {"degree": self.add_education_degree,
                           "course": self.add_education_course,
                           "patent": self.add_patent,
@@ -51,3 +54,4 @@ class Mercenery(object):
 
 m = Mercenery()
 m.add_education_degree(school="University College London", degree="b", degree_subject="c", average=90)
+
