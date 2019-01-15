@@ -1,6 +1,7 @@
-class University_ranking(object):
-    def __init__(self,university_ranking):
-        self.university_ranking = ["Harvard University",
+# coding=utf-8
+class UniversityRanking(object):
+    def __init__(self):
+        self.universityList = ["Harvard University",
                 "Stanford University",
                 "Massachusetts Institute of Technology",
                 "University of California Berkeley",
