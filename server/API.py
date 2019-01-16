@@ -117,6 +117,18 @@ def generate_project_data_from_upload_project():
     """
     pass
 
+@app.route("/api/merc-profile/<user_id>", methods=['GET', 'POST', 'PUT', 'DELETE'])
+def merc_profile(user_id):
+    if request.method == 'GET':
+        return jsonify(db_functions.get_band(user_id))
+    elif request.method == 'POST':
+        data = json.loads(request.data, strict=False)
+        return db_functions.insert_band(data)
+    elif request.method == 'PUT':
+        data = json.loads(request.data, strict=False)
+        return db_functions.update_band(user_id, data)
+    elif request.method == 'DELETE':
+        pass
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5002, debug=False, threaded=True)
