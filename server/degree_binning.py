@@ -1,7 +1,6 @@
 class Degree(object):
 
-    degree_bins = {"bachelor": [
-
+    degree_bins = {"bachelor": {
         "computer science": ["Computer Science","BCompSc", "Computing","BComp", "Computer Applications","BCA"],
         "mechanical engineering" : ["mechanical engineering"],
         "electrical engineering" : ["electrical engineering"],
@@ -18,16 +17,16 @@ class Degree(object):
         "art": ["Arts","BA","AB","BS","SB","ScB", "Applied Arts","BAA", "Applied Arts and Science","BAAS", "Fine Arts","BFA", "Arts in Organizational Management","BAOM", "Arts for Teaching","BAT", "Liberal Arts","BLA"],
         "design": ["Design","BDes"],
         "music": ["Music","BM","BMus", "Music Education","BME"],
-        "media": ["Film and Television","BFTV", "Journalism","BJ","BAJ","BSJ","BJourn"]
+        "media": ["Film and Television","BFTV", "Journalism","BJ","BAJ","BSJ","BJourn"],
         "psychology": ["psychology"],
         "accounting": ["Accountancy","BAcy","BAcc","BAccty"],
-        "human resources" : []
+        "human resources" : ["human resources", "HR"],
         "engineering": ["Engineering","BEng","BE","BSE","BESc","BSEng","BASc","BTech","BScEng","AMIE", "GradIETE", "Engineering Technology","BSET", "Aviation","BAvn"],
         "technology": ["Technology","BTech"],
-        "law": ["Law","BSL"]
+        "law": ["Law","BSL"],
         "health": ["Medical Science","BMedSci", "Medical Biology","BMedBiol", "Science in Public Health","BSPH", "Science in Nursing","BN","BNSc","BScN","BSN","BNurs","BSN","BHSc", "Health Science","BHS","BHSc"]
-    ],
-    "master": [
+    },
+    "master": {
         "computer science": ["computer science"],
         "mechanical engineering" : ["mechanical engineering"],
         "electrical engineering" : ["electrical engineering"],
@@ -48,16 +47,16 @@ class Degree(object):
         "psychology": ["psychology"],
         "accounting": ["accounting"],
         "human resources" : ["human resources"]
-    ],
-    "phd": [
-        "computer science": ["computer science"],
+    },
+    "phd": {
+        "computer science": ["computer science", "software", "hardware"],
         "mechanical engineering" : ["mechanical engineering"],
         "electrical engineering" : ["electrical engineering"],
         "business admin": ["business"],
         "information": ["information"],
         "marketing": ["marketing"],
         "logistics": ["logistics"],
-        "math": ["math"],
+        "math": ["math", "applied mathematics"],
         "physics" : ["physics"],
         "biology": ["biology"],
         "statistics": ["statistics"],
@@ -70,8 +69,8 @@ class Degree(object):
         "psychology": ["psychology"],
         "accounting": ["accounting"],
         "human resources" : ["human resources"]
-    ],
-    "associate": [
+    },
+    "associate": {
         "science": ["science", "AS", "applied science", "AAS"],
         "technology" : ["technology", "AT", "Industrial Technology", "AIT"],
         "engineering" : ["engineering", "electronics engineering", "AE", "Engineering Science", "AES", "Engineering Technology", "AET", "APE", "Pre-Engineering"],
@@ -79,7 +78,7 @@ class Degree(object):
         "information": ["information"],
         "marketing": ["marketing"],
         "logistics": ["logistics"],
-        "math": ["math"],
+        "math": ["math", "applied mathematics"],
         "physics" : ["physics"],
         "biology": ["biology"],
         "statistics": ["statistics"],
@@ -92,13 +91,17 @@ class Degree(object):
         "psychology": ["psychology"],
         "accounting": ["accounting"],
         "human resources" : ["human resources"]
-    ]  
+    } 
     }
 
-    def __init__(self, degree, degree_subject):
-        _degree = self.degree
-        _degree_subject = self.degree_subject
-
-    
-    def binning(self, degree):
-        
+    def __init__(self, usr_degree, usr_degree_subject):
+        self.usr_degree = usr_degree
+        self.usr_degree_subject = usr_degree_subject
+ 
+    def binning(self):
+        for degree_type in self.degree_bins:
+            if self.usr_degree == degree_type:
+                for subject in self.degree_bins[degree_type]:
+                    if (self.usr_degree_subject in self.degree_bins[degree_type][subject]):
+                        return k
+        print "cant indentify the degree"
