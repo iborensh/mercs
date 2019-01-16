@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-
+import * as _ from 'lodash';
 
 
 @Component({
@@ -18,10 +18,11 @@ export class EditProfileMerceneryComponent implements OnInit {
     }
     messageForm: FormGroup;
     percent = '75%';
-    skills = [{"label": "Education", "value": "education", "percent": "30%"},
+    skills = [
+        {"label": "Job title", "value": "job_title", "percent": "12%"},
+        {"label": "Education", "value": "education", "percent": "30%"},
         {"label": "Certificate", "value": "certificate", "percent": "55%"},
         {"label": "Experience", "value": "experience", "percent": "12%"},
-        {"label": "Job title", "value": "job_title", "percent": "12%"},
         {"label": "Projects", "value": "projects", "percent": "99%"}];
 
     ngOnInit() {
@@ -35,7 +36,8 @@ export class EditProfileMerceneryComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(this.messageForm)
+
+        console.log(this.messageForm.value)
     }
 
 }
