@@ -18,10 +18,11 @@ export class EditProfileMerceneryComponent implements OnInit {
     }
     messageForm: FormGroup;
     percent = '75%';
-    skills = [{"label": "Education", "value": "education", "percent": "30%"},
+    skills = [
+        {"label": "Job title", "value": "job_title", "percent": "12%"},
+        {"label": "Education", "value": "education", "percent": "30%"},
         {"label": "Certificate", "value": "certificate", "percent": "55%"},
         {"label": "Experience", "value": "experience", "percent": "12%"},
-        {"label": "Job title", "value": "job_title", "percent": "12%"},
         {"label": "Projects", "value": "projects", "percent": "99%"}];
 
     ngOnInit() {
