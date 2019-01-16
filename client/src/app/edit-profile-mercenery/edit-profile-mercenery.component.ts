@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-
+import * as _ from 'lodash';
 
 
 @Component({
@@ -36,7 +36,8 @@ export class EditProfileMerceneryComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(this.messageForm)
+
+        console.log(this.messageForm.value)
     }
 
 }
