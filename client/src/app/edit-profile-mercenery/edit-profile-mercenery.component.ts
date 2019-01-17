@@ -3,6 +3,8 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import * as _ from 'lodash';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ export class EditProfileMerceneryComponent implements OnInit {
 
     images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
     // images = ['/assets/images/software.jpeg', '/assets/images/hardware.jpeg', '/assets/images/software.jpeg'];
-    constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+    constructor(private formBuilder: FormBuilder, private http: HttpClient, public router: Router) {
     }
     messageForm: FormGroup;
     percent = '75%';
@@ -37,7 +39,8 @@ export class EditProfileMerceneryComponent implements OnInit {
 
     onSubmit() {
 
-        console.log(this.messageForm.value)
+        console.log(this.messageForm.value);
+        this.router.navigate(['']);
     }
 
 }
