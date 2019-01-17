@@ -91,7 +91,7 @@ export class EditSkillsComponent implements OnInit {
                 {"label": "Math", "value": "math", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
                 {"label": "Algorithms", "value": "algorithms", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
                 {"label": "Statistics", "value": "statistics", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
-                {"label": "SW_General", "value": "sw_eneral", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":["development"]}
+                {"label": "SW_General", "value": "sw_general", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":["development"]}
             ]},
         {"label": "QA", "value": "qa", "options":
             [
@@ -168,8 +168,21 @@ export class EditSkillsComponent implements OnInit {
                 {"label": "Reinforced", "value": "reinforced", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
                 {"label": "Analytics_General", "value": "analytics_general", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":["blog", "publication", "report"]}
             ]}
+        ]},
+    {"label": "Design","value": "design", "options":
+        [{"label": "Design", "value": "design", "options":
+            [
+            ]},
+        {"label": "Art", "value": "art", "options":
+            [
+
+            ]},
+        {"label": "Tools", "value": "tools", "options":
+            [
+                
 	    ]}
-    ]
+    ]}
+]
 
   route = "app-edit-skills";
   titleChoose = '';

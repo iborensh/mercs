@@ -1,10 +1,10 @@
 class DegreeSkills(object):
     
-    degree_skills = {"software developer" :[
-        "computer science": {"memory": 2, "compilers": 2},
-        "mechanical engineering" : {},
-        "electrical engineering" : {},
-        "business": {},
+    degree_skills = {"software developer" :{
+        "computer science": {"memory": 2, "compilers": 2, "c": 2, "java": 2, "test design": 2, "algorithms": 5, "math": 5, "statistics": 3, "sw_general": 5},
+        "mechanical engineering" : {"math": 3, "statistics": 1, "sw_general": 2},
+        "electrical engineering" : {"c": 1, "algorithms": 3, "math": 5, "statistics": 3, "sw_general": 2},
+        "business": {"math": 1, "statistics": 1, "sw_general": 1},
         "information": {},
         "marketing": {},
         "logistics": {},
@@ -25,8 +25,8 @@ class DegreeSkills(object):
         "technology": {},
         "law": {},
         "health": {}
-    ],
-    "hardware developer" :[
+    },
+    "hardware developer" :{
         "computer science": {},
         "mechanical engineering" : {},
         "electrical engineering" : {},
@@ -51,8 +51,8 @@ class DegreeSkills(object):
         "technology": {},
         "law": {},
         "health": {}
-    ],
-    "analytics" :[
+    },
+    "analytics" :{
         "computer science": {},
         "mechanical engineering" : {},
         "electrical engineering" : {},
@@ -77,8 +77,8 @@ class DegreeSkills(object):
         "technology": {},
         "law": {},
         "health": {}
-    ],
-    "design" :[
+    },
+    "design" :{
         "computer science": {},
         "mechanical engineering" : {},
         "electrical engineering" : {},
@@ -103,8 +103,8 @@ class DegreeSkills(object):
         "technology": {},
         "law": {},
         "health": {}
-    ],
-    "marketing" :[
+    },
+    "marketing" :{
         "computer science": {},
         "mechanical engineering" : {},
         "electrical engineering" : {},
@@ -129,8 +129,8 @@ class DegreeSkills(object):
         "technology": {},
         "law": {},
         "health": {}
-    ],
-    "finance" :[
+    },
+    "finance" :{
         "computer science": {},
         "mechanical engineering" : {},
         "electrical engineering" : {},
@@ -155,7 +155,7 @@ class DegreeSkills(object):
         "technology": {},
         "law": {},
         "health": {}
-    ],
+    },
   
     }
 
