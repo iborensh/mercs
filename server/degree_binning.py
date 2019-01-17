@@ -1,192 +1,107 @@
-class DegreeSkills(object):
-    
-    degree_skills = {"software developer" :{
-        "computer science": {"memory": 2, "compilers": 2, "c": 2, "java": 2, "test design": 2, "algorithms": 5, "math": 5, "statistics": 3, "sw_general": 5},
-        "mechanical engineering" : {"math": 3, "statistics": 1, "sw_general": 2},
-        "electrical engineering" : {"c": 1, "algorithms": 3, "math": 5, "statistics": 3, "sw_general": 2},
-        "business": {"math": 1, "statistics": 1, "sw_general": 1},
-        "information": {},
-        "marketing": {},
-        "logistics": {},
-        "math": {},
-        "physics" : {},
-        "biology": {},
-        "statistics": {},
-        "finance": {},
-        "architecture": {},
-        "art": {},
-        "design": {},
-        "music": {},
-        "media": {},
-        "psychology": {},
-        "accounting": {},
-        "human resources" : {},
-        "engineering": {},
-        "technology": {},
-        "law": {},
-        "health": {}
+class Degree(object):
+
+    degree_bins = {"bachelor": {
+        "computer science": ["Computer Science","BCompSc", "Computing","BComp", "Computer Applications","BCA"],
+        "mechanical engineering" : ["mechanical engineering"],
+        "electrical engineering" : ["electrical engineering"],
+        "business": ["Science in Business","BSBA", "Business Administration","BBA", "Management Studies","BMS","Business","BBus", "Management and Organizational Studies","BMOS", "Business Science","BBusSc" ],
+        "information": ["Applied Science in Information Technology","BAppScIT", "Science in Information Technology","BScIT", "Business Information Systems","BBIS"],
+        "marketing": ["marketing"],
+        "logistics": ["logistics"],
+        "math": ["Mathematics","BMath", "Mathematical Sciences","BMathSc", "math"],
+        "physics" : ["physics"],
+        "biology": ["Human Biology"],
+        "statistics": ["statistics"],
+        "finance": ["Economics","BIBE", "International Business Economics","BIBE", "Commerce","BCom","BComm", "Economics","BEc","BEconSc","BAEcon","BScEcon"],
+        "architecture": ["Architecture","BArch", "Landscape Architecture","BLArch"],
+        "art": ["Arts","BA","AB","BS","SB","ScB", "Applied Arts","BAA", "Applied Arts and Science","BAAS", "Fine Arts","BFA", "Arts in Organizational Management","BAOM", "Arts for Teaching","BAT", "Liberal Arts","BLA"],
+        "design": ["Design","BDes"],
+        "music": ["Music","BM","BMus", "Music Education","BME"],
+        "media": ["Film and Television","BFTV", "Journalism","BJ","BAJ","BSJ","BJourn"],
+        "psychology": ["psychology"],
+        "accounting": ["Accountancy","BAcy","BAcc","BAccty"],
+        "human resources" : ["human resources", "HR"],
+        "engineering": ["Engineering","BEng","BE","BSE","BESc","BSEng","BASc","BTech","BScEng","AMIE", "GradIETE", "Engineering Technology","BSET", "Aviation","BAvn"],
+        "technology": ["Technology","BTech"],
+        "law": ["Law","BSL"],
+        "health": ["Medical Science","BMedSci", "Medical Biology","BMedBiol", "Science in Public Health","BSPH", "Science in Nursing","BN","BNSc","BScN","BSN","BNurs","BSN","BHSc", "Health Science","BHS","BHSc"]
     },
-    "hardware developer" :{
-        "computer science": {},
-        "mechanical engineering" : {},
-        "electrical engineering" : {},
-        "business": {},
-        "information": {},
-        "marketing": {},
-        "logistics": {},
-        "math": {},
-        "physics" : {},
-        "biology": {},
-        "statistics": {},
-        "finance": {},
-        "architecture": {},
-        "art": {},
-        "design": {},
-        "music": {},
-        "media": {},
-        "psychology": {},
-        "accounting": {},
-        "human resources" : {},
-        "engineering": {},
-        "technology": {},
-        "law": {},
-        "health": {}
+    "master": {
+        "computer science": ["computer science"],
+        "mechanical engineering" : ["mechanical engineering"],
+        "electrical engineering" : ["electrical engineering"],
+        "business admin": ["business admin"],
+        "information": ["information"],
+        "marketing": ["marketing"],
+        "logistics": ["logistics"],
+        "math": ["math"],
+        "physics" : ["physics"],
+        "biology": ["biology"],
+        "statistics": ["statistics"],
+        "finance": ["finance"],
+        "architecture": ["architecture"],
+        "art": ["art"],
+        "design": ["design"],
+        "law": ["law"],
+        "music": ["music"],
+        "psychology": ["psychology"],
+        "accounting": ["accounting"],
+        "human resources" : ["human resources"]
     },
-    "analytics" :{
-        "computer science": {},
-        "mechanical engineering" : {},
-        "electrical engineering" : {},
-        "business": {},
-        "information": {},
-        "marketing": {},
-        "logistics": {},
-        "math": {},
-        "physics" : {},
-        "biology": {},
-        "statistics": {},
-        "finance": {},
-        "architecture": {},
-        "art": {},
-        "design": {},
-        "music": {},
-        "media": {},
-        "psychology": {},
-        "accounting": {},
-        "human resources" : {},
-        "engineering": {},
-        "technology": {},
-        "law": {},
-        "health": {}
+    "phd": {
+        "computer science": ["computer science", "software", "hardware"],
+        "mechanical engineering" : ["mechanical engineering"],
+        "electrical engineering" : ["electrical engineering"],
+        "business admin": ["business"],
+        "information": ["information"],
+        "marketing": ["marketing"],
+        "logistics": ["logistics"],
+        "math": ["math", "applied mathematics"],
+        "physics" : ["physics"],
+        "biology": ["biology"],
+        "statistics": ["statistics"],
+        "finance": ["finance"],
+        "architecture": ["architecture"],
+        "art": ["art"],
+        "design": ["design"],
+        "law": ["law"],
+        "music": ["music"],
+        "psychology": ["psychology"],
+        "accounting": ["accounting"],
+        "human resources" : ["human resources"]
     },
-    "design" :{
-        "computer science": {},
-        "mechanical engineering" : {},
-        "electrical engineering" : {},
-        "business": {},
-        "information": {},
-        "marketing": {},
-        "logistics": {},
-        "math": {},
-        "physics" : {},
-        "biology": {},
-        "statistics": {},
-        "finance": {},
-        "architecture": {},
-        "art": {},
-        "design": {},
-        "music": {},
-        "media": {},
-        "psychology": {},
-        "accounting": {},
-        "human resources" : {},
-        "engineering": {},
-        "technology": {},
-        "law": {},
-        "health": {}
-    },
-    "marketing" :{
-        "computer science": {},
-        "mechanical engineering" : {},
-        "electrical engineering" : {},
-        "business": {},
-        "information": {},
-        "marketing": {},
-        "logistics": {},
-        "math": {},
-        "physics" : {},
-        "biology": {},
-        "statistics": {},
-        "finance": {},
-        "architecture": {},
-        "art": {},
-        "design": {},
-        "music": {},
-        "media": {},
-        "psychology": {},
-        "accounting": {},
-        "human resources" : {},
-        "engineering": {},
-        "technology": {},
-        "law": {},
-        "health": {}
-    },
-    "finance" :{
-        "computer science": {},
-        "mechanical engineering" : {},
-        "electrical engineering" : {},
-        "business": {},
-        "information": {},
-        "marketing": {},
-        "logistics": {},
-        "math": {},
-        "physics" : {},
-        "biology": {},
-        "statistics": {},
-        "finance": {},
-        "architecture": {},
-        "art": {},
-        "design": {},
-        "music": {},
-        "media": {},
-        "psychology": {},
-        "accounting": {},
-        "human resources" : {},
-        "engineering": {},
-        "technology": {},
-        "law": {},
-        "health": {}
-    },
-  
+    "associate": {
+        "science": ["science", "AS", "applied science", "AAS"],
+        "technology" : ["technology", "AT", "Industrial Technology", "AIT"],
+        "engineering" : ["engineering", "electronics engineering", "AE", "Engineering Science", "AES", "Engineering Technology", "AET", "APE", "Pre-Engineering"],
+        "business admin": ["applied business", "AAB" , "business administration", "ABA"],
+        "information": ["information"],
+        "marketing": ["marketing"],
+        "logistics": ["logistics"],
+        "math": ["math", "applied mathematics"],
+        "physics" : ["physics"],
+        "biology": ["biology"],
+        "statistics": ["statistics"],
+        "finance": ["finance"],
+        "architecture": ["architecture"],
+        "art": ["arts", "applied arts", "arts in teaching", "AA", "AAA", "AAT", "Fine Arts", "AFA"],
+        "design": ["design"],
+        "law": ["law"],
+        "music": ["music"],
+        "psychology": ["psychology"],
+        "accounting": ["accounting"],
+        "human resources" : ["human resources"]
+    } 
     }
 
-
-    def __init__(self, usr_class, usr_degree, usr_degree_subject):
-        #usr_class: software developer, hardware developer, analytics, design etc..
-        # degree: bechelor, master, phd, associate
-        # degree subject: result from degree_binning
+    def __init__(self, usr_degree, usr_degree_subject):
         self.usr_degree = usr_degree
         self.usr_degree_subject = usr_degree_subject
-        self.usr_class = usr_class
-
-    def return_skills(self):
-        for merc_class in self.degree_skills.keys():
-            if self.usr_class == merc_class:
-                for merc_degree_subject in self.degree_skills[merc_class]:
-                    if merc_degree_subject == self.usr_degree_subject:
-                        gained_skills_base =  self.degree_skills[merc_class][merc_degree_subject]
-                        
-        # give factor for the level of usr degree:
-        degree_factor = 1
-        if self.usr_degree == "associate":
-            degree_factor = 0.5
-        if self.usr_degree == "master":
-            degree_factor = 1.1
-        if self.usr_degree == "phd":
-            degree_factor = 1.5
-            
-        # modify the gained skills value based on the degree_factor:
-        gained_skills = {}
-        for k in gained_skills_base:
-            gained_skills[k] = gained_skills_base[k] * degree_factor
-            
-        return gained_skills
+ 
+    def binning(self):
+        for degree_type in self.degree_bins:
+            if self.usr_degree == degree_type:
+                for subject in self.degree_bins[degree_type]:
+                    if (self.usr_degree_subject in self.degree_bins[degree_type][subject]):
+                        return self.usr_degree_subject
+        print "cant indentify the degree"
