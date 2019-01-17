@@ -15,6 +15,7 @@ import { EditSkillsComponent} from "./edit-skills/edit-skills.component";
 import { ChatComponent} from "./chat/chat.component";
 import { SelectBandComponent} from "./select-band/select-band.component";
 import { BandProfileComponent} from "./band-profile/band-profile.component";
+import { ProjectManagerComponent} from "./project-manager/project-manager.component";
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -37,6 +38,7 @@ const routes: Routes = [
     { path: 'chat', component: ChatComponent },
     { path: 'band-profile/:id', component: BandProfileComponent },
     { path: 'groups-list', component: GroupsListComponent },
+    { path: 'project-manager', component: ProjectManagerComponent },
     { path: '**', redirectTo: 'not-found' }
 ];
 
