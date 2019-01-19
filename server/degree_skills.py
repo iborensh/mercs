@@ -160,13 +160,14 @@ class DegreeSkills(object):
     }
 
 
-    def __init__(self, usr_class, usr_degree, usr_degree_subject):
+    def __init__(self, usr_class, usr_degree, usr_degree_subject,usr_avg):
         #usr_class: software developer, hardware developer, analytics, design etc..
         # degree: bechelor, master, phd, associate
         # degree subject: result from degree_binning
         self.usr_degree = usr_degree
         self.usr_degree_subject = usr_degree_subject
         self.usr_class = usr_class
+        self.usr_avg = usr_avg
 
     def return_skills(self):
         for merc_class in self.degree_skills.keys():
@@ -183,10 +184,13 @@ class DegreeSkills(object):
             degree_factor = 1.1
         if self.usr_degree == "phd":
             degree_factor = 1.5
-            
+
+        # add a factor for the user average:
+        avg_factor = (self.usr_avg / 100) + 0.3
+
         # modify the gained skills value based on the degree_factor:
         gained_skills = {}
         for k in gained_skills_base:
-            gained_skills[k] = gained_skills_base[k] * degree_factor
+            gained_skills[k] = gained_skills_base[k] * degree_factor * avg_factor
             
         return gained_skills
