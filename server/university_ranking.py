@@ -5001,3 +5001,4 @@ class UniversityRanking(object):
                 "Pan European University (Bratislava School of Law) / Paneurópska vysoká škola",
                 "Southern Baptist Theological Seminary",
                 "Universidad de Piura"]
+    

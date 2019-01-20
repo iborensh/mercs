@@ -103,5 +103,5 @@ class Degree(object):
             if self.usr_degree == degree_type:
                 for subject in self.degree_bins[degree_type]:
                     if (self.usr_degree_subject in self.degree_bins[degree_type][subject]):
-                        return self.usr_degree_subject
+                        return subject
         print "cant indentify the degree"
