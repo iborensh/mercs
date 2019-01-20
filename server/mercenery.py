@@ -37,11 +37,11 @@ class Mercenery(object):
         # find gained skilles:
         usr_gained_skills = DegreeSkills(usr_class=usr_class, usr_degree=degree, usr_degree_subject_binned=usr_degree_subject_binned, usr_avg=average).return_skills()
 
-        return usr_gained_skills
-
         # add the factor for the university ranking:
         for k in usr_gained_skills:
             usr_gained_skills[k] = usr_gained_skills[k] * self.rank_factor
+        print usr_gained_skills
+        return usr_gained_skills
 
     def add_education_course(self, website, course, certification_url):
         print "course"
