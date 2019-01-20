@@ -28,7 +28,8 @@ import {ChatComponent} from './chat/chat.component';
 import {SelectBandComponent} from './select-band/select-band.component';
 import {BandProfileComponent} from './band-profile/band-profile.component';
 import {ProjectManagerComponent} from './project-manager/project-manager.component';
-import {MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatButtonModule,} from '@angular/material';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import 'hammerjs';
 
@@ -52,6 +53,9 @@ export const createTranslateLoader = (http: HttpClient) => {
         HttpClientModule,
         MatFormFieldModule,
         DragDropModule,
+        MatAutocompleteModule,
+        MatButtonModule,
+        NgbModule,
         MatInputModule,
         NgbDropdownModule.forRoot(),
         NgbCarouselModule.forRoot(),

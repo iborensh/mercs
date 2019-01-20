@@ -3,18 +3,61 @@
 
     <div class="row">
         <div class="col-4">
-            <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
-                <div class="form-group row" *ngFor="let skill of skills">
-                    <label for={{skill.value}} class="col-sm-4 col-form-label col-form-label-lg">{{skill.label}}</label>
-                    <div class="col-sm-10">
-                        <input type="text" formControlName={{skill.value}} class="form-control form-control-lg"
-                               id={{skill.value}} placeholder={{skill.label}}>
-                    </div>
-                </div>
-                <input type="submit" value="Log in" class="btn rounded-btn">
-            </form>
+            <!--<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">-->
+            <!--<div class="form-group row" *ngFor="let skill of skills">-->
+            <div *ngFor="let skill of skills">
+                <button (click)="current = skill.value" class="btn btn-outline-info">{{skill.label}}</button>
+                <br>
+                <br>
+            </div>
+            <!--<label for={{skill.value}} class="col-sm-4 col-form-label col-form-label-lg">{{skill.label}}</label>-->
+            <!--<div class="col-sm-10">-->
+            <!--<input type="text" formControlName={{skill.value}} class="form-control form-control-lg"-->
+            <!--id={{skill.value}} placeholder={{skill.label}}>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<input type="submit" value="Log in" class="btn rounded-btn">-->
+            <!--</form>-->
         </div>
         <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+                               [matAutocomplete]="auto">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </form>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let skill of skillOptions[current]">{{skill.label}}</li>
+                </ul>
+
+                <!--<label for={{skill.value}} class="col-sm-4 col-form-label col-form-label-lg">{{skill.label}}</label>-->
+                <!--<div class="col-sm-10">-->
+                <!--<input type="text" formControlName={{skill.value}} class="form-control form-control-lg"-->
+                <!--id={{skill.value}} placeholder={{skill.label}}>-->
+                <!--</div>-->
+
+            </div>
+            <!--<p>-->
+            <!--<button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"-->
+            <!--[attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">-->
+            <!--Toggle-->
+            <!--</button>-->
+            <!--</p>-->
+            <!--<div id="collapseExample" [ngbCollapse]="isCollapsed">-->
+            <!--<div class="card">-->
+            <!--<div class="card-body">-->
+            <!--You can collapse this card by clicking Toggle-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
             <!--<div  *ngFor="let skill of skills">-->
             <!--<div class="progress">-->
             <!--<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"-->
@@ -30,21 +73,21 @@
             <h1 style="text-align: center">Choose your character</h1>
             <ngb-carousel *ngIf="images" data-interval="false">
                 <ng-template ngbSlide>
-                    <img [src]="images[0]" alt="Random first slide">
+                    <img src="assets/images/logo.png">
                     <div class="carousel-caption">
                         <h3>Software developer</h3>
                         <p>explain here something if needed</p>
                     </div>
                 </ng-template>
                 <ng-template ngbSlide>
-                    <img [src]="images[1]" alt="Random second slide">
+                    <img src="assets/images/logo.png">
                     <div class="carousel-caption">
                         <h3>Hardware developer</h3>
                         <p>explanation if needed</p>
                     </div>
                 </ng-template>
                 <ng-template ngbSlide>
-                    <img [src]="images[2]" alt="Random third slide">
+                    <img src="assets/images/logo.png">
                     <div class="carousel-caption">
                         <h3>Designer</h3>
                         <p>explanation</p>
