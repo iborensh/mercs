@@ -28,15 +28,20 @@ export class EditProfileMerceneryComponent implements OnInit {
     current = '';
     public isCollapsed = false;
     skills = [
-        {"label": "Job title", "value": "job_title", "percent": "12%"},
+        {"label": "User class", "value": "user class", "percent": "12%"},
         {"label": "Education", "value": "education", "percent": "30%"},
-        {"label": "Certificate", "value": "certificate", "percent": "55%"},
-        {"label": "Experience", "value": "experience", "percent": "12%"},
+        {"label": "Online courses", "value": "online courses", "percent": "55%"},
+        {"label": "Work Experience", "value": "work experience", "percent": "12%"},
         {"label": "Projects", "value": "projects", "percent": "99%"}];
 
-    skillOptions = {"job_title": [{"label": "Job title", "value": "job_title", "percent": "12%"},
-        {"label": "Education", "value": "education", "percent": "30%"},
-        {"label": "Certificate", "value": "certificate", "percent": "55%"}],
+    skillOptions = {"usr_class": [{"label": "user_class", "value": "job_title", "percent": "12%"}, 
+        {"label": "Education", "value": "education", "percent": "30%", "options": [
+            {"label": "bechelor", "value": "bechelor"},
+            {"label": "master", "value": "bechelor"},
+            {"label": "phd", "value": "bechelor"},
+            {"label": "associate", "value": "bechelor"}
+        ]},
+        {"label": "Online training", "value": "online training", "percent": "55%"}],
         "education": [{"label": "Job title2", "value": "job_title", "percent": "12%"},
         {"label": "Education2", "value": "education", "percent": "30%"},
         {"label": "Certificate2", "value": "certificate", "percent": "55%"}],
