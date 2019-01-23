@@ -1,9 +1,9 @@
 class DegreeSkills(object):
     
     degree_skills = {"software developer" :{
-        "computer science": {"memory": 2, "compilers": 2, "c": 2, "java": 2, "test design": 2, "algorithms": 5, "math": 5, "statistics": 3, "sw_general": 5},
+        "computer science": {"low level languages": 2, "algorithms": 4, "math": 4, "statistics": 3, "sw_general": 7},
         "mechanical engineering" : {"math": 3, "statistics": 1, "sw_general": 2},
-        "electrical engineering" : {"c": 1, "algorithms": 3, "math": 5, "statistics": 3, "sw_general": 2},
+        "electrical engineering" : {"low level languages": 1, "algorithms": 3, "math": 5, "statistics": 3, "sw_general": 2},
         "business": {"math": 1, "statistics": 1, "sw_general": 1},
         "information": {},
         "marketing": {},

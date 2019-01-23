@@ -74,6 +74,7 @@ export class EditSkillsComponent implements OnInit {
                 {"label": "MicroServices", "value": "microservices", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
                 {"label": "BlockChain", "value": "blockchain", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
                 {"label": "Security", "value": "security", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
+                {"label": "software design", "value": "software design", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
                 {"label": "SW_General", "value": "sw_general", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":["development"]}
             ]},
         {"label": "Coding", "value": "coding", "options":
@@ -84,6 +85,8 @@ export class EditSkillsComponent implements OnInit {
                 {"label": "C++", "value": "c++", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
                 {"label": "Scala", "value": "scala", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
                 {"label": "Go", "value": "go", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
+                {"label": "scripting", "value": "scripting","max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
+                {"label": "low level languages", "value": "low level languages", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
                 {"label": "SW_General", "value": "sw_general", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":["development"]}
             ]},
             {"label": "Quanitative", "value": "quantitative", "options":

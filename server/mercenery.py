@@ -2,6 +2,8 @@
 from university_ranking import UniversityRanking
 from degree_skills import DegreeSkills
 from degree_binning import Degree
+from companies_ranking import CompaniesRanking
+
 
 
 class Mercenery(object):
@@ -52,8 +54,16 @@ class Mercenery(object):
     def add_project(self, project_name, project_field):
         print "project"
 
-    def add_work_experience(self, company, title, start_date, end_date):
-        print "work_experience"
+    def add_work_experience(self, usr_company, usr_title, years):
+
+        print usr_company, usr_title, years
+
+        # check if the company is in the top of the field, if yes - factorize
+        companies = CompaniesRanking()
+        print companies.companiesList
+        # check the correct title_bin for the usr_title
+
+        # return the usr_gained_skilled
 
     def add_publication(self, journal, title, issue):
         print "publication"
@@ -78,6 +88,6 @@ class Mercenery(object):
     # TRANSLATE ACHIEVEMENT TO SKILL POINTS
 
 # for testing:
-#m = Mercenery()
+m = Mercenery()
 #m.add_education_degree(usr_class = "software developer", school="University College London", degree="bachelor", degree_subject="Computing", average=90)
-
+m.add_work_experience(usr_company = "apple", usr_title = "account manager",  years=3)
