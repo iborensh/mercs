@@ -25,7 +25,7 @@ export class EditProfileMerceneryComponent implements OnInit {
     }
     messageForm: FormGroup;
     percent = '75%';
-    current = '';
+    current = 'job_title';
     public isCollapsed = false;
     skills = [
         {"label": "Job title", "value": "job_title", "percent": "12%"},
@@ -45,6 +45,11 @@ export class EditProfileMerceneryComponent implements OnInit {
         {"label": "Certificate3", "value": "certificate", "percent": "55%"}]
         };
 
+    job_title = [
+        {"src": "assets/images/logo.png", "label": "Software developer", "value": "sw", "explanation": "explain here if needed"},
+        {"src": "assets/images/logo.png", "label": "Designer", "value": "designer", "explanation": "explain if needed"},
+        {"src": "assets/images/logo.png", "label": "Hardware developer", "value": "hw", "explanation": "what???"},
+    ];
     ngOnInit() {
         this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -63,6 +68,10 @@ export class EditProfileMerceneryComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+  onSlide(e){
+        console.log(e.current.substr(-1))
   }
 
     onSubmit() {
