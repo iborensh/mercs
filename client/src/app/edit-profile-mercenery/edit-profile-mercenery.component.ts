@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {DataService} from "../data.service";
 
 
 @Component({
@@ -19,12 +20,12 @@ export class EditProfileMerceneryComponent implements OnInit {
     myControl = new FormControl();
   options: string[] = ['put', 'options', 'for', 'each', 'title'];
   filteredOptions: Observable<string[]>;
-    images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
+    // images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
     // images = ['/assets/images/software.jpeg', '/assets/images/hardware.jpeg', '/assets/images/software.jpeg'];
-    constructor(private formBuilder: FormBuilder, private http: HttpClient, public router: Router) {
+    constructor(private formBuilder: FormBuilder, private http: HttpClient, public router: Router, private dataService: DataService) {
     }
     messageForm: FormGroup;
-    percent = '75%';
+    mercSkills = {};
     current = 'job_title';
     public isCollapsed = false;
     skills = [
@@ -37,10 +38,15 @@ export class EditProfileMerceneryComponent implements OnInit {
     skillOptions = {"job_title": [{"label": "Job title", "value": "job_title", "percent": "12%"},
         {"label": "Education", "value": "education", "percent": "30%"},
         {"label": "Certificate", "value": "certificate", "percent": "55%"}],
-        "education": [{"label": "Job title2", "value": "job_title", "percent": "12%"},
-        {"label": "Education2", "value": "education", "percent": "30%"},
-        {"label": "Certificate2", "value": "certificate", "percent": "55%"}],
-        "certificate": [{"label": "Job title3", "value": "job_title", "percent": "12%"},
+        "education": [
+        {"label": "usr_class", "value": "usr_class", "percent": "12%", "chosen": "hhu"},
+        {"label": "school", "value": "school", "percent": "30%", "chosen": ""},
+        {"label": "degree", "value": "degree", "percent": "30%", "chosen": ""},
+        {"label": "degree_subject", "value": "degree_subject", "percent": "30%", "chosen": ""},
+        {"label": "average", "value": "average", "percent": "55%", "chosen": ""}
+        ],
+        "certificate": [
+        {"label": "Job title3", "value": "job_title", "percent": "12%"},
         {"label": "Education3", "value": "education", "percent": "30%"},
         {"label": "Certificate3", "value": "certificate", "percent": "55%"}]
         };
@@ -77,7 +83,19 @@ export class EditProfileMerceneryComponent implements OnInit {
     onSubmit() {
 
         console.log(this.messageForm.value);
-        this.router.navigate(['']);
+        // this.router.navigate(['']);
     }
+
+    saveInDb(){
+        console.log(this.skillOptions);
+        let userId = _.get(this.dataService.UserData, '_id', '');
+        console.log(userId);
+        this.http.put('/api/merc-profile/' + userId , this.skillOptions).subscribe(data => {
+            console.log(data);
+            this.mercSkills = data;
+        // this.router.navigate(['login']);
+            })
+    }
+
 
 }

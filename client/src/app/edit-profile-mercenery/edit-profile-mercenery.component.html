@@ -22,7 +22,7 @@
         <div class="col-4">
             <div *ngIf="current == 'job_title'">
             <h3>Choose your character</h3>
-            <ngb-carousel *ngIf="images" data-interval="false" style="width: 18rem;" (slide)="onSlide($event)">
+            <ngb-carousel data-interval="false" style="width: 18rem;" (slide)="onSlide($event)">
                 <ng-template ngbSlide *ngFor="let slide of job_title">
                     <img src={{slide.src}} style="width: 18rem;">
                     <div class="carousel-caption">
@@ -32,7 +32,7 @@
                 </ng-template>
             </ngb-carousel>
                 </div>
-            <div class="card" style="width: 18rem;" *ngIf="current !== 'job_title'">
+            <div class="card" *ngIf="current !== 'job_title'">
                 <div class="card-header">
                 <form class="example-form">
                     <mat-form-field class="example-full-width">
@@ -47,8 +47,10 @@
                 </form>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" *ngFor="let skill of skillOptions[current]">{{skill.label}}</li>
+                    <li class="list-group-item" *ngFor="let skill of skillOptions[current]">{{skill.label}}
+                    <input [(ngModel)]="skill.chosen"></li>
                 </ul>
+                <button (click)="saveInDb()">Finish</button>
 
                 <!--<label for={{skill.value}} class="col-sm-4 col-form-label col-form-label-lg">{{skill.label}}</label>-->
                 <!--<div class="col-sm-10">-->
@@ -59,7 +61,7 @@
             </div>
         </div>
         <div class="col-4">
-
+        <div [innerHTML]="mercSkills | json"></div>
         </div>
     </div>
     <!--<div type="submit" class="btn rounded-btn"><h1>edit skills</h1></div>-->
