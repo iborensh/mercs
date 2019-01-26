@@ -51,7 +51,7 @@
                     <li class="list-group-item" *ngFor="let skill of skillOptions[current]">{{skill.label}}
                         <input *ngIf="(!(skill.hasOwnProperty('options')))" [(ngModel)]="skill.chosen">
                         <mat-form-field *ngIf="(skill.hasOwnProperty('options'))">
-                            <mat-select placeholder="{{skill.label}}" [(ngModel)]="skill.chosen">
+                            <mat-select [(ngModel)]="skill.chosen">
                                 <mat-option *ngFor="let item of skill.options" [value]="item.value">
                                     {{item.label}}
                                 </mat-option>
