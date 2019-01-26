@@ -21,36 +21,45 @@
         </div>
         <div class="col-4">
             <div *ngIf="current == 'job_title'">
-            <h3>Choose your character</h3>
-            <ngb-carousel data-interval="false" style="width: 18rem;" (slide)="onSlide($event)">
-                <ng-template ngbSlide *ngFor="let slide of job_title">
-                    <img src={{slide.src}} style="width: 18rem;">
-                    <div class="carousel-caption">
-                        <h6>{{slide.label}}</h6>
-                        <p>{{slide.explanation}}</p>
-                    </div>
-                </ng-template>
-            </ngb-carousel>
-                </div>
+                <h3>Choose your character</h3>
+                <ngb-carousel data-interval="false" style="width: 18rem;" (slide)="onSlide($event)">
+                    <ng-template ngbSlide *ngFor="let slide of job_title">
+                        <img src={{slide.src}} style="width: 18rem;">
+                        <div class="carousel-caption">
+                            <h6>{{slide.label}}</h6>
+                            <p>{{slide.explanation}}</p>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
             <div class="card" *ngIf="current !== 'job_title'">
                 <div class="card-header">
-                <form class="example-form">
-                    <mat-form-field class="example-full-width">
-                        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
-                               [matAutocomplete]="auto">
-                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                {{option}}
-                            </mat-option>
-                        </mat-autocomplete>
-                    </mat-form-field>
-                </form>
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <input type="text" placeholder="Pick one" aria-label="Number" matInput
+                                   [formControl]="myControl"
+                                   [matAutocomplete]="auto">
+                            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                    {{option}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </form>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" *ngFor="let skill of skillOptions[current]">{{skill.label}}
-                    <input [(ngModel)]="skill.chosen"></li>
+                        <input *ngIf="(!(skill.hasOwnProperty('options')))" [(ngModel)]="skill.chosen">
+                        <mat-form-field *ngIf="(skill.hasOwnProperty('options'))">
+                            <mat-select placeholder="{{skill.label}}" [(ngModel)]="skill.chosen">
+                                <mat-option *ngFor="let item of skill.options" [value]="item.value">
+                                    {{item.label}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </li>
                 </ul>
-                <button (click)="saveInDb()">Finish</button>
+
 
                 <!--<label for={{skill.value}} class="col-sm-4 col-form-label col-form-label-lg">{{skill.label}}</label>-->
                 <!--<div class="col-sm-10">-->
@@ -59,9 +68,10 @@
                 <!--</div>-->
 
             </div>
+            <button (click)="saveInDb()" class="btn btn-outline-success">Finish</button>
         </div>
         <div class="col-4">
-        <div [innerHTML]="mercSkills | json"></div>
+            <div [innerHTML]="mercSkills | json"></div>
         </div>
     </div>
     <!--<div type="submit" class="btn rounded-btn"><h1>edit skills</h1></div>-->

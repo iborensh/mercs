@@ -16,7 +16,7 @@ import {DataService} from "../data.service";
     styleUrls: ['./edit-profile-mercenery.component.scss']
 })
 export class EditProfileMerceneryComponent implements OnInit {
-
+    check = '';
     myControl = new FormControl();
   options: string[] = ['put', 'options', 'for', 'each', 'title'];
   filteredOptions: Observable<string[]>;
@@ -39,9 +39,12 @@ export class EditProfileMerceneryComponent implements OnInit {
         {"label": "Education", "value": "education", "percent": "30%"},
         {"label": "Certificate", "value": "certificate", "percent": "55%"}],
         "education": [
-        {"label": "usr_class", "value": "usr_class", "percent": "12%", "chosen": "hhu"},
+        {"label": "usr_class", "value": "usr_class", "percent": "12%", "chosen": ""},
         {"label": "school", "value": "school", "percent": "30%", "chosen": ""},
-        {"label": "degree", "value": "degree", "percent": "30%", "chosen": ""},
+        {"label": "degree", "value": "degree", "percent": "30%", "chosen": "", "options": [
+            {"label": "Bachelor", "value": "bachelor"},
+            {"label": "Sheni", "value": "sheni"},
+            {"label": "DR", "value": "doctor"}]},
         {"label": "degree_subject", "value": "degree_subject", "percent": "30%", "chosen": ""},
         {"label": "average", "value": "average", "percent": "55%", "chosen": ""}
         ],
