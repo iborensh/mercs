@@ -1,8 +1,8 @@
 # coding=utf-8
 class CompaniesRanking(object):
     def __init__(self):
-        self.companiesList = { "company_types": [
-            {"software": ["alphabet", "ibm", "facebook", "tencent holdings", "accenture", "baidu", "tata consultancy services",
+        self.companiesList = { "company_types": 
+            {"software developer": ["alphabet", "ibm", "facebook", "tencent holdings", "accenture", "baidu", "tata consultancy services",
             "cognizant", "relx group", "infosys", "capgemini", "neteaze", "atos", "wipro", "cgi group", "samsung sds", "naver",
             "nexon", "iliad", "nomura", "synnex", "splunk", "google","adobe","slack-technologies-inc","mailchimp","shopify","microsoft","surveymonkey",
             "mathworks","hubspot","dropbox","salesforce","wix","intuit","paypal","freshworks","tableau-software","zoom-video-communications",
@@ -14,13 +14,15 @@ class CompaniesRanking(object):
             "dynatrace","bigtime","automattic-inc","videolan","sap","squarespace","tveyes","github","filezilla","bamboohr","bombbomb",
             "semrush","samanage","libris","mongodb","gong","airtable","applied-systems","zapier","canto","jamf-pro","certify",
             "renderforest","image-relay","docusign","nakivo-backup-replication","travelperk","facebook","eclipse-foundation","trimble",
-            "uipath-rpa-robotic-process-automation","expensify","lattice-performance-management","acronis","onshape","solarwinds"]},
-            {"hardware": []},
-            {"finance": []},
-            {"marketing": []},
-            {"engineering": []},
-            {"telecommunication": []},
-            {"ecommerce": []},
-            {"cyber": []}
+            "uipath-rpa-robotic-process-automation","expensify","lattice-performance-management","acronis","onshape","solarwinds"],
+            "hardware developer": [],
+            "design": [],
+            "finance": [],
+            "marketing": [],
+            "engineering": [],
+            "telecommunication": [],
+            "ecommerce": [],
+            "cyber": [],
+            "analytics": []
             }
-        ]
+        }

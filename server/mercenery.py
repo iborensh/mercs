@@ -18,20 +18,20 @@ class Mercenery(object):
         
         ranking = UniversityRanking()
         if school in ranking.universityList:
-            usr_rank =  ranking.universityList.index(school)
+            usr_edu_rank =  ranking.universityList.index(school)
         else: 
             print "not here"
 
-        # calculate the university ranking factor based on the usr rank:
-        if (usr_rank > 0) and (usr_rank <= 50):
+        # calculate the university ranking factor based on the usr education rank:
+        if (usr_edu_rank > 0) and (usr_edu_rank <= 50):
             self.rank_factor = 2
-        elif usr_rank > 50 and usr_rank <= 100:
+        elif usr_edu_rank > 50 and usr_edu_rank <= 100:
             self.rank_factor = 1.7
-        elif usr_rank > 100 and usr_rank <= 200:
+        elif usr_edu_rank > 100 and usr_edu_rank <= 200:
             self.rank_factor = 1.5
-        elif usr_rank > 200 and usr_rank <= 500:
+        elif usr_edu_rank > 200 and usr_edu_rank <= 500:
             self.rank_factor = 1.3
-        elif usr_rank > 500 and usr_rank <= 1000:
+        elif usr_edu_rank > 500 and usr_edu_rank <= 1000:
             self.rank_factor = 1.1
         # find degree (binned)
         usr_degree_subject_binned = Degree(degree, degree_subject).binning()
@@ -54,13 +54,25 @@ class Mercenery(object):
     def add_project(self, project_name, project_field):
         print "project"
 
-    def add_work_experience(self, usr_company, usr_title, years):
+    def add_work_experience(self, usr_class, usr_company, usr_title, years):
 
         print usr_company, usr_title, years
 
+        company_factor = 1
+
         # check if the company is in the top of the field, if yes - factorize
         companies = CompaniesRanking()
-        print companies.companiesList
+        print 
+        if usr_company in companies.companiesList['company_types'][usr_class]:
+            usr_company_rank = companies.companiesList['company_types'][usr_class].index(usr_company)
+            if usr_company_rank > 0 and usr_company_rank <= 10:
+                company_factor = 2
+            elif usr_company_rank > 10 and usr_company_rank <= 100:
+                company_factor = 1.5
+            
+            print usr_company, usr_company_rank, company_factor
+        else:
+            print "company not in the top"
         # check the correct title_bin for the usr_title
 
         # return the usr_gained_skilled
@@ -90,4 +102,4 @@ class Mercenery(object):
 # for testing:
 m = Mercenery()
 #m.add_education_degree(usr_class = "software developer", school="University College London", degree="bachelor", degree_subject="Computing", average=90)
-m.add_work_experience(usr_company = "apple", usr_title = "account manager",  years=3)
+m.add_work_experience(usr_class = "software developer", usr_company = "apple", usr_title = "account manager",  years=3)
