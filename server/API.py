@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify, send_file
 import time, datetime, json, os, yaml
 import sys
 from db_handling import DbHandling
+from mercenery import Mercenery
 from os import path
 from flask_cors import CORS, cross_origin
 
@@ -126,7 +127,15 @@ def merc_profile(user_id):
         return db_functions.insert_band(data)
     elif request.method == 'PUT':
         data = json.loads(request.data, strict=False)
-        return db_functions.update_band(user_id, data)
+        education = data['education']
+        print education
+        merc = Mercenery()
+        ranking = merc.add_education_degree(education[0]['chosen'], education[1]['chosen'], education[2]['chosen'],
+                                       education[3]['chosen'], education[4]['chosen'])
+        print '-'*20
+        print ranking
+        # return db_functions.update_band(user_id, data)
+        return jsonify(ranking)
     elif request.method == 'DELETE':
         pass
 
