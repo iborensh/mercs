@@ -17,8 +17,8 @@ export class EditSkillsComponent implements OnInit {
 		[{"label": "Database", "value": "db", "options":
             [
                 {"label": "SQL", "value": "sql", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
-                {"label": "NO-SQL", "value": "No-sql", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
-                {"label": "Big Data", "value": "big data", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
+                {"label": "NO-SQL", "value": "no-sql", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
+                {"label": "Big Data", "value": "big_data", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
                 {"label": "SW_General", "value": "sw_general", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":["server-side", "website", "application"]}
             ]},
         {"label": "Mobile", "value": "mobile", "options":
@@ -100,9 +100,9 @@ export class EditSkillsComponent implements OnInit {
             [
             {"label": "Automation", "value": "automation", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
             {"label": "Manual", "value": "manual", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
-            {"label": "CI frameworks", "value": "ci frameworks", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
-            {"label": "Testing tools", "value": "testing tools", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
-            {"label": "Test design", "value": "test design", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
+            {"label": "CI frameworks", "value": "ci_frameworks", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
+            {"label": "Testing tools", "value": "testing_tools", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
+            {"label": "Test design", "value": "test_design", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]},
             {"label": "SW_General", "value": "sw_eneral", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":["application", "testing", "website", "game"]}
             ]}
     	]},
