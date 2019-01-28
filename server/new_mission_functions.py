@@ -1,18 +1,17 @@
-import os,sys,time, json
+import os, sys, time, json
 
 class Map2reward(object):
     
     def __init__(self, map_file):
+        self.map_file = map_file
+        
+    def calculate(self):
         with open('{}/jsons/skill_tree.json'.format(os.getcwd())) as r:
             skills = json.load(r)
-            # with open('{}/static/yamls/feedback.json'.format(os.getcwd())) as f:
-            #     feedback = json.load(f)
-            print skills
-
-        self.paths_list = self.map2goals(map_file)
+        self.paths_list = self.map2goals(self.map_file)
         self.rqr_skills_dict = self.goals2skills(self.paths_list, skills)
-        self.reward = self.skills2reward(skills=self.rqr_skills_dict, map_file=map_file)
-        
+        self.reward = self.skills2reward(skills=self.rqr_skills_dict, map_file=self.map_file)
+        return {'paths': self.paths_list, 'skills': self.rqr_skills_dict, 'reward': self.reward, 'status': 'medium'}
 
     def create_result(self):
         return {"paths_list": self.paths_list, "reqr_skills_dict": self.rqr_skills_dict , "reward": self.reward}
@@ -90,4 +89,7 @@ class Map2reward(object):
 
         return reward
 
-a = Map2reward('')
+a = Map2reward({u'content': {u'language': [u'german'], u'field': [u'entertainment'], u'time': [u'two weeks'],
+                             u'attributes': [u'statistics', 'physics'], u'outcome': [u'blog', 'website'], u'type': [u'development']},
+                u'project_name': u'weeks', u'user': u''}
+)

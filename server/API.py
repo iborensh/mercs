@@ -3,6 +3,7 @@ import time, datetime, json, os, yaml
 import sys
 from db_handling import DbHandling
 from mercenery import Mercenery
+from new_mission_functions import Map2reward
 from os import path
 from flask_cors import CORS, cross_origin
 
@@ -57,7 +58,10 @@ def projects(id=None):
             return jsonify(db_functions.get_all_projects(id))
     elif request.method == 'POST':
         data = json.loads(request.data, strict=False)
-        print data
+        if 'calculate' in data:
+            calculate = Map2reward(data)
+            return jsonify(calculate.calculate())
+
         return db_functions.insert_project(data)
     elif request.method == 'PUT':
         data = json.loads(request.data, strict=False)
@@ -129,12 +133,9 @@ def merc_profile(user_id):
     elif request.method == 'PUT':
         data = json.loads(request.data, strict=False)
         education = data['education']
-        print education
         merc = Mercenery()
         ranking = merc.add_education_degree(education[0]['chosen'], education[1]['chosen'], education[2]['chosen'],
                                        education[3]['chosen'], education[4]['chosen'])
-        print '-'*20
-        print ranking
         # return db_functions.update_band(user_id, data)
         return jsonify(ranking)
     elif request.method == 'DELETE':

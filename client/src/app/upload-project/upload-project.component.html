@@ -10,11 +10,14 @@
             <div class="content">
                 <br>
                 <br>
+                <br>
+
                 <div class="row">
                     <div class="col-3"><h1>{{choose.label}}</h1></div>
                     <div class="col-6">
-                        <br>
-                        <h4 *ngIf="first">Let us help you define your project. choose your options by clicking on the button</h4>
+
+                        <h4 *ngIf="first">Let us help you define your project. choose your options by clicking on the
+                            button</h4>
                         <br>
                         <div class="card-deck">
                             <div *ngFor="let task of choose.options">
@@ -31,21 +34,28 @@
                             </div>
                         </div>
                         <div *ngIf="last" style="position: center">
-                            <div class="typewriter">
-                                <h4>I need {{chosen.type}} to do {{chosen.field}} with
-                                    {{chosen.attributes}}</h4>
+                            <!--<div class="typewriter">-->
+                            <h4>I need {{chosen.type}} to do {{chosen.field}} with
+                                {{chosen.attributes}}</h4>
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <label *ngIf="!last" for="{{choose.next}}" class="label2">Next</label>
+                        <div *ngIf="last && !skills" class="input-group mb-3" style="float: right;">
+                            <input type="text" [(ngModel)]="projectName" class="input2" placeholder="Project name">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" (click)="finishClick()" type="button">Finish
+                                </button>
                             </div>
+                        </div>
+                        <div>
+                            {{skills.rewa}}
                         </div>
                     </div>
                 </div>
             </div>
-            <label *ngIf="!last" for="{{choose.next}}" class="label2">Next</label>
-            <div *ngIf="last" class="input-group mb-3" style="float: right;">
-                <input type="text" [(ngModel)]="projectName" class="input2" placeholder="Project name">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" (click)="finishClick()" type="button">Finish</button>
-                </div>
-            </div>
+
             <!--<h4 style="float: right; cursor: pointer" *ngIf="last" (click)="finishClick()">Finish</h4>-->
         </div>
     </li>
