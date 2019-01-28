@@ -22,31 +22,34 @@
         <div class="col-4">
             <div *ngIf="current == 'user_class'">
                 <h3>Choose your character</h3>
-                <ngb-carousel data-interval="false" style="width: 18rem;" (slide)="onSlide($event)">
-                    <ng-template ngbSlide *ngFor="let slide of job_title">
-                        <img src={{slide.src}} style="width: 18rem;">
-                        <div class="carousel-caption">
-                            <h6>{{slide.label}}</h6>
-                            <p>{{slide.explanation}}</p>
-                        </div>
-                    </ng-template>
-                </ngb-carousel>
+                <!--<ngb-carousel data-interval="false" style="width: 18rem;" (slide)="onSlide($event)">-->
+                    <!--<ng-template ngbSlide *ngFor="let slide of job_title">-->
+                        <!--<img src={{slide.src}} style="width: 18rem;">-->
+                        <!--<div class="carousel-caption">-->
+                            <!--<h6>{{slide.label}}</h6>-->
+                            <!--<p>{{slide.explanation}}</p>-->
+                        <!--</div>-->
+                    <!--</ng-template>-->
+                <!--</ngb-carousel>-->
+                <img src="assets/images/software.jpeg" style="max-height: 100px;">
+                <img src="assets/images/hardware.jpeg" style="max-height: 100px;">
+                <img src="assets/images/web_designer.png" style="max-height: 100px;">
             </div>
             <div class="card" *ngIf="current !== 'job_title'">
-                <div class="card-header">
-                    <form class="example-form">
-                        <mat-form-field class="example-full-width">
-                            <input type="text" placeholder="Pick one" aria-label="Number" matInput
-                                   [formControl]="myControl"
-                                   [matAutocomplete]="auto">
-                            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                    {{option}}
-                                </mat-option>
-                            </mat-autocomplete>
-                        </mat-form-field>
-                    </form>
-                </div>
+                <!--<div class="card-header">-->
+                    <!--<form class="example-form">-->
+                        <!--<mat-form-field class="example-full-width">-->
+                            <!--<input type="text" placeholder="Pick one" aria-label="Number" matInput-->
+                                   <!--[formControl]="myControl"-->
+                                   <!--[matAutocomplete]="auto">-->
+                            <!--<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">-->
+                                <!--<mat-option *ngFor="let option of filteredOptions | async" [value]="option">-->
+                                    <!--{{option}}-->
+                                <!--</mat-option>-->
+                            <!--</mat-autocomplete>-->
+                        <!--</mat-form-field>-->
+                    <!--</form>-->
+                <!--</div>-->
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" *ngFor="let skill of skillOptions[current]">{{skill.label}}
                         <input *ngIf="(!(skill.hasOwnProperty('options')))" [(ngModel)]="skill.chosen">
