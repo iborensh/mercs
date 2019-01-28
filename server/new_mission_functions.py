@@ -13,7 +13,9 @@ class Map2reward(object):
         self.reward = self.skills2reward(skills=self.rqr_skills_dict, map_file=self.map_file)
         return {'paths': self.paths_list, 'skills': self.rqr_skills_dict, 'reward': self.reward, 'status': 'medium'}
 
-    def create_result(self):
+    def create_result(self, debug_flag=0):
+        if debug_flag == 1:
+            print "paths_list: ", self.paths_list, "\nreqr_skills_dict: ", self.rqr_skills_dict , "\nreward: ", self.reward
         return {"paths_list": self.paths_list, "reqr_skills_dict": self.rqr_skills_dict , "reward": self.reward}
 
     def map2goals(self, map_file):
@@ -50,17 +52,17 @@ class Map2reward(object):
         for g in goals:
             if debug_flag == 1:
                 print "------------------- path -----------------"
-        for k in skills_dict.keys():
+            for k in skills_dict.keys():
                 required_by_list = skills_dict[k]['required_by']
                 for itm in required_by_list:
                     if itm in g:
                         if debug_flag == 1:
-                            print('***',k, "required in", g.path , 'because of', itm, "with cost:", skills_dict[k]['base_cost'])
+                            print('***',k, "required in", g , 'because of', itm, "with cost:", skills_dict[k]['base_cost'])
                         rqr_skills_dict[k] = skills_dict[k]
                         break   # fount at least one required itm which is in the tested path - break to the next skill
                     else:
                         if debug_flag == 1:
-                            print(k, "not required in", g.path)
+                            print(k, "not required in", g)
                         continue    # the current skill itm is not in the required list. move to next itm of the list
         return rqr_skills_dict
 
@@ -73,7 +75,7 @@ class Map2reward(object):
             if debug_flag == 1:
                 print k, skills[k]['base_cost']
             skill_sum += skills[k]['base_cost']
-        required_days = ceil(skill_sum/skills2days_ratio)
+        required_days = ceil(skill_sum/float(skills2days_ratio))
     
         # find the user input
         usr_options_dict = {'week': 5,'two weeks': 10, 'three weeks': 15, 'month' :25 , 'two months' : 50, 'three months': 75, 'six months' : 150}
@@ -89,7 +91,30 @@ class Map2reward(object):
 
         return reward
 
-a = Map2reward({u'content': {u'language': [u'german'], u'field': [u'entertainment'], u'time': [u'two weeks'],
-                             u'attributes': [u'statistics', 'physics'], u'outcome': [u'blog', 'website'], u'type': [u'development']},
-                u'project_name': u'weeks', u'user': u''}
-)
+# a = Map2reward({
+# "status" : "started",
+# "name" : "mosh",
+# "content" : {
+# "language" : [
+# "german"
+# ],
+# "field" : [
+# "entertainment"
+# ],
+# "time" : [
+# "two weeks",
+# ],
+# "attributes" : [
+# "statistics",
+# "physics"
+# ],
+# "outcome" : [
+# "blog",
+# "website"
+# ],
+# "type" : [
+# "development"
+# ]
+# }
+# })
+# a.create_result()
