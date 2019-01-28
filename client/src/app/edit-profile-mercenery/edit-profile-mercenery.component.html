@@ -20,7 +20,7 @@
             <!--</form>-->
         </div>
         <div class="col-4">
-            <div *ngIf="current == 'job_title'">
+            <div *ngIf="current == 'user_class'">
                 <h3>Choose your character</h3>
                 <ngb-carousel data-interval="false" style="width: 18rem;" (slide)="onSlide($event)">
                     <ng-template ngbSlide *ngFor="let slide of job_title">

@@ -1,6 +1,14 @@
+import os,sys,time, json
+
 class Map2reward(object):
     
-    def __init__(self, map_file, skills):
+    def __init__(self, map_file):
+        with open('{}/jsons/skill_tree.json'.format(os.getcwd())) as r:
+            skills = json.load(r)
+            # with open('{}/static/yamls/feedback.json'.format(os.getcwd())) as f:
+            #     feedback = json.load(f)
+            print skills
+
         self.paths_list = self.map2goals(map_file)
         self.rqr_skills_dict = self.goals2skills(self.paths_list, skills)
         self.reward = self.skills2reward(skills=self.rqr_skills_dict, map_file=map_file)
@@ -81,3 +89,5 @@ class Map2reward(object):
         reward =  required_days * reward_per_day * time_factor
 
         return reward
+
+a = Map2reward('')

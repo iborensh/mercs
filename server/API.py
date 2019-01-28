@@ -57,6 +57,7 @@ def projects(id=None):
             return jsonify(db_functions.get_all_projects(id))
     elif request.method == 'POST':
         data = json.loads(request.data, strict=False)
+        print data
         return db_functions.insert_project(data)
     elif request.method == 'PUT':
         data = json.loads(request.data, strict=False)

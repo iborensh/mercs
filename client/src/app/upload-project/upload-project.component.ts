@@ -95,7 +95,7 @@ export class UploadProjectComponent implements OnInit {
 
 		]
 	},
-	{"label": "Time", "value": "time", "next": "", "multiple": true, "options":
+	{"label": "Time", "value": "time", "next": "finish", "multiple": true, "options":
 
 		[
 			{"label": "Week", "value": "a week", "father":"", "explanation": ""},

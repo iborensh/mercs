@@ -26,10 +26,10 @@ export class EditProfileMerceneryComponent implements OnInit {
     }
     messageForm: FormGroup;
     mercSkills = {};
-    current = 'job_title';
+    current = 'user_class';
     public isCollapsed = false;
     skills = [
-        {"label": "User class", "value": "user class", "percent": "12%"},
+        {"label": "User class", "value": "user_class", "percent": "12%"},
         {"label": "Education", "value": "education", "percent": "30%"},
         {"label": "Online courses", "value": "online courses", "percent": "55%"},
         {"label": "Work Experience", "value": "work experience", "percent": "12%"},
