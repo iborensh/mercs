@@ -69,7 +69,7 @@ class Mercenery(object):
         usr_gained_skills={}
 
         # calculate the seniority factor
-        seniority_factor_dict = {"junior": 1, "senior": 1.1, "architect": 1.3, "tech lead": 1.2, "people manager": 1.1}
+        seniority_factor_dict = {"junior": 1, "senior": 1.1, "tech lead": 1.2, "people manager": 1.1}
         seniority_factor = seniority_factor_dict[usr_seniority]
 
         # check if the company is in the top of the field, if yes - factorize
@@ -92,7 +92,7 @@ class Mercenery(object):
         # factorize the base gained skills
         for k in base_usr_gained_skills:     
             usr_gained_skills[k] = base_usr_gained_skills[k] * company_factor * seniority_factor * years
-        print usr_gained_skills
+        return usr_gained_skills
 
     def add_publication(self, journal, title, issue):
         print "publication"
@@ -119,4 +119,4 @@ class Mercenery(object):
 # for testing:
 m = Mercenery()
 #m.add_education_degree(usr_class = "software developer", school="University College London", degree="bachelor", degree_subject="Computing", average=90)
-m.add_work_experience(usr_class = "software developer", usr_company = "apple", usr_title = "full stack", usr_seniority="architect",  years=3)
+m.add_work_experience(usr_class = "software developer", usr_company = "apple", usr_title = "full stack", usr_seniority="senior",  years=3)
