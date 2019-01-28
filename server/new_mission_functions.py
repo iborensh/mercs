@@ -1,17 +1,17 @@
-import os,sys,time, json
+import os, sys, time, json
 
 class Map2reward(object):
     
     def __init__(self, map_file):
-        with open('{}/server/jsons/skill_tree.json'.format(os.getcwd())) as r:
-            skills = json.load(r)
-            # with open('{}/static/yamls/feedback.json'.format(os.getcwd())) as f:
-            #     feedback = json.load(f)
-
-        self.paths_list = self.map2goals(map_file)
-        self.rqr_skills_dict = self.goals2skills(self.paths_list, skills)
-        self.reward = self.skills2reward(skills=self.rqr_skills_dict, map_file=map_file)
+        self.map_file = map_file
         
+    def calculate(self):
+        with open('{}/jsons/skill_tree.json'.format(os.getcwd())) as r:
+            skills = json.load(r)
+        self.paths_list = self.map2goals(self.map_file)
+        self.rqr_skills_dict = self.goals2skills(self.paths_list, skills)
+        self.reward = self.skills2reward(skills=self.rqr_skills_dict, map_file=self.map_file)
+        return {'paths': self.paths_list, 'skills': self.rqr_skills_dict, 'reward': self.reward, 'status': 'medium'}
 
     def create_result(self, debug_flag=0):
         if debug_flag == 1:
@@ -91,30 +91,30 @@ class Map2reward(object):
 
         return reward
 
-a = Map2reward({
-"status" : "started",
-"name" : "mosh",
-"content" : {
-"language" : [
-"german"
-],
-"field" : [
-"entertainment"
-],
-"time" : [
-"two weeks",
-],
-"attributes" : [
-"statistics",
-"physics"
-],
-"outcome" : [
-"blog",
-"website"
-],
-"type" : [
-"development"
-]
-}
-})
-a.create_result()
+# a = Map2reward({
+# "status" : "started",
+# "name" : "mosh",
+# "content" : {
+# "language" : [
+# "german"
+# ],
+# "field" : [
+# "entertainment"
+# ],
+# "time" : [
+# "two weeks",
+# ],
+# "attributes" : [
+# "statistics",
+# "physics"
+# ],
+# "outcome" : [
+# "blog",
+# "website"
+# ],
+# "type" : [
+# "development"
+# ]
+# }
+# })
+# a.create_result()
