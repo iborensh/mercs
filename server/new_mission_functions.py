@@ -6,16 +6,18 @@ class Map2reward(object):
         self.map_file = map_file
         
     def calculate(self):
-        with open('{}/jsons/skill_tree.json'.format(os.getcwd())) as r:
+        with open('{}/server/jsons/skill_tree.json'.format(os.getcwd())) as r:
             skills = json.load(r)
         self.paths_list = self.map2goals(self.map_file)
         self.rqr_skills_dict = self.goals2skills(self.paths_list, skills)
         self.reward = self.skills2reward(skills=self.rqr_skills_dict, map_file=self.map_file)
         return {'paths': self.paths_list, 'skills': self.rqr_skills_dict, 'reward': self.reward, 'status': 'medium'}
 
-    def create_result(self, debug_flag=0):
+    def create_result(self, debug_flag=1):
+        self.calculate()
         if debug_flag == 1:
-            print "paths_list: ", self.paths_list, "\nreqr_skills_dict: ", self.rqr_skills_dict , "\nreward: ", self.reward
+            print "paths_list: ", self.paths_list, "\nreqr_skills_dict: ", self.rqr_skills_dict, "\nreward: ", self.reward
+
         return {"paths_list": self.paths_list, "reqr_skills_dict": self.rqr_skills_dict , "reward": self.reward}
 
     def map2goals(self, map_file):
@@ -27,7 +29,6 @@ class Map2reward(object):
                     for attributes in map_file['content']['attributes']:
                         p = [m_type, field, outcome, attributes]
                         paths_list.append(p)
-
         return paths_list
 
     def goals2skills(self, goals,skill_list, debug_flag=0):
@@ -82,7 +83,7 @@ class Map2reward(object):
         usr_time_input = usr_options_dict[map_file['content']['time'][0]]
     
         #calculate the factor between actually required to what the user wants:
-        time_factor = required_days/usr_time_input
+        time_factor = required_days/float(usr_time_input)
     
         #calculate reward
         if debug_flag == 1:
@@ -91,30 +92,30 @@ class Map2reward(object):
 
         return reward
 
-# a = Map2reward({
-# "status" : "started",
-# "name" : "mosh",
-# "content" : {
-# "language" : [
-# "german"
-# ],
-# "field" : [
-# "entertainment"
-# ],
-# "time" : [
-# "two weeks",
-# ],
-# "attributes" : [
-# "statistics",
-# "physics"
-# ],
-# "outcome" : [
-# "blog",
-# "website"
-# ],
-# "type" : [
-# "development"
-# ]
-# }
-# })
-# a.create_result()
+a = Map2reward({
+"status" : "started",
+"name" : "mosh",
+"content" : {
+"language" : [
+"german"
+],
+"field" : [
+"entertainment"
+],
+"time" : [
+"two weeks",
+],
+"attributes" : [
+"statistics",
+"physics"
+],
+"outcome" : [
+"blog",
+"website"
+],
+"type" : [
+"development"
+]
+}
+})
+a.create_result()
