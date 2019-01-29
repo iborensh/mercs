@@ -15,6 +15,7 @@ class Mercenery(object):
 
     # GET ACHIEVMENTS FROM MERC
     def add_education_degree(self, usr_class, school, degree, degree_subject, average):
+        average = float(average)
         print school, degree, degree_subject, str(average)
         # calculate university ranking factor
         
@@ -61,7 +62,7 @@ class Mercenery(object):
         # usr_company: company name
         # usr_title: work title name
         # usr_seniority: the seniority at the job - junior, senior, architect, tech lead, people manager
-
+        years = float(years)
         print usr_company, usr_title, years, usr_seniority
 
         company_factor = 1
@@ -118,5 +119,5 @@ class Mercenery(object):
 
 # for testing:
 m = Mercenery()
-#m.add_education_degree(usr_class = "software developer", school="University College London", degree="bachelor", degree_subject="Computing", average=90)
-m.add_work_experience(usr_class = "software developer", usr_company = "apple", usr_title = "full stack", usr_seniority="senior",  years=3)
+m.add_education_degree(usr_class = "software developer", school="University College London", degree="bachelor", degree_subject="Computing", average=90)
+# m.add_work_experience(usr_class = "software developer", usr_company = "apple", usr_title = "full stack", usr_seniority="architect",  years=3)

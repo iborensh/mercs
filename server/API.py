@@ -133,10 +133,15 @@ def merc_profile(user_id):
     elif request.method == 'PUT':
         data = json.loads(request.data, strict=False)
         education = data['education']
+        work = data['work_experience']
         merc = Mercenery()
         ranking = merc.add_education_degree(education[0]['chosen'], education[1]['chosen'], education[2]['chosen'],
                                        education[3]['chosen'], education[4]['chosen'])
+        ranking2 = merc.add_work_experience(work[0]['chosen'], work[1]['chosen'], work[2]['chosen'],
+                                            work[3]['chosen'], work[4]['chosen'])
+        print "ranking2    ===== ", ranking2
         # return db_functions.update_band(user_id, data)
+        ranking['work_ranking'] = ranking2
         return jsonify(ranking)
     elif request.method == 'DELETE':
         pass
