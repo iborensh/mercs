@@ -1,31 +1,13 @@
 [{"label": "Software development", "value": "SD", "options":
-		[{"label": "Database", "value": "db", "options":
-            [
-                {"label": "SQL", "value": "sql", "website": "coursera"}
-            ]},
-        {"label": "Mobile", "value": "mobile", "options":
-            [
-           ]},
-        {"label": "Networks", "value": "networks", "options":
-            [
-            ]},
-        {"label": "Web", "value": "web", "options":
-            [
-            ]},
-        {"label": "UI" , "value": "UI", "options":
-            [
-           ]},
-        {"label": "OS", "value": "os", "options":
-            [
-            ]},
-        {"label": "Arch", "value": "arch", "options":
-            [
-            ]},
-        {"label": "Coding", "value": "coding", "options":
-            [
-
-           ]},
-        {"label": "Quanitative", "value": "quantitative", "options":
+		[{"label": "Database", "value": "db", "options": []},
+        {"label": "Mobile", "value": "mobile", "options": []},
+        {"label": "Networks", "value": "networks", "options": []},
+        {"label": "Web", "value": "web", "options": []},
+        {"label": "UI" , "value": "UI", "options": []},
+        {"label": "OS", "value": "os", "options": []},
+        {"label": "Arch", "value": "arch", "options": []},
+        {"label": "Coding", "value": "coding", "options": []},
+        {"label": "Quantitative", "value": "quantitative", "options":
             [
               {
                 "label": "Algorithms",
@@ -35,32 +17,21 @@
                 "type": "specialization",
                 "length": 170,
                 "rating": 4.8,
+                "level": "intermediate",
                 "skills": {"algorithms": 0.8 , "sw_general": 0.2}
-              }
-
-            ]},
-        {"label": "QA", "value": "qa", "options":
-            [
-            ]}
-    	]},
+              }]},
+        {"label": "QA", "value": "qa", "options": []}
+    	]
+  },
     {"label": "Hardware development", "value": "hd", "father":"", "options":
-        [{"label": "Architectures", "value": "architectures", "options":
-            [
-            ]},
-        {"label": "HW SW", "value": "hw design", "options":
-            [
-             ]},
-        {"label": "Sensors", "value": "sensors", "options":
-            [
-
-            ]},
-        {"label": "Testing", "value": "testing", "options":
-            [
-
-            ]}
+        [
+          {"label": "Architecture", "value": "architecture", "options": []},
+          {"label": "HW SW", "value": "hw design", "options": []},
+          {"label": "Sensors", "value": "sensors", "options": []},
+          {"label": "Testing", "value": "testing", "options": []}
         ]},
     {"label": "Analytics","value":"analytics", "options":
-        [{"label": "Quantitative", "value": "auantitative", "options":
+        [{"label": "Quantitative", "value": "quantitative", "options":
             [
 
             ]},
@@ -78,23 +49,15 @@
                 "type": "specialization",
                 "length": 130,
                 "rating": 4.8,
+                "level": "intermediate",
                 "skills": {"deep learning": 0.6 , "sw_general": 0.1}
               }
-
             ]}
         ]},
     {"label": "Design","value": "design", "options":
-        [{"label": "Design", "value": "design", "options":
-            [
-            ]},
-        {"label": "Art", "value": "art", "options":
-            [
-
-            ]},
-        {"label": "Tools", "value": "tools", "options":
-            [
-
-	    ]}
+        [{"label": "Design", "value": "design", "options": []},
+        {"label": "Art", "value": "art", "options": []},
+        {"label": "Tools", "value": "tools", "options": []}
     ]}
 
 

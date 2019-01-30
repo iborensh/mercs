@@ -5,6 +5,7 @@ from degree_binning import Degree
 from companies_ranking import CompaniesRanking
 from work_titles_binning import WorkTitlesBinning
 from work_titles_skills import WorkTitlesSkills
+import os, json, sys, time
 
 
 
@@ -48,8 +49,49 @@ class Mercenery(object):
         print usr_gained_skills
         return usr_gained_skills
 
-    def add_education_course(self, website, course, certification_url):
-        print "course"
+    def add_education_course(self, usr_class, usr_website, usr_course, certification_url, course_length, course_lvl):
+
+    # usr_website: name of the course site
+    # usr_course: name of the course (need to do fuzzy search here)
+    # certification url: link to the certificate
+    # course length: a matching factor in case there is no record of such course, in days
+    # course lvl: beginner, intemidiate, advanced
+
+        with open('{}/jsons/online_courses.json'.format(os.getcwd())) as s:
+            courses = json.load(s)
+
+        usr_gained_skills = {}
+
+        print usr_website, usr_course, certification_url
+        identified_class = 0
+        for course_area in courses:
+            for field_dict in course_area['options']:
+                for course in field_dict['options']:
+                    if (usr_course == course['value']) and (usr_website == course['website']):
+                        identified_class = 1
+                        #need to add url for validation
+                        print usr_course, course['skills']
+                        usr_gained_skills = course['skills']
+
+        # handling of a case where the course is not listed in our course list
+        if(not identified_class): # we do not have record of such course
+            course_lvl_factor = 1
+            if course_lvl == 'beginner':
+                course_lvl_factor = 0.8
+            if course_lvl == 'intermediate':
+                course_lvl_factor = 1
+            if course_lvl == 'advanced':
+                course_lvl_factor = 1.1
+
+            default_course_skills = {"software development": {"sw_general": 0.02},
+                                    "hardware development": {"hw_general": 0.02},
+                                    "analytics": {"analytics_general": 0.02},
+                                    "design": {"design_general": 0.02}
+                                    }
+            usr_gained_skills[default_course_skills[usr_class].keys()[0]] = default_course_skills[usr_class].values()[0] * float(course_length) * course_lvl_factor
+
+        print usr_gained_skills
+        return usr_gained_skills
 
     def add_patent(self, patent_name, patent_id):
         print "patent"
@@ -119,5 +161,6 @@ class Mercenery(object):
 
 # for testing:
 m = Mercenery()
-m.add_education_degree(usr_class = "software developer", school="University College London", degree="bachelor", degree_subject="Computing", average=90)
+#m.add_education_degree(usr_class = "software developer", school="University College London", degree="bachelor", degree_subject="Computing", average=90)
 # m.add_work_experience(usr_class = "software developer", usr_company = "apple", usr_title = "full stack", usr_seniority="architect",  years=3)
+m.add_education_course(usr_class = "software development", usr_website = "coursera", usr_course = "algorithms", certification_url='www.', course_length=3, course_lvl='beginner')

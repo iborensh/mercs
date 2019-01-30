@@ -6,7 +6,7 @@ class Map2reward(object):
         self.map_file = map_file
         
     def calculate(self):
-        with open('{}/server/jsons/skill_tree.json'.format(os.getcwd())) as r:
+        with open('{}/jsons/skill_tree.json'.format(os.getcwd())) as r:
             skills = json.load(r)
         self.paths_list = self.map2goals(self.map_file)
         self.rqr_skills_dict = self.goals2skills(self.paths_list, skills)
