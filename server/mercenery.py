@@ -56,6 +56,7 @@ class Mercenery(object):
     # certification url: link to the certificate
     # course length: a matching factor in case there is no record of such course, in days
     # course lvl: beginner, intemidiate, advanced
+        print os.getcwd()
 
         with open('{}/jsons/online_courses.json'.format(os.getcwd())) as s:
             courses = json.load(s)
@@ -90,7 +91,7 @@ class Mercenery(object):
                                     }
             usr_gained_skills[default_course_skills[usr_class].keys()[0]] = default_course_skills[usr_class].values()[0] * float(course_length) * course_lvl_factor
 
-        print usr_gained_skills
+        # print usr_gained_skills
         return usr_gained_skills
 
     def add_patent(self, patent_name, patent_id):
@@ -144,7 +145,7 @@ class Mercenery(object):
         print "award"
 
     # ADD ACHIEVEMENTS TO Q
-    def achievment2queue(self, usr_input_type, **kwargs):
+    def achievement2queue(self, usr_input_type, **kwargs):
 
         input_types = {"degree": self.add_education_degree,
                           "course": self.add_education_course,
@@ -162,5 +163,5 @@ class Mercenery(object):
 # for testing:
 m = Mercenery()
 #m.add_education_degree(usr_class = "software developer", school="University College London", degree="bachelor", degree_subject="Computing", average=90)
-# m.add_work_experience(usr_class = "software developer", usr_company = "apple", usr_title = "full stack", usr_seniority="architect",  years=3)
+#m.add_work_experience(usr_class = "software developer", usr_company = "apple", usr_title = "full stack", usr_seniority="senior",  years=3)
 m.add_education_course(usr_class = "software development", usr_website = "coursera", usr_course = "algorithms", certification_url='www.', course_length=3, course_lvl='beginner')
