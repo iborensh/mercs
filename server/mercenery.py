@@ -162,6 +162,6 @@ class Mercenery(object):
 
 # for testing:
 m = Mercenery()
-#m.add_education_degree(usr_class = "software developer", school="University College London", degree="bachelor", degree_subject="Computing", average=90)
-#m.add_work_experience(usr_class = "software developer", usr_company = "apple", usr_title = "full stack", usr_seniority="senior",  years=3)
+m.add_education_degree(usr_class = "software developer", school="University College London", degree="bachelor", degree_subject="Computing", average=90)
+m.add_work_experience(usr_class = "software developer", usr_company = "apple", usr_title = "full stack", usr_seniority="senior",  years=3)
 m.add_education_course(usr_class = "software development", usr_website = "coursera", usr_course = "algorithms", certification_url='www.', course_length=3, course_lvl='beginner')

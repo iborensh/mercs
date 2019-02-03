@@ -1,4 +1,5 @@
-[{"label": "Software development", "value": "SD", "options":
+[
+    {"label": "Software development", "value": "SD", "options":
 		[{"label": "Database", "value": "db", "options": []},
         {"label": "Mobile", "value": "mobile", "options": []},
         {"label": "Networks", "value": "networks", "options": []},
@@ -59,14 +60,4 @@
         {"label": "Art", "value": "art", "options": []},
         {"label": "Tools", "value": "tools", "options": []}
     ]}
-
-
-
-
-
-
-
-
-
-
 ]

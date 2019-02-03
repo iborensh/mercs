@@ -1,0 +1,19 @@
+[
+    {"skill": "sql", "usr_class": "software development", "sub_class": "database", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "no_sql", "usr_class": "software development", "sub_class": "database", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "big_data", "usr_class": "software development", "sub_class": "database", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "sw_general", "usr_class": "software development", "sub_class": "database", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "ios", "usr_class": "software development", "sub_class": "mobile", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "android", "usr_class": "software development", "sub_class": "mobile", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "sw_General", "usr_class": "software development", "sub_class": "mobile", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "administration", "usr_class": "software development", "sub_class": "Networks", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "security", "usr_class": "software development", "sub_class": "Networks", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "switches", "usr_class": "software development", "sub_class": "Networks", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "routers", "usr_class": "software development", "sub_class": "Networks", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "vpn", "usr_class": "software development", "sub_class": "Networks", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "firewall", "usr_class": "software development", "sub_class": "Networks", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "ip", "usr_class": "software development", "sub_class": "Networks", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "voip", "usr_class": "software development", "sub_class": "Networks", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "data centers", "usr_class": "software development", "sub_class": "Networks", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
+    {"skill": "sw_general", "usr_class": "software development", "sub_class": "Networks", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]}
+]
