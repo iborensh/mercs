@@ -1,30 +1,40 @@
 <section>
     <!--<div class="mainimg" [ngStyle]="{background: 'url(/assets/images/merc2.jpeg/) no-repeat'}">-->
     <div style="background: url('/assets/images/merc6.jpg/') no-repeat; height: 450px">
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="text-center" style="color: white">
             <p style="font-size: 70px;">mercs.com</p>
             <h1>Hire yourself a mercenary band</h1>
             <br>
         </div>
     </div>
-<br>
+    <br>
 
     <div class="container-fluid">
         <div class="row">
             <div *ngFor="let button of buttons" class="col-sm-3">
-                <div class="card" style="cursor: pointer; border: none;">
-                    <!--<div class="container">-->
-                    <img routerLink="{{button.link}}" class="card-img-top img-fluid" style="max-height: 200px" src="/assets/images/{{button.image}}" alt="Card image cap">
-                    <div class="bottom-left"><button style="float: left; background-color: lightslategray; border: none">{{button.label}}</button><br><br><h6 style="color: white">{{button.description}}</h6></div>
-                    <!--</div>-->
+                <div class="card" style="cursor: pointer; border: none; background-color: #394264">
+                    <div class="card-body">
+                        <div class="card-body">
+                            <h4 class="card-title">{{button.label}}</h4>
+                            <p class="card-text">{{button.description}}</p>
+                            <a routerLink="{{button.link}}" class="btn btn-outline-info card2">{{button.label}}</a>
+                        </div>
+                        <!--<div class="container">-->
+                        <!--<img routerLink="{{button.link}}" class="card-img-top img-fluid" style="max-height: 200px" src="/assets/images/{{button.image}}" alt="Card image cap">-->
+                        <!--<div class="bottom-left">-->
+                            <!--<button style="float: left; background-color: #50597b; border: none">{{button.label}}-->
+                            <!--</button>-->
+                            <!--<br><br><h6 style="color: white">{{button.description}}</h6></div>-->
+                        <!--</div>-->
                         <!--<div class="card-block">-->
                         <!--<h4 class="card-title" routerLink="{{button.link}}">{{button.label}}</h4>-->
-                    <!--</div>-->
+                        <!--</div>-->
+                    </div>
                 </div>
             </div>
             <br>
@@ -33,20 +43,20 @@
 
 
     <!--<div class="row">-->
-        <!--<div class="col-xl-3 text-xs-center">-->
-        <!--</div>-->
-        <!--<div class="col-xl-3 text-xs-center">-->
-            <!--<img src="/assets/images/knight.jpg" alt="">-->
-        <!--</div>-->
-        <!--<div class="col-xl-3 text-xs-center">-->
-            <!--<div class="card mb-3" style="border: #2b81af" *ngFor="let button of buttons">-->
-                <!--<br>-->
-                <!--<br>-->
-                <!--<button type="button" routerLink="{{button.link}}" class="{{button.class}}">{{button.label}}</button>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-xl-3 text-xs-center">-->
-        <!--</div>-->
+    <!--<div class="col-xl-3 text-xs-center">-->
+    <!--</div>-->
+    <!--<div class="col-xl-3 text-xs-center">-->
+    <!--<img src="/assets/images/knight.jpg" alt="">-->
+    <!--</div>-->
+    <!--<div class="col-xl-3 text-xs-center">-->
+    <!--<div class="card mb-3" style="border: #2b81af" *ngFor="let button of buttons">-->
+    <!--<br>-->
+    <!--<br>-->
+    <!--<button type="button" routerLink="{{button.link}}" class="{{button.class}}">{{button.label}}</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-xl-3 text-xs-center">-->
+    <!--</div>-->
     <!--</div>-->
 
 </section>

@@ -33,7 +33,7 @@ export class EditProfileMerceneryComponent implements OnInit {
         {"label": "User class", "value": "user_class", "percent": "12%"},
         {"label": "Education", "value": "education", "percent": "30%"},
         {"label": "Work Experience", "value": "work_experience", "percent": "12%"},
-        {"label": "Online courses", "value": "online courses", "percent": "55%"},
+        {"label": "Online courses", "value": "online_courses", "percent": "55%"},
         {"label": "Projects", "value": "projects", "percent": "99%"}];
 
     skillOptions = {
@@ -56,6 +56,12 @@ export class EditProfileMerceneryComponent implements OnInit {
             {"label": "Job title3", "value": "job_title", "percent": "12%"},
             {"label": "Education3", "value": "education", "percent": "30%"},
             {"label": "Certificate3", "value": "certificate", "percent": "55%"}],
+        "online_courses": [
+            {"label": "course type", "value": "course", "percent": "12%", "chosen": ""},
+            {"label": "Web", "value": "web", "percent": "30%", "chosen": ""},
+            {"label": "Hours", "value": "hours", "percent": "30%", "chosen": ""},
+            {"label": "Link to certificate", "value": "certificate_link", "percent": "55%", "chosen": ""}
+        ],
         "work_experience": [
             {"label": "usr_class", "value": "usr_class", "percent": "12%", "chosen": ""},
             {"label": "company", "value": "company", "percent": "30%", "chosen": ""},

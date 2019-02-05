@@ -2,13 +2,16 @@
     <br>
 
     <div class="row">
-        <div class="col-4">
+        <div class="col-1"></div>
+        <div class="col-3">
             <!--<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">-->
             <!--<div class="form-group row" *ngFor="let skill of skills">-->
-            <div *ngFor="let skill of skills">
-                <button (click)="current = skill.value" class="btn btn-outline-info">{{skill.label}}</button>
-                <br>
-                <br>
+            <div class="list-group card2">
+                <!--<div >-->
+                    <button class="list-group-item list-group-item-action card2" *ngFor="let skill of skills" (click)="current = skill.value" >{{skill.label}}</button>
+                    <!--<br>-->
+                    <!--<br>-->
+                <!--</div>-->
             </div>
             <!--<label for={{skill.value}} class="col-sm-4 col-form-label col-form-label-lg">{{skill.label}}</label>-->
             <!--<div class="col-sm-10">-->
@@ -20,38 +23,38 @@
             <!--</form>-->
         </div>
         <div class="col-4">
-            <div *ngIf="current == 'user_class'">
+            <div class="card card2" *ngIf="current == 'user_class'">
                 <h3>Choose your character</h3>
-                <!--<ngb-carousel data-interval="false" style="width: 18rem;" (slide)="onSlide($event)">-->
-                    <!--<ng-template ngbSlide *ngFor="let slide of job_title">-->
-                        <!--<img src={{slide.src}} style="width: 18rem;">-->
-                        <!--<div class="carousel-caption">-->
-                            <!--<h6>{{slide.label}}</h6>-->
-                            <!--<p>{{slide.explanation}}</p>-->
-                        <!--</div>-->
-                    <!--</ng-template>-->
-                <!--</ngb-carousel>-->
-                <img src="assets/images/software.jpeg" style="max-height: 100px;">
-                <img src="assets/images/hardware.jpeg" style="max-height: 100px;">
-                <img src="assets/images/web_designer.png" style="max-height: 100px;">
+                <ngb-carousel data-interval="false" style="width: 18rem;" (slide)="onSlide($event)">
+                <ng-template ngbSlide *ngFor="let slide of job_title">
+                <img src={{slide.src}} style="width: 18rem;">
+                <div class="carousel-caption">
+                <h6>{{slide.label}}</h6>
+                <p>{{slide.explanation}}</p>
+                </div>
+                </ng-template>
+                </ngb-carousel>
+                <!--<img src="assets/images/software.jpeg" style="max-height: 100px;">-->
+                <!--<img src="assets/images/hardware.jpeg" style="max-height: 100px;">-->
+                <!--<img src="assets/images/web_designer.png" style="max-height: 100px;">-->
             </div>
-            <div class="card" *ngIf="current !== 'job_title'">
+            <div class="card card2" *ngIf="current !== 'job_title'">
                 <!--<div class="card-header">-->
-                    <!--<form class="example-form">-->
-                        <!--<mat-form-field class="example-full-width">-->
-                            <!--<input type="text" placeholder="Pick one" aria-label="Number" matInput-->
-                                   <!--[formControl]="myControl"-->
-                                   <!--[matAutocomplete]="auto">-->
-                            <!--<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">-->
-                                <!--<mat-option *ngFor="let option of filteredOptions | async" [value]="option">-->
-                                    <!--{{option}}-->
-                                <!--</mat-option>-->
-                            <!--</mat-autocomplete>-->
-                        <!--</mat-form-field>-->
-                    <!--</form>-->
+                <!--<form class="example-form">-->
+                <!--<mat-form-field class="example-full-width">-->
+                <!--<input type="text" placeholder="Pick one" aria-label="Number" matInput-->
+                <!--[formControl]="myControl"-->
+                <!--[matAutocomplete]="auto">-->
+                <!--<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">-->
+                <!--<mat-option *ngFor="let option of filteredOptions | async" [value]="option">-->
+                <!--{{option}}-->
+                <!--</mat-option>-->
+                <!--</mat-autocomplete>-->
+                <!--</mat-form-field>-->
+                <!--</form>-->
                 <!--</div>-->
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" *ngFor="let skill of skillOptions[current]">{{skill.label}}
+                    <li class="list-group-item card2" *ngFor="let skill of skillOptions[current]">{{skill.label}}
                         <input *ngIf="(!(skill.hasOwnProperty('options')))" [(ngModel)]="skill.chosen">
                         <mat-form-field *ngIf="(skill.hasOwnProperty('options'))">
                             <mat-select [(ngModel)]="skill.chosen">
@@ -71,10 +74,12 @@
                 <!--</div>-->
 
             </div>
-            <button (click)="saveInDb()" class="btn btn-outline-success">Finish</button>
+
         </div>
-        <div class="col-4">
-            <div [innerHTML]="mercSkills | json"></div>
+        <div class="col-3">
+            <div class="card card2">
+                <button (click)="saveInDb()" class="btn btn-outline-info">Finish</button>
+            </div>
         </div>
     </div>
     <!--<div type="submit" class="btn rounded-btn"><h1>edit skills</h1></div>-->
