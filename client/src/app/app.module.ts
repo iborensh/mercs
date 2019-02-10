@@ -33,6 +33,7 @@ import {MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatButtonModu
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import 'hammerjs';
+import { AbovenavComponent } from './abovenav/abovenav.component';
 
 
 // AoT requires an exported function for factories
@@ -74,7 +75,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     ],
     declarations: [AppComponent, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent,
         UploadProjectComponent, ClickColorDirective, SearchProjectComponent, EditProjectComponent, MyProjectsWarlordComponent,
-        MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent, ChatComponent, SelectBandComponent, BandProfileComponent, ProjectManagerComponent],
+        MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent, ChatComponent, SelectBandComponent, BandProfileComponent, ProjectManagerComponent, AbovenavComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })

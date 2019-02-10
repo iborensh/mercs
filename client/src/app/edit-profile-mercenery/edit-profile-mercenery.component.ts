@@ -78,6 +78,14 @@ export class EditProfileMerceneryComponent implements OnInit {
         ]
     };
 
+    skills_que = {
+        "user_class": [],
+        "education": [],
+        "work_experience": [],
+        "online_courses": [],
+        "projects": []
+    };
+
     job_title = [
         {
             "src": "assets/images/logo.png",
@@ -117,6 +125,17 @@ export class EditProfileMerceneryComponent implements OnInit {
 
         console.log(this.messageForm.value);
         // this.router.navigate(['']);
+    }
+
+    addToList(type){
+        console.log(this.skillOptions);
+        this.skills_que[type] = this.skills_que[type].concat(this.skillOptions[type]);
+        console.log(this.skills_que);
+        _.forEach(this.skillOptions[type], function(eee) {
+            eee['chosen'] = "";
+
+    });
+        console.log(this.skills_que)
     }
 
     saveInDb() {
