@@ -127,15 +127,25 @@ export class EditProfileMerceneryComponent implements OnInit {
         // this.router.navigate(['']);
     }
 
-    addToList(type){
+    addToList(type) {
         console.log(this.skillOptions);
-        this.skills_que[type] = this.skills_que[type].concat(this.skillOptions[type]);
+        // let temp = this.skillOptions[type];
+        // this.skills_que[type].push(...this.skillOptions[type]);
+        // this.skills_que[type] = this.skills_que[type].concat(temp);
         console.log(this.skills_que);
-        _.forEach(this.skillOptions[type], function(eee) {
-            eee['chosen'] = "";
+        let userId = _.get(this.dataService.UserData, '_id', '');
+        console.log(userId);
+        this.http.put('/api/merc-profile/' + userId, {"field": type, "chosen": this.skillOptions[type]}).subscribe(data => {
+            console.log(data);
+            this.mercSkills = data;
+            // this.router.navigate(['login']);
+        })
 
-    });
-        console.log(this.skills_que)
+        //     _.forEach(this.skillOptions[type], function(eee) {
+        //         eee['chosen'] = "";
+        //
+        // });
+        //     console.log(this.skills_que)
     }
 
     saveInDb() {

@@ -1,4 +1,5 @@
-[{"label": "Software development", "value": "SD", "options":
+[
+{"label": "Software development", "value": "SD", "options":
 		[{"label": "Database", "value": "db", "options":
             [
                 {"label": "SQL", "value": "sql", "max_rank": 100, "my_rank": 0, "base_cost": 3,  "explanation": "", "required_by":[]},
@@ -160,6 +161,7 @@
     {"label": "Design","value": "design", "options":
         [{"label": "Design", "value": "design", "options":
             [
+                {"label": "Design_general", "value": "design_general", "max_rank": 100, "my_rank": 0, "base_cost": 3, "explanation": "", "required_by":[]}
             ]},
         {"label": "Art", "value": "art", "options":
             [

@@ -40,6 +40,10 @@ class DbHandling(object):
         else:
             return projects
 
+    def get_user_by_id(self, user_id):
+        user = self.db_users.find({'_id': ObjectId(user_id)}, {'_id': False})
+        return user
+
     def insert_project(self, json_settings):
         """
         insert new project
@@ -73,7 +77,7 @@ class DbHandling(object):
             return self.get_project(id, collection=True)
         return jsonify({'_id': 'already_exist'})
 
-    def update_user(self, project_id, data):
+    def update_user(self, user_id, data):
         """
         update user by id
         :param project_id:
@@ -81,8 +85,8 @@ class DbHandling(object):
         :return:
         """
         data = json.loads(json.dumps(data))
-        ans = self.db_users.update({'_id': ObjectId(project_id)}, {'$set': data}, False, True)
-        return self.get_project(project_id, collection=True)
+        ans = self.db_users.update({'_id': ObjectId(user_id)}, {'$set': data}, False, True)
+        return self.get_project(user_id, collection=True)
 
     def update_project(self, project_id, data):
         """

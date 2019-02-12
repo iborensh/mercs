@@ -109,41 +109,41 @@
                     </li>
                 </ul>
                 <button (click)="addToList(current)" class="btn btn-outline-info">Save</button>
-
-
                 <!--<label for={{skill.value}} class="col-sm-4 col-form-label col-form-label-lg">{{skill.label}}</label>-->
                 <!--<div class="col-sm-10">-->
                 <!--<input type="text" formControlName={{skill.value}} class="form-control form-control-lg"-->
                 <!--id={{skill.value}} placeholder={{skill.label}}>-->
                 <!--</div>-->
-
-
             </div>
-
         </div>
         <div class="col-4">
             <div class="card card2">
                 <button (click)="saveInDb()" class="btn btn-outline-info">Finish</button>
+                <!--<pre>{{ skillOptions | json }}</pre>-->
             </div>
-            <h6 *ngFor="let m of skillOptions | keyvalue">{{m.value}} </h6>
+            <!--<img src="assets/images/skills/hardware engineer/fpga.png" width="150px">-->
+            <!--<img src="assets/images/skills/hardware engineer/dsp.png" width="150px">-->
+            <!--<img src="assets/images/skills/hardware engineer/RTL.png" width="150px">-->
+            <!--<img src="assets/images/skills/hardware engineer/soc.png" width="150px">-->
         </div>
         <div class="col-1"></div>
     </div>
     <br>
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-6" style="min-height: 250px">
-            <div class="card card2" style="min-height: 250px">
-                <div *ngFor="let skill of skills_que | keyvalue">
-                    <!--{{skill.value}}-->
-                    <!--<button *ngIf="skill.value !== []">{{skill.key}}</button>-->
-                    <div *ngFor="let label2 of skill.value">
-                        <button
-                            *ngIf="['degree', 'school', 'company', 'title', 'site', 'title'].indexOf(label2.value) > -1">
-                            {{label2.chosen}}
-                        </button>
-                    </div>
+        <div class="col-6 card2" style="min-height: 250px">
+
+            <!--<div class="card card2" style="min-height: 250px">-->
+            <div *ngFor="let skill of skills_que | keyvalue" >
+                <button *ngIf="skill.value !== []">{{skill.key}}</button>
+
+                <div *ngFor="let label2 of skill.value" class="btn-group" role="group">
+                    <button type="button" class="btn btn-secondary"
+                        *ngIf="['degree', 'school', 'company', 'title', 'site', 'title'].indexOf(label2.value) > -1">
+                        {{label2.chosen}}
+                    </button>
                 </div>
+                <!--</div>-->
             </div>
         </div>
     </div>
