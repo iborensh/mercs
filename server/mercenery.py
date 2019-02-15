@@ -22,9 +22,10 @@ class Mercenery(object):
         
         ranking = UniversityRanking()
         if school in ranking.universityList:
-            usr_edu_rank =  ranking.universityList.index(school)
+            usr_edu_rank = ranking.universityList.index(school)
         else: 
             print "not here"
+            usr_edu_rank = 600
 
         # calculate the university ranking factor based on the usr education rank:
         if (usr_edu_rank > 0) and (usr_edu_rank <= 50):

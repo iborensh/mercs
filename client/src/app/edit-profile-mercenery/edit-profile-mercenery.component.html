@@ -68,7 +68,7 @@
         <div class="col-4">
             <div class="card card2" *ngIf="current == 'user_class'">
                 <h3>Choose your character</h3>
-                <ngb-carousel data-interval="false" style="width: 18rem;" (slide)="onSlide($event)">
+                <ngb-carousel data-interval="false" style="width: 18rem; margin: auto;" (slide)="onSlide($event)">
                     <ng-template ngbSlide *ngFor="let slide of job_title">
                         <img src={{slide.src}} style="width: 18rem;">
                         <div class="carousel-caption">
@@ -121,6 +121,13 @@
                 <button (click)="saveInDb()" class="btn btn-outline-info">Finish</button>
                 <!--<pre>{{ skillOptions | json }}</pre>-->
             </div>
+            <div *ngFor="let skill of mercSkills.ranking | keyvalue">
+                <h6 style="color: white"> {{skill.key}}:</h6>
+                <div class="cont">
+                    <div class="tag">{{skill.value}}</div>
+                    <img class="smallImg" src="assets/images/skills/hardware engineer/RTL.png">
+                </div>
+            </div>
             <!--<img src="assets/images/skills/hardware engineer/fpga.png" width="150px">-->
             <!--<img src="assets/images/skills/hardware engineer/dsp.png" width="150px">-->
             <!--<img src="assets/images/skills/hardware engineer/RTL.png" width="150px">-->
@@ -134,13 +141,13 @@
         <div class="col-6 card2" style="min-height: 250px">
 
             <!--<div class="card card2" style="min-height: 250px">-->
-            <div *ngFor="let skill of skills_que | keyvalue" >
-                <button *ngIf="skill.value !== []">{{skill.key}}</button>
+            <div *ngFor="let skill of mercSkills.skills | keyvalue">
+                <button class="btn btn-secondary" *ngIf="skill.value !== []">{{skill.key}}</button>
 
-                <div *ngFor="let label2 of skill.value" class="btn-group" role="group">
+                <div *ngFor="let label2 of skill.value | keyvalue" class="btn-group" role="group">
                     <button type="button" class="btn btn-secondary"
-                        *ngIf="['degree', 'school', 'company', 'title', 'site', 'title'].indexOf(label2.value) > -1">
-                        {{label2.chosen}}
+                            *ngIf="['degree', 'school', 'company', 'title', 'site', 'title'].indexOf(label2.key) > -1">
+                        {{label2.value}}
                     </button>
                 </div>
                 <!--</div>-->

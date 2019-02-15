@@ -17,6 +17,7 @@ class UniversityRanking(object):
                 "University of California San Diego",
                 "University of Wisconsin Madison",
                 "Yale University",
+                               "a",
                 "(2) Pennsylvania State University",
                 "University College London",
                 "University of Texas Austin",

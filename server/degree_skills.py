@@ -174,7 +174,7 @@ class DegreeSkills(object):
             if self.usr_class == merc_class:
                 for merc_degree_subject in self.degree_skills[merc_class]:
                     if merc_degree_subject == self.usr_degree_subject_binned:
-                        gained_skills_base =  self.degree_skills[merc_class][merc_degree_subject]
+                        gained_skills_base = self.degree_skills[merc_class][merc_degree_subject]
                         
         # give factor for the level of usr degree:
         degree_factor = 1

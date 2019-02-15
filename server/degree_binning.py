@@ -1,7 +1,7 @@
 class Degree(object):
 
     degree_bins = {"bachelor": {
-        "computer science": ["Computer Science","BCompSc", "Computing","BComp", "Computer Applications","BCA"],
+        "computer science": ["Computer Science","BCompSc", "Computing","BComp", "a", "Computer Applications","BCA"],
         "mechanical engineering" : ["mechanical engineering"],
         "electrical engineering" : ["electrical engineering"],
         "business": ["Science in Business","BSBA", "Business Administration","BBA", "Management Studies","BMS","Business","BBus", "Management and Organizational Studies","BMOS", "Business Science","BBusSc" ],

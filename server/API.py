@@ -126,7 +126,7 @@ def generate_project_data_from_upload_project():
 @app.route("/api/merc-profile/<user_id>", methods=['GET', 'POST', 'PUT', 'DELETE'])
 def merc_profile(user_id):
     if request.method == 'GET':
-        return jsonify(db_functions.get_band(user_id))
+        return jsonify(list(db_functions.get_user_by_id(user_id))[0])
     elif request.method == 'POST':
         data = json.loads(request.data, strict=False)
         return db_functions.insert_band(data)
@@ -134,7 +134,7 @@ def merc_profile(user_id):
         data = json.loads(request.data, strict=False)
         merc = Mercenery()
         ranking = getattr(merc, 'add_{}'.format(data['field']))(*[param['chosen'] for param in data['chosen']])
-        data = {"profile":{"skills":data, "ranking": ranking}}
+        data = {"profile":{"skills":{data['field']: {param['value']: param['chosen'] for param in data['chosen']}}, "ranking": ranking}}
         db_functions.update_user(user_id, data)
         return jsonify(list(db_functions.get_user_by_id(user_id))[0])
     elif request.method == 'DELETE':

@@ -4,6 +4,26 @@
     width: 100%;
 }
 
+.cont {
+    border: 1px solid #DDDDDD;
+    width: 60px;
+    height: 60px;
+    position:relative;
+}
+
+.smallImg {
+    width: 60px;
+    height: 60px;
+}
+
+.tag {
+    float: left;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    background-color: #394264;
+}
+
 .example-full-width {
     width: 100%;
 }

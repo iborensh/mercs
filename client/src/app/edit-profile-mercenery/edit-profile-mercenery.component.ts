@@ -20,6 +20,8 @@ export class EditProfileMerceneryComponent implements OnInit {
     myControl = new FormControl();
     options: string[] = ['put', 'options', 'for', 'each', 'title'];
     filteredOptions: Observable<string[]>;
+    userId2 = _.get(this.dataService.UserData, '_id', '');
+    userId = "5c2931824c3b21ef2ba44674";
     // images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
     // images = ['/assets/images/software.jpeg', '/assets/images/hardware.jpeg', '/assets/images/software.jpeg'];
     constructor(private formBuilder: FormBuilder, private http: HttpClient, public router: Router, private dataService: DataService) {
@@ -133,30 +135,23 @@ export class EditProfileMerceneryComponent implements OnInit {
         // this.skills_que[type].push(...this.skillOptions[type]);
         // this.skills_que[type] = this.skills_que[type].concat(temp);
         console.log(this.skills_que);
-        let userId = _.get(this.dataService.UserData, '_id', '');
-        console.log(userId);
-        this.http.put('/api/merc-profile/' + userId, {"field": type, "chosen": this.skillOptions[type]}).subscribe(data => {
+        this.http.put('/api/merc-profile/' + this.userId, {"field": type, "chosen": this.skillOptions[type]}).subscribe(data => {
             console.log(data);
-            this.mercSkills = data;
+            this.mercSkills = data['profile'];
             // this.router.navigate(['login']);
         })
-
-        //     _.forEach(this.skillOptions[type], function(eee) {
-        //         eee['chosen'] = "";
-        //
-        // });
-        //     console.log(this.skills_que)
     }
 
     saveInDb() {
         console.log(this.skillOptions);
-        let userId = _.get(this.dataService.UserData, '_id', '');
-        console.log(userId);
-        this.http.put('/api/merc-profile/' + userId, this.skillOptions).subscribe(data => {
-            console.log(data);
-            this.mercSkills = data;
+        // this.http.put('/api/merc-profile/' + this.userId, this.skillOptions).subscribe(data => {
+        //     console.log('------------');
+        //     console.log(data);
+        //     this.mercSkills = data['profile']['skills'];
+        //     console.log(this.mercSkills);
+        //     console.log('+++++++++++++++');
             // this.router.navigate(['login']);
-        })
+        // })
     }
 
 
