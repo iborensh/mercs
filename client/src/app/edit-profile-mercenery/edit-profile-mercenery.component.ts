@@ -21,6 +21,7 @@ export class EditProfileMerceneryComponent implements OnInit {
     options: string[] = ['put', 'options', 'for', 'each', 'title'];
     filteredOptions: Observable<string[]>;
     userId2 = _.get(this.dataService.UserData, '_id', '');
+    user = this.dataService.UserData;
     userId = "5c2931824c3b21ef2ba44674";
     // images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
     // images = ['/assets/images/software.jpeg', '/assets/images/hardware.jpeg', '/assets/images/software.jpeg'];
@@ -80,14 +81,6 @@ export class EditProfileMerceneryComponent implements OnInit {
         ]
     };
 
-    skills_que = {
-        "user_class": [],
-        "education": [],
-        "work_experience": [],
-        "online_courses": [],
-        "projects": []
-    };
-
     job_title = [
         {
             "src": "assets/images/logo.png",
@@ -100,6 +93,12 @@ export class EditProfileMerceneryComponent implements OnInit {
     ];
 
     ngOnInit() {
+        console.log(this.user);
+        let profile = _.get(this.dataService.UserData, 'profile', '');
+        console.log(profile);
+        if(profile){
+            this.mercSkills = profile;
+        }
         this.filteredOptions = this.myControl.valueChanges.pipe(
             startWith(''),
             map(value => this._filter(value))
@@ -123,18 +122,9 @@ export class EditProfileMerceneryComponent implements OnInit {
         console.log(e.current.substr(-1))
     }
 
-    onSubmit() {
-
-        console.log(this.messageForm.value);
-        // this.router.navigate(['']);
-    }
 
     addToList(type) {
         console.log(this.skillOptions);
-        // let temp = this.skillOptions[type];
-        // this.skills_que[type].push(...this.skillOptions[type]);
-        // this.skills_que[type] = this.skills_que[type].concat(temp);
-        console.log(this.skills_que);
         this.http.put('/api/merc-profile/' + this.userId, {"field": type, "chosen": this.skillOptions[type]}).subscribe(data => {
             console.log(data);
             this.mercSkills = data['profile'];

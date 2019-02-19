@@ -47,7 +47,7 @@
         <div class="col-2">
             <!--<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">-->
             <!--<div class="form-group row" *ngFor="let skill of skills">-->
-            <div class="list-group card2 rounded">
+            <div class="list-group card2 rounded" style="height: 100%">
                 <!--<div >-->
                 <button class="list-group-item list-group-item-action card2" *ngFor="let skill of skills"
                         (click)="current = skill.value">{{skill.label}}
@@ -117,19 +117,27 @@
             </div>
         </div>
         <div class="col-4">
+
+
+            <div *ngFor="let skill of mercSkills.ranking | keyvalue">
+                <h6 class=".col-md-4" style="color: white"> {{skill.key}}</h6>
+                <div class="progress">
+                    <div class="progress-bar" style="background:#394264;" [style.width.%]="skill.value*10">
+                        <div class="progress-value">{{skill.value}}</div>
+                    </div>
+                </div>
+                <!--<img src="assets/images/skills/hardware engineer/fpga.png" width="50px">-->
+                <!--<img src="assets/images/skills/hardware engineer/dsp.png" width="50px">-->
+                <!--<div class="cont">-->
+                <!--<div class="tag">{{skill.value}}</div>-->
+                <!--<img class="smallImg" src="assets/images/skills/hardware engineer/RTL.png">-->
+                <!--</div>-->
+
+            </div>
             <div class="card card2">
                 <button (click)="saveInDb()" class="btn btn-outline-info">Finish</button>
                 <!--<pre>{{ skillOptions | json }}</pre>-->
             </div>
-            <div *ngFor="let skill of mercSkills.ranking | keyvalue">
-                <h6 style="color: white"> {{skill.key}}:</h6>
-                <div class="cont">
-                    <div class="tag">{{skill.value}}</div>
-                    <img class="smallImg" src="assets/images/skills/hardware engineer/RTL.png">
-                </div>
-            </div>
-            <!--<img src="assets/images/skills/hardware engineer/fpga.png" width="150px">-->
-            <!--<img src="assets/images/skills/hardware engineer/dsp.png" width="150px">-->
             <!--<img src="assets/images/skills/hardware engineer/RTL.png" width="150px">-->
             <!--<img src="assets/images/skills/hardware engineer/soc.png" width="150px">-->
         </div>
@@ -139,7 +147,11 @@
     <div class="row">
         <div class="col-1"></div>
         <div class="col-6 card2" style="min-height: 250px">
-
+            <div class="ui-group-buttons">
+                <button type="button" class="btn btn-primary btn-sm">Small button</button>
+                <div class="or or-sm"></div>
+                <button type="button" class="btn btn-success btn-sm">Small button</button>
+            </div>
             <!--<div class="card card2" style="min-height: 250px">-->
             <div *ngFor="let skill of mercSkills.skills | keyvalue">
                 <button class="btn btn-secondary" *ngIf="skill.value !== []">{{skill.key}}</button>

@@ -17,6 +17,8 @@ class Mercenery(object):
     # GET ACHIEVMENTS FROM MERC
     def add_education(self, usr_class, school, degree, degree_subject, average):
         average = float(average)
+        if usr_class == 'a':
+            usr_class = 'software developer'
         print school, degree, degree_subject, str(average)
         # calculate university ranking factor
         
