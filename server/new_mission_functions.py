@@ -16,7 +16,7 @@ class Map2reward(object):
     def create_result(self, debug_flag=1):
         self.calculate()
         if debug_flag == 1:
-            print "paths_list: ", self.paths_list, "\nreqr_skills_dict: ", self.rqr_skills_dict, "\nreward: ", self.reward
+            pass
 
         return {"paths_list": self.paths_list, "reqr_skills_dict": self.rqr_skills_dict , "reward": self.reward}
 

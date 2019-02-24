@@ -116,7 +116,7 @@ def user_projects(user_id=None):
             return jsonify(db_functions.get_projects_by_user(user_id))
 
 @app.route("/api/generate-project", methods=['POST'])
-def generate_project_data_from_upload_project():
+def generate_project_data_fromr_upload_project():
     """
     Shahar put your functions call here
     :return:
@@ -134,9 +134,9 @@ def merc_profile(user_id):
         data = json.loads(request.data, strict=False)
         merc = Mercenery()
         ranking = getattr(merc, 'add_{}'.format(data['field']))(*[param['chosen'] for param in data['chosen']])
-        data = {"profile":{"skills":{data['field']: {param['value']: param['chosen'] for param in data['chosen']}}, "ranking": ranking}}
-        db_functions.update_user(user_id, data)
-        return jsonify(list(db_functions.get_user_by_id(user_id))[0])
+        data = {"profile":{"skills":[{data['field']: {param['value']: param['chosen'] for param in data['chosen']}, "ranking": ranking}]}}
+        user = db_functions.push_skill_to_user(user_id, data)
+        return user
     elif request.method == 'DELETE':
         pass
 

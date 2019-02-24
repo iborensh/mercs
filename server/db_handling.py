@@ -88,6 +88,26 @@ class DbHandling(object):
         ans = self.db_users.update({'_id': ObjectId(user_id)}, {'$set': data}, False, True)
         return self.get_project(user_id, collection=True)
 
+    def push_skill_to_user(self, user_id, data):
+        """
+        update user by id
+        :param project_id:
+        :param data:
+        :return:
+        """
+        data = json.loads(json.dumps(data))
+        ans = self.db_users.update({'_id': ObjectId(user_id)}, {'$push': {'profile.skills': data['profile']['skills'][0]}})
+        user = self.get_project(user_id, collection=True, jsonilize=False)
+        aggr_ranking = {}
+        for skill in user['profile']['skills']:
+            for title, rank in skill['ranking'].iteritems():
+                if title in aggr_ranking:
+                    aggr_ranking[title] += rank
+                else:
+                    aggr_ranking[title] = rank
+        ans = self.db_users.update({'_id': ObjectId(user_id)}, {'$set': {'profile.aggr_ranking': aggr_ranking}})
+        return self.get_project(user_id, collection=True)
+
     def update_project(self, project_id, data):
         """
         update project by id
@@ -100,7 +120,7 @@ class DbHandling(object):
         ans = self.db_projects.update({'_id': ObjectId(project_id)}, {'$set': data}, False, True)
         return self.get_project(project_id)
 
-    def get_project(self, project_id, collection=None):
+    def get_project(self, project_id, collection=None, jsonilize=True):
         """
         get project by id
         :param project_id:
@@ -113,6 +133,8 @@ class DbHandling(object):
             project = list(self.db_users.find({'_id': ObjectId(project_id)}))[0]
         del project['_id']
         project.update({'_id': project_id})
+        if not jsonilize:
+            return project
         return jsonify(project)
 
     def delete_project(self, project_id):

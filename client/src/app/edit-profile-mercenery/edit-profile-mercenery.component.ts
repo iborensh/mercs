@@ -20,9 +20,9 @@ export class EditProfileMerceneryComponent implements OnInit {
     myControl = new FormControl();
     options: string[] = ['put', 'options', 'for', 'each', 'title'];
     filteredOptions: Observable<string[]>;
-    userId2 = _.get(this.dataService.UserData, '_id', '');
+    userId = _.get(this.dataService.UserData, '_id', '');
     user = this.dataService.UserData;
-    userId = "5c2931824c3b21ef2ba44674";
+    // userId = "5c2931824c3b21ef2ba44674";
     // images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
     // images = ['/assets/images/software.jpeg', '/assets/images/hardware.jpeg', '/assets/images/software.jpeg'];
     constructor(private formBuilder: FormBuilder, private http: HttpClient, public router: Router, private dataService: DataService) {
@@ -35,7 +35,7 @@ export class EditProfileMerceneryComponent implements OnInit {
     skills = [
         {"label": "User class", "value": "user_class", "percent": "12%"},
         {"label": "Education", "value": "education", "percent": "30%"},
-        {"label": "Work Experience", "value": "work_experience", "percent": "12%"},
+        {"label": "Work Experience", "value": "work", "percent": "12%"},
         {"label": "Online courses", "value": "online_courses", "percent": "55%"},
         {"label": "Projects", "value": "projects", "percent": "99%"}];
 
@@ -65,7 +65,7 @@ export class EditProfileMerceneryComponent implements OnInit {
             {"label": "Hours", "value": "hours", "percent": "30%", "chosen": ""},
             {"label": "Link to certificate", "value": "certificate_link", "percent": "55%", "chosen": ""}
         ],
-        "work_experience": [
+        "work": [
             {"label": "usr_class", "value": "usr_class", "percent": "12%", "chosen": ""},
             {"label": "company", "value": "company", "percent": "30%", "chosen": ""},
             {"label": "title", "value": "title", "percent": "55%", "chosen": ""},
@@ -83,20 +83,20 @@ export class EditProfileMerceneryComponent implements OnInit {
 
     job_title = [
         {
-            "src": "assets/images/logo.png",
+            "src": "assets/images/sw3.jpg",
             "label": "Software developer",
             "value": "sw",
             "explanation": "explain here if needed"
         },
-        {"src": "assets/images/logo.png", "label": "Designer", "value": "designer", "explanation": "explain if needed"},
-        {"src": "assets/images/logo.png", "label": "Hardware developer", "value": "hw", "explanation": "what???"},
+        {"src": "assets/images/de3.jpeg", "label": "Designer", "value": "designer", "explanation": "explain if needed"},
+        {"src": "assets/images/hw5.jpg", "label": "Hardware developer", "value": "hw", "explanation": "what???"},
     ];
 
     ngOnInit() {
         console.log(this.user);
         let profile = _.get(this.dataService.UserData, 'profile', '');
         console.log(profile);
-        if(profile){
+        if (profile) {
             this.mercSkills = profile;
         }
         this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -125,7 +125,10 @@ export class EditProfileMerceneryComponent implements OnInit {
 
     addToList(type) {
         console.log(this.skillOptions);
-        this.http.put('/api/merc-profile/' + this.userId, {"field": type, "chosen": this.skillOptions[type]}).subscribe(data => {
+        this.http.put('/api/merc-profile/' + this.userId, {
+            "field": type,
+            "chosen": this.skillOptions[type]
+        }).subscribe(data => {
             console.log(data);
             this.mercSkills = data['profile'];
             // this.router.navigate(['login']);
@@ -140,7 +143,7 @@ export class EditProfileMerceneryComponent implements OnInit {
         //     this.mercSkills = data['profile']['skills'];
         //     console.log(this.mercSkills);
         //     console.log('+++++++++++++++');
-            // this.router.navigate(['login']);
+        // this.router.navigate(['login']);
         // })
     }
 
