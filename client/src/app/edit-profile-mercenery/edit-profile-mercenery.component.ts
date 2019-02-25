@@ -83,13 +83,13 @@ export class EditProfileMerceneryComponent implements OnInit {
 
     job_title = [
         {
-            "src": "assets/images/sw3.jpg",
+            "src": "assets/images/sw_general.png",
             "label": "Software developer",
             "value": "sw",
             "explanation": "explain here if needed"
         },
-        {"src": "assets/images/de3.jpeg", "label": "Designer", "value": "designer", "explanation": "explain if needed"},
-        {"src": "assets/images/hw5.jpg", "label": "Hardware developer", "value": "hw", "explanation": "what???"},
+        {"src": "assets/images/design_general.png", "label": "Designer", "value": "designer", "explanation": "explain if needed"},
+        {"src": "assets/images/hw_general.png", "label": "Hardware developer", "value": "hw", "explanation": "what???"},
     ];
 
     ngOnInit() {

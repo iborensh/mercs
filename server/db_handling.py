@@ -95,7 +95,7 @@ class DbHandling(object):
         :param data:
         :return:
         """
-        data = json.loads(json.dumps(data))
+        # data = json.loads(json.dumps(data))
         ans = self.db_users.update({'_id': ObjectId(user_id)}, {'$push': {'profile.skills': data['profile']['skills'][0]}})
         user = self.get_project(user_id, collection=True, jsonilize=False)
         aggr_ranking = {}

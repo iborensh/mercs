@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
                     return
                 }
                 localStorage.setItem('isLoggedin', 'true');
+                sessionStorage.setItem('user', JSON.stringify(data));
                 delete data[0]["password"];
                 this.auth.UserName = this.messageForm.controls.name.value;
                 this.dataService.UserData = data[0];

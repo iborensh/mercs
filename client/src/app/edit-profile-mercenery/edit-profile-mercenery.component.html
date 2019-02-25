@@ -35,7 +35,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="col-1"></div>
     </div>
@@ -68,18 +67,32 @@
         <div class="col-4">
             <div class="card card2" *ngIf="current == 'user_class'">
                 <h3>Choose your character</h3>
-                <ngb-carousel data-interval="false" style="width: 18rem; margin: auto;" (slide)="onSlide($event)">
-                    <ng-template ngbSlide *ngFor="let slide of job_title">
-                        <img src={{slide.src}} style="width: fit-content">
-                        <div class="carousel-caption">
-                            <h6>{{slide.label}}</h6>
-                            <p>{{slide.explanation}}</p>
-                        </div>
-                    </ng-template>
-                </ngb-carousel>
+                <!--<ngb-carousel data-interval="false" style="width: 18rem; margin: auto;" (slide)="onSlide($event)">-->
+                <!--<ng-template ngbSlide *ngFor="let slide of job_title">-->
+                <!--<img src={{slide.src}} style="width: fit-content">-->
+                <!--<div class="carousel-caption">-->
+                <!--<h6>{{slide.label}}</h6>-->
+                <!--<p>{{slide.explanation}}</p>-->
+                <!--</div>-->
+                <!--</ng-template>-->
+                <!--</ngb-carousel>-->
                 <!--<img src="assets/images/software.jpeg" style="max-height: 100px;">-->
-                <!--<img src="assets/images/hardware.jpeg" style="max-height: 100px;">-->
-                <!--<img src="assets/images/web_designer.png" style="max-height: 100px;">-->
+                <div class="row">
+                    <div>
+                        <img src="assets/images/software.jpeg" >
+                        <div>Text Under Image</div>
+                    </div>
+                    <div *ngFor="let slide of job_title" class="btn-group" role="group">
+                        <div class="column" style="margin-left: 22px; ">
+                            <div class="circle blue">
+                                <img src={{slide.src}} class="smallCircle"
+                                     style="max-height: 100px; border-radius: 50%; border: 5px; display: block">
+                                <div>Text Under Image</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card card2" *ngIf="current !== 'job_title'">
                 <!--<div class="card-header">-->
@@ -97,7 +110,8 @@
                 <!--</form>-->
                 <!--</div>-->
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item card2" *ngFor="let skill of skillOptions[current]">{{skill.label}}
+                    <li class="list-group-item card2" *ngFor="let skill of skillOptions[current]">
+                        {{skill.label}}
                         <input *ngIf="(!(skill.hasOwnProperty('options')))" [(ngModel)]="skill.chosen">
                         <mat-form-field *ngIf="(skill.hasOwnProperty('options'))">
                             <mat-select [(ngModel)]="skill.chosen">
@@ -117,41 +131,25 @@
             </div>
         </div>
         <div class="col-4">
-
-
-            <!--<div *ngFor="let skills of mercSkills.skills">-->
-                <!--<h6 class=".col-md-4" style="color: white"> {{skill.key}}</h6>-->
-                <!--<div class="progress">-->
-                <!--<div class="progress-bar" style="background:#394264;" [style.width.%]="skill.value*10">-->
-                <!--<div class="progress-value">{{skill.value}}</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <div *ngFor="let skill of mercSkills.aggr_ranking | keyvalue">
-                    <div class="row">
-                        <div class="col-2">
-                            <img class="imgborder" src="assets/images/skills/software engineer/{{skill.key}}.png">
-                        </div>
-                        <div class="col-10">
-                            <span style="color: white; font-size: small">{{skill.key}}</span>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                     aria-valuemax="100" [style.width.%]="skill.value">
-                                    <span class="sr-only">{{skill.value}} Complete</span>
-                                </div>
-                                <span class="progress-type"></span>
-                                <span class="progress-completed">{{skill.value}}</span>
+            <div *ngFor="let skill of mercSkills.aggr_ranking | keyvalue">
+                <div class="row">
+                    <div class="col-2">
+                        <img class="imgborder" src="assets/images/skills/software engineer/{{skill.key}}.png">
+                    </div>
+                    <div class="col-10">
+                        <span style="color: white; font-size: small">{{skill.key}}</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                 aria-valuemax="100" [style.width.%]="skill.value">
+                                <span class="sr-only">{{skill.value}} Complete</span>
                             </div>
+                            <span class="progress-type"></span>
+                            <span class="progress-completed">{{skill.value}}</span>
                         </div>
                     </div>
-                    <br>
-                    <!--<img src="assets/images/skills/hardware engineer/fpga.png" width="50px">-->
-                    <!--<img src="assets/images/skills/hardware engineer/dsp.png" width="50px">-->
-                    <!--<div class="cont">-->
-                    <!--<div class="tag">{{skill.value}}</div>-->
-                    <!--<img class="smallImg" src="assets/images/skills/hardware engineer/RTL.png">-->
-                    <!--</div>-->
-
                 </div>
+                <br>
+            </div>
             <!--</div>-->
             <div class="card card2">
                 <button (click)="saveInDb()" class="btn btn-outline-info">Finish</button>
@@ -169,25 +167,31 @@
 
             <!--<div class="card card2" style="min-height: 250px">-->
             <div *ngFor="let skills of mercSkills.skills">
-                <div *ngFor="let skill of skills | keyvalue" class="btn-group" role="group" [style.float]="skill.key === 'ranking' ? 'right': 'none'">
+                <div *ngFor="let skill of skills | keyvalue" class="btn-group" role="group"
+                     [style.float]="skill.key === 'ranking' ? 'right': 'none'">
                     <!--<div style="background-color: #868e96">-->
-                        <button type="button" class="btn btn-secondary" *ngIf="skill.value !== [] && skill.key !== 'ranking'">
-                            {{skill.key}}
+                    <button type="button" class="btn btn-secondary" style="height: fit-content"
+                            *ngIf="skill.value !== [] && skill.key !== 'ranking'">
+                        {{skill.key}}
+                    </button>
+                    <div *ngFor="let label2 of skill.value | keyvalue">
+                        <button type="button" class="btn btn-secondary"
+                                *ngIf="['degree', 'school', 'company', 'title', 'site', 'title'].indexOf(label2.key) > -1">
+                            {{label2.key}}
                         </button>
-                        <div *ngFor="let label2 of skill.value | keyvalue" >
-                            <button type="button" class="btn btn-secondary"
-                                    *ngIf="['degree', 'school', 'company', 'title', 'site', 'title'].indexOf(label2.key) > -1">
-                                {{label2.key}}
-                            </button>
-                            <br>
-                            <div class="cont" *ngIf="skill.key === 'ranking'">
-                                <div class="tag">{{label2.value}}</div>
-                                <img class="smallImg" src="assets/images/skills/software engineer/{{label2.key}}.png">
-                            </div>
-                            <br>
+                        <br>
+                        <div class="cont" *ngIf="skill.key === 'ranking'">
+                            <div class="tag">{{label2.value}}</div>
+                            <img class="smallImg"
+                                 src="assets/images/skills/software engineer/{{label2.key}}.png">
                         </div>
-                    <!--</div>-->
+                        <br>
+                    </div>
                 </div>
+                <button style="height: fit-content; float: right"
+                        [ngClass]="{'enabled': toggle, 'disabled': !toggle}"><i
+                    class="fa fa-spinner fa-spin"></i>Checking
+                </button>
             </div>
         </div>
         <!--<div type="submit" class="btn rounded-btn"><h1>edit skills</h1></div>-->
@@ -198,3 +202,4 @@
     <!--<input type="submit" value="Log in" class="btn rounded-btn">-->
 
 
+</div>

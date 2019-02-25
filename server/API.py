@@ -134,7 +134,7 @@ def merc_profile(user_id):
         data = json.loads(request.data, strict=False)
         merc = Mercenery()
         ranking = getattr(merc, 'add_{}'.format(data['field']))(*[param['chosen'] for param in data['chosen']])
-        data = {"profile":{"skills":[{data['field']: {param['value']: param['chosen'] for param in data['chosen']}, "ranking": ranking}]}}
+        data = {"profile":{"skills":[{data['field']: {param['value']: param['chosen'] for param in data['chosen']}, "ranking": ranking, "approve": False, "status": "start"}]}}
         user = db_functions.push_skill_to_user(user_id, data)
         return user
     elif request.method == 'DELETE':
