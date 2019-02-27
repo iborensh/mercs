@@ -65,35 +65,25 @@
 ////////////////////////////////////////////////////////3d buttons
 
 .circle {
-  width: 200px;
-  height: 200px;
-  line-height: 200px;
-  border-radius: 50%; /* the magic */
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  display: block;
   text-align: center;
-  color: white;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 700;
+  vertical-align: middle;
+  border-radius: 50%;
   margin: 0 auto 40px;
-    background-color: #b8daff;
+    background-color: #1ad1ff;
 }
 
 .smallCircle{
-     width: 100px;
-  height: 100px;
-  line-height: 100px;
-  border-radius: 50%; /* the magic */
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: table-cell;
   text-align: center;
-  color: white;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin: 0 auto 40px;
-    background-color: blue;
+  vertical-align: middle;
+  border-radius: 50%;
+  margin: 0 auto;
+    background-color: whitesmoke;
 }
 
 ////////////////////////////////////////////////////////////////
