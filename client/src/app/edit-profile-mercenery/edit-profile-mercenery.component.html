@@ -104,6 +104,7 @@
                 <!--</mat-form-field>-->
                 <!--</form>-->
                 <!--</div>-->
+                <h3>{{current}}</h3>
                 <ul class="list-group list-group-flush" style="text-align: left">
                     <li class="list-group-item card2" *ngFor="let skill of skillOptions[current]">
                         {{skill.label}}
@@ -125,7 +126,7 @@
                 <!--</div>-->
             </div>
         </div>
-        <div class="col-4" style="min-height: 250px; background-color: whitesmoke">
+        <div class="col-4" style="min-height: 250px; max-height:300px; overflow-y:auto; background-color: whitesmoke">
             <div *ngFor="let skill of mercSkills.aggr_ranking | keyvalue">
                 <div class="row">
                     <div class="col-2">
@@ -146,7 +147,7 @@
                 <br>
             </div>
             <!--</div>-->
-            <div class="card card2" style="float: bottom">
+            <div class="card card2" style="bottom: 0;">
                 <button (click)="saveInDb()" class="btn btn-outline-info">Finish</button>
                 <!--<pre>{{ skillOptions | json }}</pre>-->
             </div>
@@ -161,7 +162,7 @@
         <div class="col-6 card2" style="min-height: 250px">
 
             <!--<div class="card card2" style="min-height: 250px">-->
-            <div *ngFor="let skills of mercSkills.skills">
+            <div *ngFor="let skills of mercSkills.skills" style="margin-bottom: 25px;">
                 <div *ngFor="let skill of skills | keyvalue" class="btn-group" role="group">
                     <!--[style.float]="skill.key === 'ranking' ? 'right': 'none'">-->
                     <!--<div style="background-color: #868e96">-->
@@ -177,18 +178,19 @@
                         <br>
                     </div>
                 </div>
-                <div *ngFor="let label2 of skills.ranking | keyvalue" class="btn-group" role="group"
-                     style="float: right">
+                <div style="float: right">
+                <div *ngFor="let label2 of skills.ranking | keyvalue" class="btn-group" role="group">
                     <div class="tag">{{label2.value}}</div>
                     <img class="smallImg"
                          src="assets/images/skills/software engineer/{{label2.key}}.png">
                     <br>
                 </div>
-                <button style="height: fit-content; float: right"
+                <button style="height: 40px; float: right"
                         [ngClass]="{'enabled': toggle, 'disabled': !toggle}"><i
                     class="fa fa-spinner fa-spin"></i>Checking
                 </button>
-                <br>
+                    </div>
+                <!--<br>-->
             </div>
             <!--</div>-->
         </div>

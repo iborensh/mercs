@@ -109,6 +109,7 @@ export class EditProfileMerceneryComponent implements OnInit {
     ngOnInit() {
         let profile = _.get(this.dataService.UserData, 'profile', '');
         this.character = profile.character;
+        console.log(profile);
         if (profile) {
             this.mercSkills = profile;
         }
@@ -127,7 +128,6 @@ export class EditProfileMerceneryComponent implements OnInit {
 
     private _filter(value: string): string[] {
         const filterValue = value.toLowerCase();
-
         return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
     }
 
