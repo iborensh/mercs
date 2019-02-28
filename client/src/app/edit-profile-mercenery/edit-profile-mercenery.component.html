@@ -80,7 +80,7 @@
                 <div class="row">
                     <div *ngFor="let slide of job_title" class="btn-group" role="group">
                         <div class="column" style="margin-left: 22px;">
-                            <div class="circle">
+                            <div class="circle" (click)="choose_character(slide.value)">
                                 <img src={{slide.src}} class="smallCircle"
                                      style="display: block">
                                 {{slide.label}}
@@ -125,14 +125,14 @@
                 <!--</div>-->
             </div>
         </div>
-        <div class="col-4" style="min-height: 250px; max-height: 400px; background-color: whitesmoke">
+        <div class="col-4" style="min-height: 250px; background-color: whitesmoke">
             <div *ngFor="let skill of mercSkills.aggr_ranking | keyvalue">
                 <div class="row">
                     <div class="col-2">
                         <img class="imgborder" src="assets/images/skills/software engineer/{{skill.key}}.png">
                     </div>
                     <div class="col-10">
-                        <span style="color: white; font-size: small">{{skill.key}}</span>
+                        <span style="color: black; font-size: small">{{skill.key}}</span>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                                  aria-valuemax="100" [style.width.%]="skill.value">

@@ -22,6 +22,7 @@ export class EditProfileMerceneryComponent implements OnInit {
     filteredOptions: Observable<string[]>;
     userId = _.get(this.dataService.UserData, '_id', '');
     user = this.dataService.UserData;
+    character = '';
     // userId = "5c2931824c3b21ef2ba44674";
     // images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
     // images = ['/assets/images/software.jpeg', '/assets/images/hardware.jpeg', '/assets/images/software.jpeg'];
@@ -122,7 +123,6 @@ export class EditProfileMerceneryComponent implements OnInit {
         console.log(e.current.substr(-1))
     }
 
-
     addToList(type) {
         console.log(this.skillOptions);
         this.http.put('/api/merc-profile/' + this.userId, {
@@ -133,6 +133,10 @@ export class EditProfileMerceneryComponent implements OnInit {
             this.mercSkills = data['profile'];
             // this.router.navigate(['login']);
         })
+    }
+
+    choose_character(character){
+        this.character = character
     }
 
     saveInDb() {
