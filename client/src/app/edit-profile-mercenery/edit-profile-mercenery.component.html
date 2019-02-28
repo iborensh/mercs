@@ -83,7 +83,7 @@
                             <div class="circle">
                                 <img src={{slide.src}} class="smallCircle"
                                      style="display: block">
-                                Text Under Image
+                                {{slide.label}}
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                 <!--</div>-->
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-4" style="min-height: 250px; max-height: 400px;">
             <div *ngFor="let skill of mercSkills.aggr_ranking | keyvalue">
                 <div class="row">
                     <div class="col-2">
@@ -160,46 +160,10 @@
         <div class="col-1"></div>
         <div class="col-6 card2" style="min-height: 250px">
 
-
-            <!--<div *ngFor="let skills of mercSkills.skills">-->
-                <!--<div *ngFor="let skill of skills | keyvalue">-->
-            <!--<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">-->
-                <!--<div class="btn-group mr-2" role="group" aria-label="First group">-->
-                    <!--<button *ngIf="skill.value !== [] && skill.key !== 'ranking'" type="button" class="btn btn-secondary">-->
-                        <!--{{skill.key}}-->
-                    <!--</button>-->
-                <!--</div>-->
-                <!--<div class="btn-group mr-2" role="group" aria-label="Second group">-->
-                <!--<div *ngIf="skill.value !== [] && skill.key !== 'ranking'">-->
-                <!--<div *ngFor="let label2 of skill.value | keyvalue" >-->
-
-                    <!--<button *ngIf="['degree', 'school', 'company', 'title', 'site', 'title'].indexOf(label2.key) > -1"-->
-                            <!--type="button" class="btn btn-secondary">-->
-                        <!--{{label2.key}}-->
-                    <!--</button>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="btn-group" role="group" aria-label="Third group">-->
-                <!--<div *ngIf="skill.value !== [] && skill.key === 'ranking'">-->
-                <!--<div *ngFor="let label3 of skill.value | keyvalue" >-->
-                    <!--<div class="cont">-->
-                            <!--<div class="tag">{{label3.value}}</div>-->
-                            <!--<img class="smallImg"-->
-                                 <!--src="assets/images/skills/software engineer/{{label2.key}}.png">-->
-                        <!--</div>-->
-                <!--</div>-->
-            <!--</div></div>-->
-                    <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-
-
-
-            <div class="card card2" style="min-height: 250px">
+            <!--<div class="card card2" style="min-height: 250px">-->
             <div *ngFor="let skills of mercSkills.skills">
-                <div *ngFor="let skill of skills | keyvalue" class="btn-group" role="group"
-                     [style.float]="skill.key === 'ranking' ? 'right': 'none'">
+                <div *ngFor="let skill of skills | keyvalue" class="btn-group" role="group">
+                     <!--[style.float]="skill.key === 'ranking' ? 'right': 'none'">-->
                     <!--<div style="background-color: #868e96">-->
                     <button type="button" class="btn btn-secondary" style="height: fit-content"
                             *ngIf="skill.value !== [] && skill.key !== 'ranking'">
@@ -207,23 +171,26 @@
                     </button>
                     <div *ngFor="let label2 of skill.value | keyvalue">
                         <button type="button" class="btn btn-secondary"
-                                *ngIf="['degree', 'school', 'company', 'title', 'site', 'title'].indexOf(label2.key) > -1">
+                                *ngIf="['degree', 'school', 'company', 'title', 'site'].indexOf(label2.key) > -1">
                             {{label2.key}}
                         </button>
                         <br>
-                        <div class="cont" *ngIf="skill.key === 'ranking'">
+                    </div>
+                </div>
+                <div *ngFor="let label2 of skills.ranking | keyvalue" class="btn-group" role="group">
                             <div class="tag">{{label2.value}}</div>
                             <img class="smallImg"
                                  src="assets/images/skills/software engineer/{{label2.key}}.png">
-                        </div>
                         <br>
                     </div>
-                </div>
+
                 <button style="height: fit-content; float: right"
                         [ngClass]="{'enabled': toggle, 'disabled': !toggle}"><i
                     class="fa fa-spinner fa-spin"></i>Checking
                 </button>
             </div>
+                <!--</div>-->
+        </div>
         </div>
         <!--<div type="submit" class="btn rounded-btn"><h1>edit skills</h1></div>-->
 
@@ -233,4 +200,3 @@
     <!--<input type="submit" value="Log in" class="btn rounded-btn">-->
 
 
-</div>
