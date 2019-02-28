@@ -133,8 +133,11 @@ def merc_profile(user_id):
     elif request.method == 'PUT':
         data = json.loads(request.data, strict=False)
         merc = Mercenery()
+        data['chosen'].update({"usr_class": data['character']})
         ranking = getattr(merc, 'add_{}'.format(data['field']))(*[param['chosen'] for param in data['chosen']])
-        data = {"profile":{"skills":[{data['field']: {param['value']: param['chosen'] for param in data['chosen']}, "ranking": ranking, "approve": False, "status": "start"}]}}
+        data = {"profile":{"skills":[{data['field']: {param['value']: param['chosen'] for param in data['chosen']},
+                                      "ranking": ranking, "approve": False, "status": "start"}],
+                           "character": data["character"]}}
         user = db_functions.push_skill_to_user(user_id, data)
         return user
     elif request.method == 'DELETE':

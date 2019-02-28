@@ -105,7 +105,8 @@ class DbHandling(object):
                     aggr_ranking[title] += rank
                 else:
                     aggr_ranking[title] = rank
-        ans = self.db_users.update({'_id': ObjectId(user_id)}, {'$set': {'profile.aggr_ranking': aggr_ranking}})
+        self.db_users.update({'_id': ObjectId(user_id)}, {'$set': {'profile.aggr_ranking': aggr_ranking}})
+        self.db_users.update({'_id': ObjectId(user_id)}, {'$set': {'profile.character': data['profile']['character']}})
         return self.get_project(user_id, collection=True)
 
     def update_project(self, project_id, data):

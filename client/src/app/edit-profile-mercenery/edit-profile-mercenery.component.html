@@ -80,7 +80,7 @@
                 <div class="row">
                     <div *ngFor="let slide of job_title" class="btn-group" role="group">
                         <div class="column" style="margin-left: 22px;">
-                            <div class="circle" (click)="choose_character(slide.value)">
+                            <div class="circle" [ngClass]="slide.color" (click)="choose_character(slide.value)">
                                 <img src={{slide.src}} class="smallCircle"
                                      style="display: block">
                                 {{slide.label}}
@@ -163,7 +163,7 @@
             <!--<div class="card card2" style="min-height: 250px">-->
             <div *ngFor="let skills of mercSkills.skills">
                 <div *ngFor="let skill of skills | keyvalue" class="btn-group" role="group">
-                     <!--[style.float]="skill.key === 'ranking' ? 'right': 'none'">-->
+                    <!--[style.float]="skill.key === 'ranking' ? 'right': 'none'">-->
                     <!--<div style="background-color: #868e96">-->
                     <button type="button" class="btn btn-secondary" style="height: fit-content"
                             *ngIf="skill.value !== [] && skill.key !== 'ranking'">
@@ -177,27 +177,27 @@
                         <br>
                     </div>
                 </div>
-                <div *ngFor="let label2 of skills.ranking | keyvalue" class="btn-group" role="group">
-                            <div class="tag">{{label2.value}}</div>
-                            <img class="smallImg"
-                                 src="assets/images/skills/software engineer/{{label2.key}}.png">
-                        <br>
-                    </div>
-
+                <div *ngFor="let label2 of skills.ranking | keyvalue" class="btn-group" role="group"
+                     style="float: right">
+                    <div class="tag">{{label2.value}}</div>
+                    <img class="smallImg"
+                         src="assets/images/skills/software engineer/{{label2.key}}.png">
+                    <br>
+                </div>
                 <button style="height: fit-content; float: right"
                         [ngClass]="{'enabled': toggle, 'disabled': !toggle}"><i
                     class="fa fa-spinner fa-spin"></i>Checking
                 </button>
                 <br>
             </div>
-                <!--</div>-->
+            <!--</div>-->
         </div>
-        </div>
-        <!--<div type="submit" class="btn rounded-btn"><h1>edit skills</h1></div>-->
-
-        <!--<div type="submit" class="btn rounded-btn" routerLink="/edit-skills"><h1>edit skills</h1></div>-->
     </div>
+    <!--<div type="submit" class="btn rounded-btn"><h1>edit skills</h1></div>-->
 
-    <!--<input type="submit" value="Log in" class="btn rounded-btn">-->
+    <!--<div type="submit" class="btn rounded-btn" routerLink="/edit-skills"><h1>edit skills</h1></div>-->
+</div>
+
+<!--<input type="submit" value="Log in" class="btn rounded-btn">-->
 
 

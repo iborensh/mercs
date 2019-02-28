@@ -45,7 +45,7 @@ export class EditProfileMerceneryComponent implements OnInit {
             {"label": "Education", "value": "education", "percent": "30%"},
             {"label": "Certificate", "value": "certificate", "percent": "55%"}],
         "education": [
-            {"label": "usr_class", "value": "usr_class", "percent": "12%", "chosen": ""},
+            // {"label": "usr_class", "value": "usr_class", "percent": "12%", "chosen": ""},
             {"label": "school", "value": "school", "percent": "30%", "chosen": ""},
             {
                 "label": "degree", "value": "degree", "percent": "30%", "chosen": "", "options": [
@@ -67,7 +67,7 @@ export class EditProfileMerceneryComponent implements OnInit {
             {"label": "Link to certificate", "value": "certificate_link", "percent": "55%", "chosen": ""}
         ],
         "work": [
-            {"label": "usr_class", "value": "usr_class", "percent": "12%", "chosen": ""},
+            // {"label": "usr_class", "value": "usr_class", "percent": "12%", "chosen": ""},
             {"label": "company", "value": "company", "percent": "30%", "chosen": ""},
             {"label": "title", "value": "title", "percent": "55%", "chosen": ""},
             {
@@ -87,16 +87,28 @@ export class EditProfileMerceneryComponent implements OnInit {
             "src": "assets/images/sw_general.png",
             "label": "Software developer",
             "value": "sw",
+            "color": "white",
             "explanation": "explain here if needed"
         },
-        {"src": "assets/images/design_general.png", "label": "Designer", "value": "designer", "explanation": "explain if needed"},
-        {"src": "assets/images/hw_general.png", "label": "Hardware developer", "value": "hw", "explanation": "what???"},
+        {
+            "src": "assets/images/design_general.png",
+            "label": "Designer",
+            "value": "designer",
+            "color": "white",
+            "explanation": "explain if needed"
+        },
+        {
+            "src": "assets/images/hw_general.png",
+            "label": "Hardware developer",
+            "value": "hw",
+            "color": "white",
+            "explanation": "what???"
+        },
     ];
 
     ngOnInit() {
-        console.log(this.user);
         let profile = _.get(this.dataService.UserData, 'profile', '');
-        console.log(profile);
+        this.character = profile.character;
         if (profile) {
             this.mercSkills = profile;
         }
@@ -126,6 +138,7 @@ export class EditProfileMerceneryComponent implements OnInit {
     addToList(type) {
         console.log(this.skillOptions);
         this.http.put('/api/merc-profile/' + this.userId, {
+            "character": this.character,
             "field": type,
             "chosen": this.skillOptions[type]
         }).subscribe(data => {
@@ -135,18 +148,26 @@ export class EditProfileMerceneryComponent implements OnInit {
         })
     }
 
-    choose_character(character){
-        this.character = character
+    choose_character(character) {
+        this.character = character;
+        console.log(character);
+        _.forEach(this.job_title, function (dict) {
+            if(dict.value === character){
+                dict.color = 'blue';
+            }
+            else {
+                dict.color = 'white';
+            }
+        });
+        console.log(this.job_title)
     }
 
     saveInDb() {
         console.log(this.skillOptions);
         // this.http.put('/api/merc-profile/' + this.userId, this.skillOptions).subscribe(data => {
-        //     console.log('------------');
         //     console.log(data);
         //     this.mercSkills = data['profile']['skills'];
         //     console.log(this.mercSkills);
-        //     console.log('+++++++++++++++');
         // this.router.navigate(['login']);
         // })
     }
