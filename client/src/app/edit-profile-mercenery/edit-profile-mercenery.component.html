@@ -79,7 +79,7 @@
                 <!--<img src="assets/images/software.jpeg" style="max-height: 100px;">-->
                 <div class="row">
                     <div *ngFor="let slide of job_title" class="btn-group" role="group">
-                        <div class="column" style="margin-left: 22px; ">
+                        <div class="column" style="margin-left: 22px;">
                             <div class="circle">
                                 <img src={{slide.src}} class="smallCircle"
                                      style="display: block">
@@ -104,10 +104,10 @@
                 <!--</mat-form-field>-->
                 <!--</form>-->
                 <!--</div>-->
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush" style="text-align: left">
                     <li class="list-group-item card2" *ngFor="let skill of skillOptions[current]">
                         {{skill.label}}
-                        <input *ngIf="(!(skill.hasOwnProperty('options')))" [(ngModel)]="skill.chosen">
+                        <input type="text" *ngIf="(!(skill.hasOwnProperty('options')))" [(ngModel)]="skill.chosen">
                         <mat-form-field *ngIf="(skill.hasOwnProperty('options'))">
                             <mat-select [(ngModel)]="skill.chosen">
                                 <mat-option *ngFor="let item of skill.options" [value]="item.value">
@@ -125,7 +125,7 @@
                 <!--</div>-->
             </div>
         </div>
-        <div class="col-4" style="min-height: 250px; max-height: 400px;">
+        <div class="col-4" style="min-height: 250px; max-height: 400px; background-color: whitesmoke">
             <div *ngFor="let skill of mercSkills.aggr_ranking | keyvalue">
                 <div class="row">
                     <div class="col-2">
@@ -146,7 +146,7 @@
                 <br>
             </div>
             <!--</div>-->
-            <div class="card card2">
+            <div class="card card2" style="float: bottom">
                 <button (click)="saveInDb()" class="btn btn-outline-info">Finish</button>
                 <!--<pre>{{ skillOptions | json }}</pre>-->
             </div>
@@ -188,6 +188,7 @@
                         [ngClass]="{'enabled': toggle, 'disabled': !toggle}"><i
                     class="fa fa-spinner fa-spin"></i>Checking
                 </button>
+                <br>
             </div>
                 <!--</div>-->
         </div>
