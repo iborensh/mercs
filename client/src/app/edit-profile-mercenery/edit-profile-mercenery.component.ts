@@ -168,7 +168,7 @@ export class EditProfileMerceneryComponent implements OnInit {
         //     console.log(data);
         //     this.mercSkills = data['profile']['skills'];
         //     console.log(this.mercSkills);
-        // this.router.navigate(['login']);
+        this.router.navigate(['band-profile']);
         // })
     }
 

@@ -36,7 +36,8 @@ const routes: Routes = [
     { path: 'edit-project', component: EditProjectComponent },
     { path: 'home', component: HomeComponent },
     { path: 'chat', component: ChatComponent },
-    { path: 'band-profile/:id', component: BandProfileComponent },
+    // { path: 'band-profile/:id', component: BandProfileComponent },
+    { path: 'band-profile', component: BandProfileComponent },
     { path: 'groups-list', component: GroupsListComponent },
     { path: 'project-manager', component: ProjectManagerComponent },
     { path: '**', redirectTo: 'not-found' }
