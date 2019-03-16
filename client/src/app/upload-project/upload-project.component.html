@@ -1,12 +1,13 @@
 <ul>
     <li *ngFor="let choose of v0; let first = first; let last = last">
-        <input id="{{choose.value}}" type="radio" name="rad" [checked]="first"/><label for="{{choose.value}}">
+        <input id="{{choose.value}}" type="radio" name="rad" [checked]="first"/>
+        <label for="{{choose.value}}">
         <div>{{choose.label}}
             <button *ngFor="let chose of chosen[choose.value]" type="button" class="btn btn-info special">{{chose}}
             </button>
         </div>
     </label>
-        <div class="accslide">
+        <div class="accslide" style='background-image: url("assets/images/hw4.jpg");'>
             <div class="content">
                 <br>
                 <br>

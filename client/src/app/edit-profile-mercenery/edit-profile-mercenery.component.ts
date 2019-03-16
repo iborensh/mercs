@@ -23,6 +23,7 @@ export class EditProfileMerceneryComponent implements OnInit {
     userId = _.get(this.dataService.UserData, '_id', '');
     user = this.dataService.UserData;
     character = '';
+    imgeSrc = 'img_avatar.png';
     // userId = "5c2931824c3b21ef2ba44674";
     // images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
     // images = ['/assets/images/software.jpeg', '/assets/images/hardware.jpeg', '/assets/images/software.jpeg'];
@@ -170,6 +171,15 @@ export class EditProfileMerceneryComponent implements OnInit {
         //     console.log(this.mercSkills);
         this.router.navigate(['band-profile']);
         // })
+    }
+
+    changeImageSrc(){
+        if(this.imgeSrc == 'img_avatar.png'){
+            this.imgeSrc = 'img_avatar2.png'
+        }
+        else{
+            this.imgeSrc = 'img_avatar.png'
+        }
     }
 
 

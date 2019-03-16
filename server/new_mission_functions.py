@@ -118,4 +118,5 @@ a = Map2reward({
 ]
 }
 })
-a.create_result()
+import pprint
+pprint.pprint(a.create_result())

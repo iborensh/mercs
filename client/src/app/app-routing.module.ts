@@ -16,6 +16,7 @@ import { ChatComponent} from "./chat/chat.component";
 import { SelectBandComponent} from "./select-band/select-band.component";
 import { BandProfileComponent} from "./band-profile/band-profile.component";
 import { ProjectManagerComponent} from "./project-manager/project-manager.component";
+import { MercNavbarComponent} from "./merc-navbar/merc-navbar.component";
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -38,6 +39,7 @@ const routes: Routes = [
     { path: 'chat', component: ChatComponent },
     // { path: 'band-profile/:id', component: BandProfileComponent },
     { path: 'band-profile', component: BandProfileComponent },
+    { path: 'merc-navbar', component: MercNavbarComponent },
     { path: 'groups-list', component: GroupsListComponent },
     { path: 'project-manager', component: ProjectManagerComponent },
     { path: '**', redirectTo: 'not-found' }

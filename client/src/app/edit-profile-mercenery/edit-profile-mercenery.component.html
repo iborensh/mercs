@@ -1,43 +1,5 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10 card2">
-            <div class="wrap" style="width: 100%;">
-                <div class="header">
-                    <div class="header_top">
-                        <div class="menu">
-                            <a class="toggleMenu" href="#"><img src="images/nav.png" alt=""/></a>
-                            <ul class="nav">
-                                <li><a href="#"><i><img src="images/settings.png" alt=""/></i>Settings</a></li>
-                                <li class="active"><a href="#"><i><img src="images/user.png" alt=""/></i>Profile</a>
-                                </li>
-                                <li><a href="#"><i><img src="images/mail.png" alt=""/></i>Band </a></li>
-                                <li><a href="#"><i></i>Favorites</a></li>
-                                <div class="clear"></div>
-                            </ul>
-                            <script type="text/javascript" src="js/responsive-nav.js"></script>
-                        </div>
-                        <div class="profile_details">
-                            <div id="loginContainer">
-                                <a id="loginButton" class=""></a>
-                                <div id="loginBox">
-                                    <form id="loginForm">
-                                        <fieldset id="body">
-                                            <div class="user-info">
-                                            </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-1"></div>
-    </div>
+    <app-merc-navbar></app-merc-navbar>
     <br>
     <div class="row">
         <br>
@@ -51,7 +13,6 @@
                 <button class="list-group-item list-group-item-action card2" *ngFor="let skill of skills"
                         (click)="current = skill.value">{{skill.label}}
                 </button>
-                <!--<br>-->
                 <!--<br>-->
                 <!--</div>-->
             </div>
@@ -126,7 +87,12 @@
                 <!--</div>-->
             </div>
         </div>
-        <div class="col-4" style="min-height: 250px; max-height:300px; overflow-y:auto; background-color: whitesmoke">
+        <div class="col-4" style="min-height: 250px; overflow-y:auto; background-color: whitesmoke">
+            <img src="assets/images/{{imgeSrc}}" class="avatar" (click)="changeImageSrc()">
+            <input class="nonSee" [(ngModel)]="user.name" placeholder="Name">
+
+            <textarea class="nonSee" [(ngModel)]="user.description" placeholder="put short description on yourself"></textarea>
+
             <div *ngFor="let skill of mercSkills.aggr_ranking | keyvalue">
                 <div class="row">
                     <div class="col-2">
@@ -166,14 +132,14 @@
                 <div *ngFor="let skill of skills | keyvalue" class="btn-group" role="group">
                     <!--[style.float]="skill.key === 'ranking' ? 'right': 'none'">-->
                     <!--<div style="background-color: #868e96">-->
-                    <button type="button" class="btn btn-secondary" style="height: fit-content"
+                    <button type="button" class="btn btn-secondary" style="height: fit-content; background-color: #2e6da4"
                             *ngIf="skill.value !== [] && skill.key !== 'ranking'">
                         {{skill.key}}
                     </button>
                     <div *ngFor="let label2 of skill.value | keyvalue">
                         <button type="button" class="btn btn-secondary"
                                 *ngIf="['degree', 'school', 'company', 'title', 'site'].indexOf(label2.key) > -1">
-                            {{label2.key}}
+                            {{label2.value}}
                         </button>
                         <br>
                     </div>
