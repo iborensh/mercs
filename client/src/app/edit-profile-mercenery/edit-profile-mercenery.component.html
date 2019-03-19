@@ -5,93 +5,131 @@
         <br>
         <br>
         <div class="col-1"></div>
-        <div class="col-2">
-            <!--<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">-->
-            <!--<div class="form-group row" *ngFor="let skill of skills">-->
-            <div class="list-group card2 rounded" style="height: 100%">
-                <!--<div >-->
-                <button class="list-group-item list-group-item-action card2" *ngFor="let skill of skills"
-                        (click)="current = skill.value">{{skill.label}}
-                </button>
-                <!--<br>-->
-                <!--</div>-->
-            </div>
-            <!--<label for={{skill.value}} class="col-sm-4 col-form-label col-form-label-lg">{{skill.label}}</label>-->
-            <!--<div class="col-sm-10">-->
-            <!--<input type="text" formControlName={{skill.value}} class="form-control form-control-lg"-->
-            <!--id={{skill.value}} placeholder={{skill.label}}>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<input type="submit" value="Log in" class="btn rounded-btn">-->
-            <!--</form>-->
-        </div>
-        <div class="col-4">
-            <div class="card card2" *ngIf="current == 'user_class'">
-                <h3>Choose your character</h3>
-                <!--<ngb-carousel data-interval="false" style="width: 18rem; margin: auto;" (slide)="onSlide($event)">-->
-                <!--<ng-template ngbSlide *ngFor="let slide of job_title">-->
-                <!--<img src={{slide.src}} style="width: fit-content">-->
-                <!--<div class="carousel-caption">-->
-                <!--<h6>{{slide.label}}</h6>-->
-                <!--<p>{{slide.explanation}}</p>-->
-                <!--</div>-->
-                <!--</ng-template>-->
-                <!--</ngb-carousel>-->
-                <!--<img src="assets/images/software.jpeg" style="max-height: 100px;">-->
-                <div class="row">
-                    <div *ngFor="let slide of job_title" class="btn-group" role="group">
-                        <div class="column" style="margin-left: 22px;">
-                            <div class="circle" [ngClass]="slide.color" (click)="choose_character(slide.value)">
-                                <img src={{slide.src}} class="smallCircle"
-                                     style="display: block">
-                                {{slide.label}}
+        <div class="col-6">
+            <div class="row">
+                <div class="col-4">
+                    <!--<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">-->
+                    <div class="list-group card2 rounded" style="height: 100%">
+                        <!--<div >-->
+                        <button class="list-group-item list-group-item-action card2" *ngFor="let skill of skills"
+                                (click)="current = skill.value">{{skill.label}}
+                        </button>
+                        <!--<br>-->
+                        <!--</div>-->
+                    </div>
+                    <!--<label for={{skill.value}} class="col-sm-4 col-form-label col-form-label-lg">{{skill.label}}</label>-->
+                    <!--<div class="col-sm-10">-->
+                    <!--<input type="text" formControlName={{skill.value}} class="form-control form-control-lg"-->
+                    <!--id={{skill.value}} placeholder={{skill.label}}>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<input type="submit" value="Log in" class="btn rounded-btn">-->
+                    <!--</form>-->
+                </div>
+                <div class="col-8">
+                    <div class="card card2" *ngIf="current == 'user_class'">
+                        <h3>Choose your character</h3>
+                        <!--<ngb-carousel data-interval="false" style="width: 18rem; margin: auto;" (slide)="onSlide($event)">-->
+                        <!--<ng-template ngbSlide *ngFor="let slide of job_title">-->
+                        <!--<img src={{slide.src}} style="width: fit-content">-->
+                        <!--<div class="carousel-caption">-->
+                        <!--<h6>{{slide.label}}</h6>-->
+                        <!--<p>{{slide.explanation}}</p>-->
+                        <!--</div>-->
+                        <!--</ng-template>-->
+                        <!--</ngb-carousel>-->
+                        <!--<img src="assets/images/software.jpeg" style="max-height: 100px;">-->
+                        <div>
+                            <div *ngFor="let slide of job_title" class="btn-group" role="group">
+                                <div class="column" style="margin-left: 22px;">
+                                    <div class="circle" [ngClass]="slide.color" (click)="choose_character(slide.value)">
+                                        <img src={{slide.src}} class="smallCircle"
+                                             style="display: block">
+                                        {{slide.label}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="card card2" *ngIf="current !== 'job_title'">
+                        <!--<div class="card-header">-->
+                        <!--<form class="example-form">-->
+                        <!--<mat-form-field class="example-full-width">-->
+                        <!--<input type="text" placeholder="Pick one" aria-label="Number" matInput-->
+                        <!--[formControl]="myControl"-->
+                        <!--[matAutocomplete]="auto">-->
+                        <!--<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">-->
+                        <!--<mat-option *ngFor="let option of filteredOptions | async" [value]="option">-->
+                        <!--{{option}}-->
+                        <!--</mat-option>-->
+                        <!--</mat-autocomplete>-->
+                        <!--</mat-form-field>-->
+                        <!--</form>-->
+                        <!--</div>-->
+                        <h3>{{current}}</h3>
+                        <ul class="list-group list-group-flush" style="text-align: left">
+                            <li class="list-group-item card2" *ngFor="let skill of skillOptions[current]">
+                                {{skill.label}}
+                                <input type="text" *ngIf="(!(skill.hasOwnProperty('options')))"
+                                       [(ngModel)]="skill.chosen">
+                                <mat-form-field *ngIf="(skill.hasOwnProperty('options'))">
+                                    <mat-select [(ngModel)]="skill.chosen">
+                                        <mat-option *ngFor="let item of skill.options" [value]="item.value">
+                                            {{item.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </li>
+                        </ul>
+                        <button (click)="addToList(current)" class="btn btn-outline-info">Save</button>
+                        <!--<label for={{skill.value}} class="col-sm-4 col-form-label col-form-label-lg">{{skill.label}}</label>-->
+                        <!--<div class="col-sm-10">-->
+                        <!--<input type="text" formControlName={{skill.value}} class="form-control form-control-lg"-->
+                        <!--id={{skill.value}} placeholder={{skill.label}}>-->
+                        <!--</div>-->
+                    </div>
                 </div>
             </div>
-            <div class="card card2" *ngIf="current !== 'job_title'">
-                <!--<div class="card-header">-->
-                <!--<form class="example-form">-->
-                <!--<mat-form-field class="example-full-width">-->
-                <!--<input type="text" placeholder="Pick one" aria-label="Number" matInput-->
-                <!--[formControl]="myControl"-->
-                <!--[matAutocomplete]="auto">-->
-                <!--<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">-->
-                <!--<mat-option *ngFor="let option of filteredOptions | async" [value]="option">-->
-                <!--{{option}}-->
-                <!--</mat-option>-->
-                <!--</mat-autocomplete>-->
-                <!--</mat-form-field>-->
-                <!--</form>-->
-                <!--</div>-->
-                <h3>{{current}}</h3>
-                <ul class="list-group list-group-flush" style="text-align: left">
-                    <li class="list-group-item card2" *ngFor="let skill of skillOptions[current]">
-                        {{skill.label}}
-                        <input type="text" *ngIf="(!(skill.hasOwnProperty('options')))" [(ngModel)]="skill.chosen">
-                        <mat-form-field *ngIf="(skill.hasOwnProperty('options'))">
-                            <mat-select [(ngModel)]="skill.chosen">
-                                <mat-option *ngFor="let item of skill.options" [value]="item.value">
-                                    {{item.label}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </li>
-                </ul>
-                <button (click)="addToList(current)" class="btn btn-outline-info">Save</button>
-                <!--<label for={{skill.value}} class="col-sm-4 col-form-label col-form-label-lg">{{skill.label}}</label>-->
-                <!--<div class="col-sm-10">-->
-                <!--<input type="text" formControlName={{skill.value}} class="form-control form-control-lg"-->
-                <!--id={{skill.value}} placeholder={{skill.label}}>-->
-                <!--</div>-->
+            <div class="card2" style="min-height: 250px; margin-bottom: 25px; margin-top: 20px">
+                <div *ngFor="let skills of mercSkills.skills" style="margin-top: inherit">
+                    <div *ngFor="let skill of skills | keyvalue" class="btn-group" role="group">
+                        <!--[style.float]="skill.key === 'ranking' ? 'right': 'none'">-->
+                        <!--<div style="background-color: #868e96">-->
+                        <button type="button" class="btn btn-secondary"
+                                style="height: fit-content; background-color: #2e6da4"
+                                *ngIf="skill.value !== [] && skill.key !== 'ranking'">
+                            {{skill.key}}
+                        </button>
+                        <div *ngFor="let label2 of skill.value | keyvalue">
+                            <button type="button" class="btn btn-secondary"
+                                    *ngIf="['degree', 'school', 'company', 'title', 'site'].indexOf(label2.key) > -1">
+                                {{label2.value}}
+                            </button>
+                            <br>
+                        </div>
+                    </div>
+                    <div style="float: right">
+                        <div *ngFor="let label2 of skills.ranking | keyvalue" class="btn-group" role="group">
+                            <div class="tag">{{label2.value}}</div>
+                            <img class="smallImg"
+                                 src="assets/images/skills/software engineer/{{label2.key}}.png">
+                            <br>
+                        </div>
+                        <button style="height: 40px; float: right"
+                                [ngClass]="{'enabled': toggle, 'disabled': !toggle}"><i
+                            class="fa fa-spinner fa-spin"></i>Checking
+                        </button>
+                    </div>
+                    <!--<br>-->
+                </div>
             </div>
         </div>
         <div class="col-4" style="min-height: 250px; overflow-y:auto; background-color: whitesmoke">
             <img src="assets/images/{{imgeSrc}}" class="avatar" (click)="changeImageSrc()">
             <input class="nonSee" [(ngModel)]="user.name" placeholder="Name">
 
-            <textarea class="nonSee" [(ngModel)]="user.description" placeholder="put short description on yourself"></textarea>
+            <textarea class="nonSee" [(ngModel)]="user.description"
+                      placeholder="put short description on yourself"></textarea>
 
             <div *ngFor="let skill of mercSkills.aggr_ranking | keyvalue">
                 <div class="row">
@@ -123,44 +161,7 @@
         <div class="col-1"></div>
     </div>
     <br>
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-6 card2" style="min-height: 250px">
 
-            <!--<div class="card card2" style="min-height: 250px">-->
-            <div *ngFor="let skills of mercSkills.skills" style="margin-bottom: 25px;">
-                <div *ngFor="let skill of skills | keyvalue" class="btn-group" role="group">
-                    <!--[style.float]="skill.key === 'ranking' ? 'right': 'none'">-->
-                    <!--<div style="background-color: #868e96">-->
-                    <button type="button" class="btn btn-secondary" style="height: fit-content; background-color: #2e6da4"
-                            *ngIf="skill.value !== [] && skill.key !== 'ranking'">
-                        {{skill.key}}
-                    </button>
-                    <div *ngFor="let label2 of skill.value | keyvalue">
-                        <button type="button" class="btn btn-secondary"
-                                *ngIf="['degree', 'school', 'company', 'title', 'site'].indexOf(label2.key) > -1">
-                            {{label2.value}}
-                        </button>
-                        <br>
-                    </div>
-                </div>
-                <div style="float: right">
-                <div *ngFor="let label2 of skills.ranking | keyvalue" class="btn-group" role="group">
-                    <div class="tag">{{label2.value}}</div>
-                    <img class="smallImg"
-                         src="assets/images/skills/software engineer/{{label2.key}}.png">
-                    <br>
-                </div>
-                <button style="height: 40px; float: right"
-                        [ngClass]="{'enabled': toggle, 'disabled': !toggle}"><i
-                    class="fa fa-spinner fa-spin"></i>Checking
-                </button>
-                    </div>
-                <!--<br>-->
-            </div>
-            <!--</div>-->
-        </div>
-    </div>
     <!--<div type="submit" class="btn rounded-btn"><h1>edit skills</h1></div>-->
 
     <!--<div type="submit" class="btn rounded-btn" routerLink="/edit-skills"><h1>edit skills</h1></div>-->

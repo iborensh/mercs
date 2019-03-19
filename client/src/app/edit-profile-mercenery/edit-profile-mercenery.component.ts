@@ -132,10 +132,6 @@ export class EditProfileMerceneryComponent implements OnInit {
         return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
     }
 
-    onSlide(e) {
-        console.log(e.current.substr(-1))
-    }
-
     addToList(type) {
         console.log(this.skillOptions);
         this.http.put('/api/merc-profile/' + this.userId, {

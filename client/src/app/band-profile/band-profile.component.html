@@ -5,35 +5,36 @@
         <br>
         <br>
         <div class="col-1"></div>
-        <div class="col-2">
-        <button class="list-group-item list-group-item-action card2">Add member</button>
-        <button class="list-group-item list-group-item-action card2">Delete member</button>
-        <button class="list-group-item list-group-item-action card2">Combine with other band</button>
-        <button class="list-group-item list-group-item-action card2">Upload band pic</button>
-        <button class="list-group-item list-group-item-action card2">Search for a band to join</button>
-
+        <div class="col-6">
+            <div class="row">
+                <div class="col-4">
+                    <div class="list-group card2 rounded" style="height: 100%">
+                        <button class="list-group-item list-group-item-action card2" *ngFor="let action of actions"
+                                (click)="current = action.value">{{action.label}}
+                        </button>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="card card2">
+                        <h3>{{current}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card2" style="min-height: 250px; margin-bottom: 25px; margin-top: 20px">
+                missions/ optional missions
+                <br>
+                <button routerLink="/project-manager">Click here to go to mission 1 page</button>
+            </div>
         </div>
-        <div class="col-4">
-            Band name and
-            members
-            </div>
-        <div class="col-4" style="min-height: 250px; max-height:300px; overflow-y:auto; background-color: whitesmoke">
-            Members skills summary
-            <div class="card card2" style="bottom: 0;">
-
-            </div>
+        <div class="col-4" style="min-height: 250px; overflow-y:auto; background-color: whitesmoke">
+        Band name and members
+            band rank and skills
         </div>
         <div class="col-1"></div>
     </div>
     <br>
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-6 card2" style="min-height: 250px">
-            <button routerLink="/project-manager">Click here to go to mission 1 page</button>
-        missions/ optional missions if no project
-        </div>
-    </div>
-    </div>
+</div>
+
 
 
 
