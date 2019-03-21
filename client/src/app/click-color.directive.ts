@@ -7,7 +7,7 @@ import { DomSanitizer, SafeStyle } from "@angular/platform-browser";
 export class ClickColorDirective {
 
   private toggle: boolean = false;
-  @Input() color: string = 'gray';
+  @Input() color: string = '#9bc1ff';
 
   constructor(private doms: DomSanitizer) { }
 

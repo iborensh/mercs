@@ -108,8 +108,8 @@ label {
   width: 100px;
     //position: absolute;
   //overflow: hidden;
-  color: blue;
-  background: white;
+  color: #9bc1ff;
+  background: none;
   text-align: center;
   font-size: 24px;
     float: right;
@@ -118,8 +118,8 @@ label {
   //transition: background 300ms ease;
 }
 .label2:hover{
-    background: white;
-    color: blue;
+    background: #9bc1ff;
+    color: white;
 
     //position: absolute;
 }
@@ -189,6 +189,27 @@ input[type="radio"]:checked ~ label > * {
   }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+.blue-circle-button {
+	box-shadow: 2px 4px 0 2px rgba(0,0,0,0.1);
+	border: .5em solid #9bc1ff;
+	font-size: 1em;
+	line-height: 1.1em;
+	//color: #ffffff;
+	margin: auto;
+	border-radius: 50%;
+	height: 7em;
+	width: 7em;
+	position: relative;
+}
+.blue-circle-button:hover {
+	color:#ffffff;
+    background-color: #9bc1ff;
+	text-decoration: none;
+	border-color: #9bc1ff;
+
+}
 
 //tree
 

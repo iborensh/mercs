@@ -1,13 +1,19 @@
 <ul>
-    <li *ngFor="let choose of v0; let first = first; let last = last">
+    <li *ngFor="let choose of v0; let first = first; let last = last; let i = index">
         <input id="{{choose.value}}" type="radio" name="rad" [checked]="first"/>
         <label for="{{choose.value}}">
-        <div>{{choose.label}}
-            <button *ngFor="let chose of chosen[choose.value]" type="button" class="btn btn-info special">{{chose}}
-            </button>
-        </div>
-    </label>
-        <div class="accslide" style='background-image: url("assets/images/mao1.png"); background-repeat: no-repeat; background-size: cover'>
+            <div>{{choose.label}}
+                <button *ngFor="let chose of chosen[choose.value]" type="button" class="btn btn-info special">{{chose}}
+                </button>
+            </div>
+        </label>
+        <!--<div class="accslide" style='background-image: url("assets/images/mao1.png"); background-repeat: no-repeat; background-size: cover; '>-->
+        <div class="accslide" [ngStyle]="setMyStyle(i)">
+             <!--[style.background-image]="'(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(' + choose.pic + ')'">-->
+             <!--style="background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),-->
+         <!--url('assets/images/map_1.jpg'); background-repeat: no-repeat; background-size: cover;">-->
+
+
             <div class="content">
                 <br>
                 <br>
@@ -15,21 +21,17 @@
                 <div class="row">
                     <div class="col-3"><h1>{{choose.label}}</h1></div>
                     <div class="col-6">
-                        <h4 *ngIf="first">Let us help you define your project. choose your options by clicking on the
+                        <h4 *ngIf="first" style="text-align: center">Let us help you define your project. <br> choose
+                            your options by clicking on the
                             button</h4>
                         <br>
                         <div class="card-deck">
                             <div *ngFor="let task of choose.options">
-                                <div clickColor
-                                     *ngIf="first || task.father === '' || (chosen[choose.father] && chosen[choose.father].includes(task.father))"
-                                     (click)="addToChosen(task.value, choose.value)" id="{{task.value}}"
-                                     class="card border-primary mb-3"
-                                     style="max-width: 10rem; max-height: 20rem; cursor: pointer;">
-                                    <div class="card-header">{{task.label}}</div>
-                                    <div class="card-body text-primary">
-                                        <h5 class="card-title">{{task.explanation}}</h5>
-                                    </div>
-                                </div>
+                                <button
+                                    *ngIf="first || task.father === '' || (chosen[choose.father] && chosen[choose.father].includes(task.father))"
+                                    (click)="addToChosen(task.value, choose.value)" id="{{task.value}}"
+                                    clickColor class="btn btn-default blue-circle-button" href="">{{task.label}}
+                                    <span class="blue-circle-greater-than"></span></button>
                             </div>
                         </div>
                         <div *ngIf="last" style="position: center">
