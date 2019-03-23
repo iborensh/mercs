@@ -16,7 +16,7 @@ export class UploadProjectComponent implements OnInit {
     constructor(private dataService: DataService, private http: HttpClient, public router: Router) {}
 
     v0 = [
-	{"label": "Type", "value": "type", "father":"", "next": "field", "pic": "assets/images/map_1.jpg", "multiple": true, "options":
+	{"label": "Type", "value": "type", "father":"", "next": "field", "pic": "assets/images/map_1.png", "multiple": true, "options":
 		[
 			{"label": "Research", "value": "research", "explanation": "understand something"},
 			{"label": "Develop", "value": "develop", "explanation": "create something"},
@@ -25,7 +25,7 @@ export class UploadProjectComponent implements OnInit {
     	]
 	},
 
-	{"label": "Field", "value": "field", "father":"", "next": "outcome", "pic": "assets/images/map_2.jpg", "multiple": true, "options":
+	{"label": "Field", "value": "field", "father":"", "next": "outcome", "pic": "assets/images/map_2.png", "multiple": true, "options":
 		[
 			{"label": "Commerce", "value": "commerce", "father":"", "explanation": "retail, commodoties, stuff"},
 			{"label": "Ecommerce", "value": "ecommerce", "father":"", "explanation": "virtual stores, stock"},
@@ -37,7 +37,7 @@ export class UploadProjectComponent implements OnInit {
 			{"label": "Security", "value": "security", "father":"", "explanation": "cyber, monitoring, anomalies"},
 		]
 	},
-    {"label": "Outcome","value":"outcome", "father":"type", "pic": "assets/images/map_3.jpg", "next": "attributes", "multiple": true, "options":
+    {"label": "Outcome","value":"outcome", "father":"type", "pic": "assets/images/map_3.png", "next": "attributes", "multiple": true, "options":
         [
 			{"label": "Report", "value": "report", "father":"research", "explanation": "an internal report"},
 			{"label": "Blog", "value": "blog", "father":"research", "explanation": "a blog post"},
@@ -62,25 +62,21 @@ export class UploadProjectComponent implements OnInit {
 			{"label": "HW prototype", "value": "hw prototype", "father":"test", "explanation": "something physical"},
         	]
     },
-    {"label": "Attributes", "value": "attributes", "father":"type", "pic": "assets/images/map_4.jpg", "next": "language", "multiple": true, "options":
+    {"label": "Attributes", "value": "attributes", "father":"type", "pic": "assets/images/map_4.png", "next": "language", "multiple": true, "options":
 		[
 			{"label": "Deep learning", "value": "deep learning", "father":"research", "explanation": ""},
 			{"label": "Statistics", "value": "statistics", "father":"research", "explanation": ""},
 			{"label": "physics", "value": "physics", "father":"research", "explanation": ""},
 			{"label": "mathematics", "value": "mathematics", "father":"research", "explanation": ""},
 			{"label": "blockchain", "value": "blockchain", "father":"research", "explanation": ""},
-
 			{"label": "Wix", "value": "wix", "father":"design", "explanation": "proficiancy with wix"},
 			{"label": "Autocad", "value": "autocad", "father":"design", "explanation": "proficiancy with autocad"},
 			{"label": "Wireframe", "value": "wireframe", "father":"design", "explanation": "proficiancy with wireframe"},
-
 			{"label": "IOS", "value": "ios", "father":"develop", "explanation": "ios development background"},
 			{"label": "Android", "value": "android", "father":"develop", "explanation": "android development background"},
-
 			{"label": "CI", "value": "ci", "father":"test", "explanation": "continous integration"},
 			{"label": "Manual", "value": "manual", "father":"test", "explanation": "manual testing"},
 			{"label": "Automation", "value": "automation", "father":"test", "explanation": "develop automatic tests"},
-
 		]
 	},
 	{"label": "Language", "value": "language", "next": "time", "pic": "assets/images/map_4.jpg", "multiple": true, "options":
@@ -92,7 +88,7 @@ export class UploadProjectComponent implements OnInit {
 			{"label": "German", "value": "german", "father":"", "explanation": ""},
 		]
 	},
-	{"label": "Time", "value": "time", "next": "finish", "pic": "assets/images/map_4.jpg", "multiple": true, "options":
+	{"label": "Time", "value": "time", "next": "finish", "pic": "assets/images/map_5.png", "multiple": true, "options":
 
 		[
 			{"label": "Week", "value": "a week", "father":"", "explanation": ""},
@@ -154,8 +150,8 @@ export class UploadProjectComponent implements OnInit {
     let styles = {
       'background-image': 'url("'+ this.v0[i].pic +'"), linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6))',
       'background-repeat':'no-repeat',
-        'lineargradient':'(rgba(255,255,255,0.6), rgba(255,255,255,0.6))',
-    'background-size': 'cover'
+      'lineargradient':'(rgba(255,255,255,0.6), rgba(255,255,255,0.6))',
+      'background-size': 'cover'
     };
     return styles;
 }

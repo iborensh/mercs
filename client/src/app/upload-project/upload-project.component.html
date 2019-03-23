@@ -1,63 +1,71 @@
-<ul>
-    <li *ngFor="let choose of v0; let first = first; let last = last; let i = index">
-        <input id="{{choose.value}}" type="radio" name="rad" [checked]="first"/>
-        <label for="{{choose.value}}">
-            <div>{{choose.label}}
-                <button *ngFor="let chose of chosen[choose.value]" type="button" class="btn btn-info special">{{chose}}
-                </button>
-            </div>
-        </label>
-        <!--<div class="accslide" style='background-image: url("assets/images/mao1.png"); background-repeat: no-repeat; background-size: cover; '>-->
-        <div class="accslide" [ngStyle]="setMyStyle(i)">
-             <!--[style.background-image]="'(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(' + choose.pic + ')'">-->
-             <!--style="background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),-->
-         <!--url('assets/images/map_1.jpg'); background-repeat: no-repeat; background-size: cover;">-->
-
-
-            <div class="content">
-                <br>
-                <br>
-                <br>
-                <div class="row">
-                    <div class="col-3"><h1>{{choose.label}}</h1></div>
-                    <div class="col-6">
-                        <h4 *ngIf="first" style="text-align: center">Let us help you define your project. <br> choose
-                            your options by clicking on the
-                            button</h4>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <ul>
+            <li *ngFor="let choose of v0; let first = first; let last = last; let i = index">
+                <input id="{{choose.value}}" type="radio" name="rad" [checked]="first"/>
+                <label for="{{choose.value}}">
+                    <div>{{choose.label}}
+                        <button *ngFor="let chose of chosen[choose.value]" type="button" class="btn btn-info special">
+                            {{chose}}
+                        </button>
+                    </div>
+                </label>
+                <!--<div class="accslide" style='background-image: url("assets/images/mao1.png"); background-repeat: no-repeat; background-size: cover; '>-->
+                <div class="accslide" [ngStyle]="setMyStyle(i)">
+                    <!--[style.background-image]="'(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(' + choose.pic + ')'">-->
+                    <!--style="background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),-->
+                    <!--url('assets/images/map_1.jpg'); background-repeat: no-repeat; background-size: cover;">-->
+                    <div class="content">
                         <br>
-                        <div class="card-deck">
-                            <div *ngFor="let task of choose.options">
-                                <button
-                                    *ngIf="first || task.father === '' || (chosen[choose.father] && chosen[choose.father].includes(task.father))"
-                                    (click)="addToChosen(task.value, choose.value)" id="{{task.value}}"
-                                    clickColor class="btn btn-default blue-circle-button" href="">{{task.label}}
-                                    <span class="blue-circle-greater-than"></span></button>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-3"><h1>{{choose.label}}</h1></div>
+                            <div class="col-6">
+                                <h4 *ngIf="first" style="text-align: center">Let us help you define your project. <br>
+                                    choose
+                                    your options by clicking on the
+                                    button</h4>
+                                <br>
+                                <div class="card-deck">
+                                    <div *ngFor="let task of choose.options">
+                                        <button
+                                            *ngIf="first || task.father === '' || (chosen[choose.father] && chosen[choose.father].includes(task.father))"
+                                            (click)="addToChosen(task.value, choose.value)" id="{{task.value}}"
+                                            clickColor class="btn btn-default blue-circle-button" href="">{{task.label}}
+                                            <span class="blue-circle-greater-than"></span></button>
+                                    </div>
+                                </div>
+                                <div *ngIf="last" style="position: center">
+                                    <!--<div class="typewriter">-->
+                                    <h4>I need {{chosen.type}} to do {{chosen.field}} with
+                                        {{chosen.attributes}}</h4>
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <label *ngIf="!last" for="{{choose.next}}" class="label2">Next</label>
+                                <div *ngIf="last && !skills" class="input-group mb-3" style="float: right;">
+                                    <input type="text" [(ngModel)]="projectName" class="input2"
+                                           placeholder="Project name">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" (click)="finishClick()" type="button">
+                                            Finish
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    {{skills}}
+                                </div>
                             </div>
                         </div>
-                        <div *ngIf="last" style="position: center">
-                            <!--<div class="typewriter">-->
-                            <h4>I need {{chosen.type}} to do {{chosen.field}} with
-                                {{chosen.attributes}}</h4>
-                            <!--</div>-->
-                        </div>
                     </div>
-                    <div class="col-3">
-                        <label *ngIf="!last" for="{{choose.next}}" class="label2">Next</label>
-                        <div *ngIf="last && !skills" class="input-group mb-3" style="float: right;">
-                            <input type="text" [(ngModel)]="projectName" class="input2" placeholder="Project name">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" (click)="finishClick()" type="button">Finish
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            {{skills}}
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!--<h4 style="float: right; cursor: pointer" *ngIf="last" (click)="finishClick()">Finish</h4>-->
-        </div>
-    </li>
-</ul>
+                    <!--<h4 style="float: right; cursor: pointer" *ngIf="last" (click)="finishClick()">Finish</h4>-->
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-1"></div>
+</div>
