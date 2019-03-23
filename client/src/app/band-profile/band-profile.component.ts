@@ -15,6 +15,8 @@ export class BandProfileComponent implements OnInit {
 
     userId = _.get(this.dataService.UserData, '_id', '');
     user = this.dataService.UserData;
+    character = '';
+    bandSkills = {};
   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private http: HttpClient, private dataService: DataService) {
 
   }
@@ -27,6 +29,12 @@ export class BandProfileComponent implements OnInit {
         {"label": "Look for band", "value": "look_for_band", "percent": "55%"},
         {"label": "Projects", "value": "projects", "percent": "99%"}];
   ngOnInit() {
+      let profile = _.get(this.dataService.UserData, 'profile', '');
+        this.character = profile.character;
+        console.log(profile);
+        if (profile) {
+            this.bandSkills = profile;
+        }
       // this.id = this.route.snapshot.paramMap.get('id');
       // console.log(this.id)
   }
