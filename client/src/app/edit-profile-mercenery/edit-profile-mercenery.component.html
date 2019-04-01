@@ -91,17 +91,16 @@
                 </div>
             </div>
             <div class="card2" style="min-height: 250px; margin-bottom: 25px; margin-top: 20px">
-                <div *ngFor="let skills of mercSkills.skills" style="margin-top: inherit">
-                    <div *ngFor="let skill of skills | keyvalue" class="btn-group" role="group">
-                        <!--[style.float]="skill.key === 'ranking' ? 'right': 'none'">-->
-                        <!--<div style="background-color: #868e96">-->
-                        <button type="button" class="btn btn-secondary"
-                                style="height: fit-content; background-color: #2e6da4"
+           <ul class="list-group">
+                <li *ngFor="let userSkills of mercSkills.skills" style="margin-top: inherit" class="list-group-item list-group-item-info">
+                    <div *ngFor="let skill of userSkills | keyvalue" class="btn-group" role="group">
+                        <button (click)="current = skill.key"
+                                style="height: fit-content; background-color: transparent; border: none"
                                 *ngIf="skill.value !== [] && skill.key !== 'ranking'">
-                            {{skill.key}}
+                            <u>{{skill.key}}</u> -
                         </button>
                         <div *ngFor="let label2 of skill.value | keyvalue">
-                            <button type="button" class="btn btn-secondary"
+                            <button style="height: fit-content; background-color: transparent; border: none"
                                     *ngIf="['degree', 'school', 'company', 'title', 'site'].indexOf(label2.key) > -1">
                                 {{label2.value}}
                             </button>
@@ -109,7 +108,7 @@
                         </div>
                     </div>
                     <div style="float: right">
-                        <div *ngFor="let label2 of skills.ranking | keyvalue" class="btn-group" role="group">
+                        <div *ngFor="let label2 of userSkills.ranking | keyvalue" class="btn-group" role="group">
                             <div class="tag">{{label2.value}}</div>
                             <img class="smallImg"
                                  src="assets/images/skills/software engineer/{{label2.key}}.png">
@@ -121,7 +120,8 @@
                         </button>
                     </div>
                     <!--<br>-->
-                </div>
+                </li>
+           </ul>
             </div>
         </div>
         <div class="col-4" style="min-height: 250px; overflow-y:auto; background-color: whitesmoke">

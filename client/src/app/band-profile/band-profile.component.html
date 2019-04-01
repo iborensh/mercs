@@ -10,43 +10,59 @@
                 <div class="col-4">
                     <div class="list-group card2 rounded" style="height: 100%">
                         <button class="list-group-item list-group-item-action card2" *ngFor="let action of actions"
-                                (click)="current = action.value">{{action.label}}
+                                (click)="current = action; ">{{action.label}}
                         </button>
                     </div>
                 </div>
                 <div class="col-8">
                     <div class="card card2">
-                        <h3>{{current}}</h3>
+                        {{current.label}}
+                        <mat-form-field>
+                            <mat-select>
+                                <mat-option *ngFor="let item of data[current.show]" [value]="item.id">
+                                    {{item.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
                     </div>
+                    <div class="col text-center">
+                    <button class="btn btn-outline-info">{{current.label}}</button>
+                        </div>
                 </div>
             </div>
             <div class="card2" style="min-height: 250px; margin-bottom: 25px; margin-top: 20px">
-                <h2>Missions/ Projects</h2>
+                <h2 style="text-align: center">Missions/ Projects</h2>
                 <br>
                 <ul class="list-group">
-                    <li routerLink="/project-manager" class="list-group-item list-group-item-info d-flex justify-content-between align-items-center">
+                    <li routerLink="/project-manager"
+                        class="list-group-item list-group-item-info d-flex justify-content-between align-items-center">
                         New web design
                         <span class="badge badge-primary badge-pill">In progress</span>
                     </li>
-                    <li routerLink="/project-manager" class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+                    <li routerLink="/project-manager"
+                        class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
                         Testing for CISCO
                         <span class="badge badge-primary badge-pill">10,000</span>
                     </li>
-                    <li routerLink="/project-manager" class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+                    <li routerLink="/project-manager"
+                        class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
                         Create a lot of QA
                         <span class="badge badge-info badge-pill">Done</span>
                         <span class="badge badge-primary badge-pill">20,000</span>
                     </li>
-                    <li routerLink="/project-manager" class="list-group-item list-group-item-danger d-flex justify-content-between align-items-center">
+                    <li routerLink="/project-manager"
+                        class="list-group-item list-group-item-warning d-flex justify-content-between align-items-center">
                         Testing for Apple
                         <span class="badge badge-primary badge-pill">Request</span>
                     </li>
-                    <h5>will be open if do some courses</h5>
-                    <li routerLink="/project-manager" class="list-group-item list-group-item-danger d-flex justify-content-between align-items-center">
+                    <li><h5>will be open if do some courses</h5></li>
+                    <li routerLink="/project-manager"
+                        class="list-group-item list-group-item-warning d-flex justify-content-between align-items-center">
                         Testing for Apple
                         <span class="badge badge-primary badge-pill">100,000</span>
                     </li>
-                    <li routerLink="/project-manager" class="list-group-item list-group-item-danger d-flex justify-content-between align-items-center">
+                    <li routerLink="/project-manager"
+                        class="list-group-item list-group-item-warning d-flex justify-content-between align-items-center">
                         Testing for Apple
                         <span class="badge badge-primary badge-pill">150,000</span>
                     </li>

@@ -128,7 +128,6 @@ export class UploadProjectComponent implements OnInit {
         console.log(this.chosen);
         let data = {'user': this.userId, 'calculate': true, 'project_name': this.projectName, 'content': this.chosen};
         this.http.post('/api/projects', data).subscribe(data => {
-        // this.router.navigate(['login']);
             console.log(data);
             this.skills = data
             },
@@ -139,7 +138,7 @@ export class UploadProjectComponent implements OnInit {
         this.finish = true;
         this.dataService.ChosenProject = data;
         // setTimeout(() => {
-     // this.router.navigate(['groups-list']);
+     this.router.navigate(['groups-list']);
     // }, 4000);
     }
 
