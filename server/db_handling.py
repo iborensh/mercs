@@ -50,31 +50,31 @@ class DbHandling(object):
         :param json:
         :return:
         """
-        user = json_settings['user']
-        name = json_settings['project_name']
-        ans = self.db_projects.insert(
-            {'user': user, 'name': name, 'start_on': datetime.datetime.utcnow(), 'content': json_settings['content'],
-             'status': 'started', 'modified_on': datetime.datetime.utcnow()})
+        json_settings['name'] = json_settings['project_name']
+        json_settings['start_on'] = datetime.datetime.utcnow()
+        json_settings['modified_on'] = datetime.datetime.utcnow()
+        json_settings['status'] = 'started'
+        ans = self.db_projects.insert(json_settings)
         return self.get_project(str(ans))
 
-    def insert_user(self, json):
+    def insert_user(self, user_json):
         """
         insert new user
         :param json:
         :return:
         """
-        name = json['name']
-        json.update({'admin': False})
+        name = user_json['name']
+        user_json.update({'admin': False})
         ans = self.db_users.update({'name': name},
-                                   {'$set': json}, upsert=True)
+                                   {'$set': user_json}, upsert=True)
         flag = True
         for k, v in ans.items():
             if k == 'upserted':
-                id = str(v)
+                user_id = str(v)
             if k == 'updatedExisting':
                 flag = v
         if not flag:
-            return self.get_project(id, collection=True)
+            return self.get_project(user_id, collection=True)
         return jsonify({'_id': 'already_exist'})
 
     def update_user(self, user_id, data):

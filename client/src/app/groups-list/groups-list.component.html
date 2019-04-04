@@ -1,28 +1,45 @@
-
 <div class="container">
     <div class="card bg-light text-dark">
-    <div class="card-body">project: {{project.project_name}}</div>
-  </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div *ngFor="let band of bands; let i = index" class="col-sm-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="/assets/images/{{band.image}}" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title">{{band.name}}</h4>
-            <p class="card-text">{{band.status}}</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">moshe</li>
-          </ul>
-          <div class="card-block">
-          <button (click)="bands.splice(i, 1)" type="button" class="btn btn-danger">dismiss</button>
-              <button routerLink="['band-profile/{{band._id}}']" type="button" class="btn btn-success">reach out</button>
-          </div>
-        </div>
-      </div>
-        <br>
+        <div class="card-body">project: {{project.project_name}}</div>
+        <div class="card-body">project flow: {{project.require_skills.paths}}</div>
     </div>
-  </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <ul>
+
+                    <li *ngFor="let sort of sorting"> {{sort.label}} <br>
+                        <div class="form-check" *ngFor="let option of sort.options">
+                            <input class="form-check-input" type="{{sort.options_type}}" name="{{sort.value}}" id="{{option.value}}"
+                                   value="option1">
+                            <label class="form-check-label" for="{{option.value}}">
+                                {{option.label}}
+                            </label>
+                        </div>
+                        <hr>
+                    </li>
+                </ul>
+            </div>
+            <div *ngFor="let band of bands; let i = index" class="col-sm-3">
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="/assets/images/{{band.image}}" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">{{band.name}}</h4>
+                        <p class="card-text">{{band.status}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">moshe</li>
+                    </ul>
+                    <div class="card-block">
+                        <button (click)="bands.splice(i, 1)" type="button" class="btn btn-danger">dismiss</button>
+                        <button routerLink="['band-profile/{{band._id}}']" type="button" class="btn btn-success">reach
+                            out
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
 </div>
 
