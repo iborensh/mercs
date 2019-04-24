@@ -70,13 +70,12 @@
                     <a href="javascript:void(0)" class="dropdown-item">
                         {{ 'Mail' | translate }} <span class="badge badge-info"> 45</span>
                     </a>
-                    <li class="dropdown-divider"></li>
                     <a href="javascript:void(0)" class="dropdown-item">
                         {{ 'View All' | translate }}
                     </a>
                 </div>
             </li>
-            <li class="nav-item dropdown" ngbDropdown>
+            <li class="nav-item dropdown" *ngIf="auth.userName !== 'Guest'" ngbDropdown >
                 <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
                     <i class="fa fa-user"></i> {{auth.userName}} <b class="caret"></b>
                 </a>
@@ -95,6 +94,9 @@
                     </a>
                 </div>
             </li>
+    <li *ngIf="auth.userName == 'Guest'">
+        <a class="btn rounded-btn" [routerLink]="['/newUser']">Register</a><a class="btn rounded-btn" [routerLink]="['/login']">Login</a>
+    </li>
             <li class="nav-item dropdown" ngbDropdown>
                 <a class="navbar-brand" href="#">contact</a>
             </li>

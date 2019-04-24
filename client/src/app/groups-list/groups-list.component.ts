@@ -41,4 +41,8 @@ export class GroupsListComponent implements OnInit {
         );
   }
 
+  intToArray(num){
+      return _.fill(Array(num), null);
+  }
+
 }

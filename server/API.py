@@ -116,7 +116,7 @@ def user_projects(user_id=None):
             return jsonify(db_functions.get_projects_by_user(user_id))
 
 @app.route("/api/generate-project", methods=['POST'])
-def generate_project_data_fromr_upload_project():
+def generate_project_data_from_upload_project():
     """
     Shahar put your functions call here
     :return:
