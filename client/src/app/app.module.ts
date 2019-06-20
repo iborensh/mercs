@@ -27,11 +27,11 @@ import {NgbCarouselModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
 import {ChatComponent} from './chat/chat.component';
 import {SelectBandComponent} from './select-band/select-band.component';
-import {BandProfileComponent} from './band-profile/band-profile.component';
+import {BandProfileComponent, NgbdModalContent} from './band-profile/band-profile.component';
 import {ProjectManagerComponent} from './project-manager/project-manager.component';
-
+import {NgbdModalBandInfo} from "./groups-list/groups-list.component";
 import {MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatButtonModule, MatSelectModule} from '@angular/material';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import 'hammerjs';
 import { AbovenavComponent } from './abovenav/abovenav.component';
@@ -60,7 +60,8 @@ export const createTranslateLoader = (http: HttpClient) => {
         MatAutocompleteModule,
         MatButtonModule,
         MatSelectModule,
-        NgbModule,
+        NgbModule.forRoot(),
+        NgbModalModule,
         MatInputModule,
         NgbDropdownModule.forRoot(),
         NgbCarouselModule.forRoot(),
@@ -76,7 +77,8 @@ export const createTranslateLoader = (http: HttpClient) => {
         ReactiveFormsModule,
         AppRoutingModule
     ],
-    declarations: [AppComponent, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent,
+    entryComponents: [NgbdModalContent, NgbdModalBandInfo],
+    declarations: [AppComponent, NgbdModalContent, NgbdModalBandInfo, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent,
         UploadProjectComponent, ClickColorDirective, SearchProjectComponent, EditProjectComponent, MyProjectsWarlordComponent,
         MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent, ChatComponent, SelectBandComponent, BandProfileComponent, ProjectManagerComponent, AbovenavComponent, MercNavbarComponent],
     providers: [AuthGuard],

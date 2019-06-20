@@ -34,36 +34,38 @@
                 <h2 style="text-align: center">Missions/ Projects</h2>
                 <br>
                 <ul class="list-group">
-                    <li routerLink="/project-manager"
-                        class="list-group-item list-group-item-info d-flex justify-content-between align-items-center">
-                        New web design
+                    <li routerLink="/project-manager" style="margin-bottom: 2px"
+                        class="list-group-item list-group-item-light d-flex outline-blue justify-content-between align-items-center">
+                        New
                         <span class="badge badge-primary badge-pill">In progress</span>
                     </li>
-                    <li routerLink="/project-manager"
-                        class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+                    <li routerLink="/project-manager" style="margin-bottom: 2px"
+                        class="list-group-item list-group-item-light outline-green d-flex justify-content-between align-items-center">
                         Testing for CISCO
                         <span class="badge badge-primary badge-pill">10,000</span>
                     </li>
-                    <li routerLink="/project-manager"
-                        class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+                    <li routerLink="/project-manager" style="margin-bottom: 2px"
+                        class="list-group-item list-group-item-light outline-green d-flex justify-content-between align-items-center">
                         Create a lot of QA
                         <span class="badge badge-info badge-pill">Done</span>
                         <span class="badge badge-primary badge-pill">20,000</span>
                     </li>
-                    <li routerLink="/project-manager"
-                        class="list-group-item list-group-item-warning d-flex justify-content-between align-items-center">
-                        Testing for Apple
+                    <li routerLink="/project-manager" style="margin-bottom: 2px"
+                        class="list-group-item list-group-item-light outline-blue d-flex justify-content-between align-items-center">
+                        Testing for Cisco
                         <span class="badge badge-primary badge-pill">Request</span>
                     </li>
                     <li><h5>will be open if do some courses</h5></li>
-                    <li routerLink="/project-manager"
-                        class="list-group-item list-group-item-warning d-flex justify-content-between align-items-center">
-                        Testing for Apple
+                    <li style="margin-bottom: 2px"
+                        class="list-group-item list-group-item-light outline-yellow d-flex justify-content-between align-items-center">
+                        Testing for Intel
+                        <button class="btn btn-dark-blue btn-rounded btn-outline-primary" (click)="open()">Launch course details</button>
                         <span class="badge badge-primary badge-pill">100,000</span>
                     </li>
-                    <li routerLink="/project-manager"
-                        class="list-group-item list-group-item-warning d-flex justify-content-between align-items-center">
+                    <li style="margin-bottom: 2px"
+                        class="list-group-item list-group-item-light outline-yellow d-flex justify-content-between align-items-center">
                         Testing for Apple
+                        <button class="btn flash-button btn-rounded " (click)="open()">Launch course details</button>
                         <span class="badge badge-primary badge-pill">150,000</span>
                     </li>
                 </ul>
@@ -71,7 +73,16 @@
             </div>
         </div>
         <div class="col-4" style="min-height: 250px; overflow-y:auto; background-color: whitesmoke">
-            <img src="assets/images/{{imgeSrc}}" class="avatar" (click)="changeImageSrc()">
+            <div class="row" style="alignment: center">
+                <div class="column">
+                    <img src="assets/images/people/people1.jpg" class="avatar"></div>
+                <div class="column">
+                    <img src="assets/images/people/people2.jpg" class="avatar"></div>
+                <div class="column">
+                    <img src="assets/images/people/people3.jpg" class="avatar"></div>
+                <div class="column">
+                    <img src="assets/images/people/people4.jpg" class="avatar"></div>
+                </div>
             <input class="nonSee" [(ngModel)]="user.name" placeholder="Name">
 
             <textarea class="nonSee" [(ngModel)]="user.description"

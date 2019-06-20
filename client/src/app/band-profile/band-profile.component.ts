@@ -5,6 +5,18 @@ import * as _ from 'lodash';
 import {Router} from '@angular/router';
 import {DataService} from "../data.service";
 import {FormBuilder} from "@angular/forms";
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+
+@Component({
+  selector: 'ngbd-modal-content',
+  templateUrl: "../modals/course.html",
+    styleUrls: ['../modals/course.css']
+})
+export class NgbdModalContent {
+
+  constructor(public activeModal: NgbActiveModal) {}
+}
 
 @Component({
   selector: 'app-band-profile',
@@ -18,11 +30,11 @@ export class BandProfileComponent implements OnInit {
     character = '';
     bandSkills = {};
     data = {};
-  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private http: HttpClient, private dataService: DataService) {
+  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private http: HttpClient, private dataService: DataService, private modalService: NgbModal) {
 
   }
     // id = '';
-    current = [{"name":"a"}, {"name":"b"}];
+    current = {"label": "Add member", "value": "add_member", "show": "users"};
   actions = [
         {"label": "Add member", "value": "add_member", "show": "users"},
         {"label": "Delete member", "value": "delete_member", "show": "users"},
@@ -54,6 +66,11 @@ export class BandProfileComponent implements OnInit {
 
       // this.id = this.route.snapshot.paramMap.get('id');
       // console.log(this.id)
+  }
+
+  open() {
+    const modalRef = this.modalService.open(NgbdModalContent, { size: 'lg' });
+    modalRef.componentInstance.name = 'World';
   }
 
 }

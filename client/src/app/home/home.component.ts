@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
 
   buttons = [
       {"label": "New user? Sign up", "link": ["/user-type"], "class": "btn btn-default-red", "image": "merc.jpeg", "description": "this is description"},
-      {"label": "sign in", "link": ["/login"], "class": "btn btn-default", "image": "merc2.jpeg", "description": "this is description"},
-      {"label": "default", "link": ["home"], "class": "btn btn-default", "image": "merc3.jpeg", "description": "this is description"}
+      {"label": "Sign in", "link": ["/login"], "class": "btn btn-default", "image": "merc2.jpeg", "description": "this is description"},
+      {"label": "Just looking", "link": ["home"], "class": "btn btn-default", "image": "merc3.jpeg", "description": "this is description"}
       ];
   userType = '';
   userData = this.dataService.UserData;

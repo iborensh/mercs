@@ -34,6 +34,8 @@ export class EditProfileMerceneryComponent implements OnInit {
     mercSkills = {};
     current = 'user_class';
     public isCollapsed = false;
+    peopleFaces = ['img_avatar.png', 'img_avatar2.png', 'people1.jpg', 'people3.jpg', 'people8.jpg', 'people9.jpg'];
+    first = 0;
     skills = [
         {"label": "User class", "value": "user_class", "percent": "12%"},
         {"label": "Education", "value": "education", "percent": "30%"},
@@ -61,6 +63,10 @@ export class EditProfileMerceneryComponent implements OnInit {
             {"label": "Job title3", "value": "job_title", "percent": "12%"},
             {"label": "Education3", "value": "education", "percent": "30%"},
             {"label": "Certificate3", "value": "certificate", "percent": "55%"}],
+        "projects": [
+            {"label": "Web name", "value": "web_name", "percent": "12%"},
+            {"label": "Project name", "value": "project_name", "percent": "30%"},
+            {"label": "Money", "value": "money", "percent": "55%"}],
         "online_courses": [
             {"label": "course type", "value": "course", "percent": "12%", "chosen": ""},
             {"label": "Web", "value": "web", "percent": "30%", "chosen": ""},
@@ -147,7 +153,6 @@ export class EditProfileMerceneryComponent implements OnInit {
 
     choose_character(character) {
         this.character = character;
-        console.log(character);
         _.forEach(this.job_title, function (dict) {
             if(dict.value === character){
                 dict.color = 'blue';
@@ -170,12 +175,12 @@ export class EditProfileMerceneryComponent implements OnInit {
     }
 
     changeImageSrc(){
-        if(this.imgeSrc == 'img_avatar.png'){
-            this.imgeSrc = 'img_avatar2.png'
+        if(this.first + 1 == this.peopleFaces.length){
+            this.first=0;
         }
-        else{
-            this.imgeSrc = 'img_avatar.png'
-        }
+        else {this.first ++}
+        this.imgeSrc = this.peopleFaces[this.first];
+
     }
 
 

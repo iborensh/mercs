@@ -109,7 +109,6 @@ class Mercenery(object):
         # usr_title: work title name
         # usr_seniority: the seniority at the job - junior, senior, architect, tech lead, people manager
         years = float(years)
-        print usr_company, usr_title, years, usr_seniority
 
         company_factor = 1
         seniority_factor = 1

@@ -179,10 +179,22 @@ class DbHandling(object):
         :return:
         """
         if not band_id:
-            project = self.db_bands.find({})
+            band = self.db_bands.find({})
         else:
-            project = list(self.db_bands.find({'_id': ObjectId(band_id)}))[0]
-        bands = [{k: str(v) if k == '_id' else v for k, v in i.iteritems()} for i in project]
+            band = list(self.db_bands.find({'_id': ObjectId(band_id)}))[0]
+        bands = [{k: str(v) if k == '_id' else v for k, v in i.iteritems()} for i in band]
+        return bands
+
+    def get_band_with_users_data(self, band_id):
+        bands = self.get_band(band_id)
+        for i, band in enumerate(bands):
+            users = []
+            for user_id in band['users_id']:
+                try:
+                    users.append(list(self.get_user_by_id(user_id))[0])
+                except:
+                    continue
+            bands[i].update({"users_data": users})
         return bands
 
     def delete_band(self, band_id):

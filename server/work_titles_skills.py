@@ -50,5 +50,4 @@ class WorkTitlesSkills(object):
                 for merc_work_title_binned in self.binnedWorkTitles[merc_class]:
                     if self.usr_title_binned == merc_work_title_binned:
                         gained_skills_base =  self.binnedWorkTitles[merc_class][merc_work_title_binned]
-                        print gained_skills_base
         return gained_skills_base
