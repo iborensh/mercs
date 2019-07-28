@@ -93,7 +93,7 @@ export class EditProfileMerceneryComponent implements OnInit {
         {
             "src": "assets/images/sw_general.png",
             "label": "Software developer",
-            "value": "sw",
+            "value": "software developer",
             "color": "white",
             "explanation": "explain here if needed"
         },
@@ -106,7 +106,7 @@ export class EditProfileMerceneryComponent implements OnInit {
         },
         {
             "src": "assets/images/hw_general.png",
-            "label": "Hardware developer",
+            "label": "hardware developer",
             "value": "hw",
             "color": "white",
             "explanation": "what???"
@@ -140,9 +140,16 @@ export class EditProfileMerceneryComponent implements OnInit {
 
     addToList(type) {
         console.log(this.skillOptions);
+        console.log('this.character', this.character);
+        let character = this.character != undefined ? this.character : "";
+        let newInformation = {};
+        this.skillOptions[type].forEach(function (title) {
+                newInformation[title.value] = title.chosen
+            });
         this.http.put('/api/merc-profile/' + this.userId, {
             "character": this.character,
             "field": type,
+            // "chosen": newInformation
             "chosen": this.skillOptions[type]
         }).subscribe(data => {
             console.log(data);

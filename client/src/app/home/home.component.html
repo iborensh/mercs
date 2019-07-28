@@ -1,9 +1,17 @@
+<!--<div class="bg">-->
 <div class="bg">
     <div class="centered">
         <div class="text-center">
             <p style="font-size: 90px; color: black"><strong>mercs.com</strong></p>
             <h1 style="font-weight:900; color: black"><b>Hire yourself a mercenary band</b></h1>
             <br>
+            <div class="row">
+                <div class="col-5">
+            <h4>Popular projects:</h4></div>
+                <button class="exBtn">Web design</button>
+                <button class="exBtn">Sw develop</button>
+                <button class="exBtn">Systems QA</button>
+                </div>
         </div>
     </div>
 </div>
@@ -11,7 +19,7 @@
 <div class="container-fluid">
     <div class="row">
         <div *ngFor="let button of buttons" class="col-sm-4">
-            <div class="card" style="cursor: pointer; border: 1px; background-color: whitesmoke"
+            <div class="card" on style="cursor: pointer; border: 1px; background-color: whitesmoke"
                  routerLink="{{button.link}}">
                 <div class="card-body">
                     <div class="card-body">

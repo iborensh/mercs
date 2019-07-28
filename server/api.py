@@ -6,7 +6,7 @@ from mercenery import Mercenery
 from new_mission_functions import Map2reward
 from os import path
 from flask_cors import CORS, cross_origin
-
+import pprint
 sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 app = Flask(__name__)
 
@@ -17,6 +17,7 @@ app.config['SECRET_KEY'] = 'this is secret key'
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
+merc = Mercenery()
 
 @app.route("/api/users", methods=['GET', 'POST', 'DELETE'])
 @app.route("/api/users/<id>", methods=['GET', 'POST', 'PUT', 'DELETE'])
@@ -137,8 +138,8 @@ def merc_profile(user_id):
         return db_functions.insert_band(data)
     elif request.method == 'PUT':
         data = json.loads(request.data, strict=False)
-        merc = Mercenery()
-        data['chosen'].update({"usr_class": data['character']})
+        data['chosen'] = [{'value': "usr_class", 'chosen': data['character']}] + data['chosen']
+        pprint.pprint(data)
         ranking = getattr(merc, 'add_{}'.format(data['field']))(*[param['chosen'] for param in data['chosen']])
         data = {"profile":{"skills":[{data['field']: {param['value']: param['chosen'] for param in data['chosen']},
                                       "ranking": ranking, "approve": False, "status": "start"}],

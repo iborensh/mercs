@@ -26,7 +26,7 @@
                         </mat-form-field>
                     </div>
                     <div class="col text-center">
-                        <button class="btn btn-outline-info">{{current.label}}</button>
+                        <button class="btn btn-outline-info" (click)="run_function(current.label)">{{current.label}}</button>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                 <div class="column">
                     <img src="assets/images/people/people4.jpg" class="avatar"></div>
                 </div>
-            <input class="nonSee" [(ngModel)]="user.name" placeholder="Name">
+            <input class="nonSee" [(ngModel)]="user.name" placeholder="My awesome band">
 
             <textarea class="nonSee" [(ngModel)]="user.description"
                       placeholder="put short description on yourself"></textarea>

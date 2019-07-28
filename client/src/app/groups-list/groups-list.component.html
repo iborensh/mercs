@@ -38,30 +38,62 @@
                     </li>
                 </ul>
             </div>
+            <!--<div class="box5">-->
+            <!--<img src="http://bestjquery.com/tutorial/hover-effect/demo160/images/img-1.jpg" alt="">-->
+            <!--<ul class="icon">-->
+            <!--<li><a href="#" class="fa fa-search"></a></li>-->
+            <!--<li><a href="#" class="fa fa-link"></a></li>-->
+            <!--</ul>-->
+            <!--<div class="box-content">-->
+            <!--<h3 class="title">Williamson</h3>-->
+            <!--<span class="post">Web Developer</span>-->
+            <!--</div>-->
+            <!--</div>-->
             <div class="col-10">
                 <div class="row">
-                    <div *ngFor="let band of bands; let i = index" class="col-sm-4" style="margin-bottom: 6px; margin-top: 6px">
-                        <div class="card" *ngIf="i < 6">
-                            <img class="card-img-top cardBackground" src="/assets/images/{{band.image}}" alt="Card image cap">
+                    <div *ngFor="let band of bands; let i = index" class="col-sm-4"
+                         style="margin-bottom: 6px; margin-top: 6px">
+                        <div class="card box5" *ngIf="i < 6">
+                            <!--<div class="box5">-->
+                            <img class="card-img-top cardBackground" src="/assets/images/bands/{{band.image}}"
+                                 alt="Card image cap">
+                            <ul class="icon">
+                                <li (click)="bands.splice(i, 1)"><a class="fa fa-trash"></a>Dismiss</li>
+                                <li><a class="fa fa-connectdevelop"></a>Contact</li>
+                                <li (click)="openBandModal(band)"><a class="fa fa-search"></a>Info</li>
+                            </ul>
+                            <div class="box-content">
+                                <h3 class="title">{{band.name}}</h3>
+                                <span class="post">{{band.status}}</span>
+                            </div>
+
+                            <!--<img class="card-img-top cardBackground" src="/assets/images/bands/{{band.image}}" alt="Card image cap">-->
                             <div class="row">
                                 <div class="col-4">
 
-                                    <img *ngFor="let user of band.users_data" src="/assets/images/people/{{user.profile.pic}}"
+                                    <img *ngFor="let user of band.users_data"
+                                         src="/assets/images/people/{{user.profile.pic}}"
                                          class="smallImg">
                                 </div>
                                 <div class="col-4">
                                     <div *ngFor="let skills of band.skills">
-                                    <button *ngFor="let skill of skills | keyvalue">{{skill.value}}</button>
-                                        </div>
+                                        <button *ngFor="let skill of skills | keyvalue">{{skill.value}}</button>
+                                    </div>
                                 </div>
-                                <div class="fa fa-star-o col-4" style="color: #f0ad4e">&nbsp;&nbsp;{{band.aggr_ranks}}
-                                    ({{band.reviews.length}})
+                                <div class="col-4">&nbsp;&nbsp;
+
                                     <!--<div class="btn-group">-->
-                                    <button (click)="bands.splice(i, 1)" type="button" class="btn btn100percent btn-danger">dismiss
+                                    <div class="fa fa-star-o " style="color: #f0ad4e">
+                                        {{band.aggr_ranks}}
+                                        ({{band.reviews.length}})
+                                    </div>
+                                    <button (click)="bands.splice(i, 1)" type="button" style="visibility: hidden;"
+                                            class="btn btn100percent btn-danger">
+                                        dismiss
                                     </button>
-                                    <button type="button" (click)="openBandModal(band)" class="btn btn100percent btn-info">Info
-                                    </button>
+
                                     <button routerLink="['band-profile/{{band._id}}']" type="button"
+                                            style="visibility: hidden;"
                                             class="btn btn-success ">reach out
                                     </button>
                                     <!--</div>-->
@@ -69,7 +101,6 @@
 
                             </div>
                         </div>
-
 
 
                         <!--<div class="card" *ngIf="i < 6">-->

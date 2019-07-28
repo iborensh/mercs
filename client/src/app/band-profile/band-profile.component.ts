@@ -73,4 +73,11 @@ export class BandProfileComponent implements OnInit {
     modalRef.componentInstance.name = 'World';
   }
 
+  static run_function(functionName){
+      if (functionName == 'add_member'){
+
+      }
+
+  }
+
 }

@@ -15,21 +15,20 @@ export class ProjectManagerComponent implements OnInit {
 
     ngOnInit() {
     }
-    newDone = '';
+    newToDo = '';
 
     todo = [
-        'Get to work',
-        'Pick up groceries',
-        'Go home',
-        'Fall asleep'
+        'Set meeting',
+        'ticket 1234',
+        'ticket 4564',
+        'Dont Fall asleep'
     ];
 
     done = [
         'Get up',
-        'Brush teeth',
-        'Take a shower',
-        'Check e-mail',
-        'Walk dog'
+        'ticket 9876654',
+        'Check e-mail'
+
     ];
 
     drop(event: CdkDragDrop<string[]>) {
@@ -45,9 +44,9 @@ export class ProjectManagerComponent implements OnInit {
     }
 
     addToDo() {
-        this.done.push(this.newDone);
-        console.log(this.newDone);
-        this.newDone = ''
+        this.todo.push(this.newToDo);
+        console.log(this.newToDo);
+        this.newToDo = ''
     }
 
     delete(event) {
