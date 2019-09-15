@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   buttons = [
       {"label": "New user? Sign up", "link": ["/user-type"], "class": "btn btn-default-red", "image": "merc.jpeg", "description": "this is description"},
       {"label": "Sign in", "link": ["/login"], "class": "btn btn-default", "image": "merc2.jpeg", "description": "this is description"},
-      {"label": "Just looking", "link": ["home"], "class": "btn btn-default", "image": "merc3.jpeg", "description": "this is description"}
+      {"label": "Just looking", "link": ["/groups-list"], "class": "btn btn-default", "image": "merc3.jpeg", "description": "this is description"}
       ];
   userType = '';
   userData = this.dataService.UserData;
@@ -24,14 +24,14 @@ export class HomeComponent implements OnInit {
       let userId = _.get(this.userData, '_id', '');
       if(this.userType === 'hire') {
           this.buttons = [
-              {"label": "Hire group", "link": ["/user-type"], "class": "btn btn-default", "image": "merc2.jpeg", "description": "this is description"},
+              {"label": "Hire group", "link": ["/groups-list"], "class": "btn btn-default", "image": "merc2.jpeg", "description": "this is description"},
               {"label": "upload project", "link": ["/upload-project"], "class": "btn btn-default", "image": "merc2.jpeg", "description": "this is description"},
               {"label": "My projects", "link": ["/my-projects-warlord"], "class": "btn btn-default", "image": "merc2.jpeg", "description": "this is description"}
           ];
       }
           else if(this.userType === 'worker'){
           this.buttons = [
-      {"label": "offer to project", "link": [""], "class": "btn btn-default", "image": "merc2.jpeg", "description": "this is description"},
+      {"label": "offer to project", "link": ["/search-project"], "class": "btn btn-default", "image": "merc2.jpeg", "description": "this is description"},
       {"label": "edit profile", "link": ["/edit-profile-mercenery"], "class": "btn btn-default", "image": "merc2.jpeg", "description": "this is description"},
       {"label": "upload ready project", "link": [""], "class": "btn btn-default", "image": "merc2.jpeg", "description": "this is description"}
       ];

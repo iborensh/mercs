@@ -17,6 +17,7 @@ import { SelectBandComponent} from "./select-band/select-band.component";
 import { BandProfileComponent} from "./band-profile/band-profile.component";
 import { ProjectManagerComponent} from "./project-manager/project-manager.component";
 import { MercNavbarComponent} from "./merc-navbar/merc-navbar.component";
+import { MyBandsComponent} from "./my-bands/my-bands.component";
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -33,6 +34,7 @@ const routes: Routes = [
     { path: 'search-project', component: SearchProjectComponent },
     { path: 'edit-skills', component: EditSkillsComponent },
     { path: 'my-projects-warlord', component: MyProjectsWarlordComponent },
+    { path: 'my-bands', component: MyBandsComponent },
     { path: 'edit-profile-mercenery', component: EditProfileMerceneryComponent },
     { path: 'edit-project', component: EditProjectComponent },
     { path: 'home', component: HomeComponent },

@@ -1,24 +1,31 @@
 <div class="container">
-  <div class="container-fluid">
     <div class="row">
-      <div *ngFor="let project of projects" class="col-sm-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="http://placehold.it/750x325" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title">{{project.name}}</h4>
-            <p class="card-text">{{project.status}}</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">moshe</li>
-          </ul>
-          <div class="card-block">
-            <a href="#" class="card-link">Card link</a>
-          </div>
+
+        <div class="col-3" *ngFor="let project of projects; let i = index">
+            <div class="project" [ngClass]="colors[(i)%6]" *ngIf="i < 8">
+                <div class="shape">
+                    <div class="shape-text">
+                        {{project.reward}} $
+                    </div>
+                </div>
+                <br>
+                <div class="project-content">
+                    <h2 class="lead">
+                        <u>{{project.name}}</u>
+                    </h2>
+                    <br>
+                    <p>
+                        {{project.description}}
+                    </p>
+                </div>
+                <div class="card" >
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{project.status}}</li>
+                        <li class="list-group-item">{{project.start_on}}</li>
+                        <li routerLink="" class="list-group-item">Reach it</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-        <br>
     </div>
-  </div>
-
 </div>
-

@@ -9,7 +9,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  private userData = {};
+  private userData = JSON.parse(sessionStorage.getItem('user')) || {};
 
   get UserData(){
       return this.userData;
@@ -17,6 +17,7 @@ export class DataService {
 
   set UserData(data){
       this.userData = data;
+      sessionStorage.setItem('user', JSON.stringify(data));
   }
 
 
@@ -29,7 +30,7 @@ export class DataService {
     return this.http.get('http://localhost:5002/api/users')
   }
 
-  private chosenProject = {};
+  private chosenProject = null;
 
   get ChosenProject(){
       return this.chosenProject;

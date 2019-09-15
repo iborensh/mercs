@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from "@angular/router";
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-merc-navbar',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MercNavbarComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
+  band;
   ngOnInit() {
+      this.band = _.includes(this.router.url, 'band')
   }
 
 }

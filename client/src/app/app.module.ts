@@ -36,6 +36,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import 'hammerjs';
 import { AbovenavComponent } from './abovenav/abovenav.component';
 import { MercNavbarComponent } from './merc-navbar/merc-navbar.component';
+import { MyBandsComponent } from './my-bands/my-bands.component';
 
 
 // AoT requires an exported function for factories
@@ -80,7 +81,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     entryComponents: [NgbdModalContent, NgbdModalBandInfo],
     declarations: [AppComponent, NgbdModalContent, NgbdModalBandInfo, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent,
         UploadProjectComponent, ClickColorDirective, SearchProjectComponent, EditProjectComponent, MyProjectsWarlordComponent,
-        MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent, ChatComponent, SelectBandComponent, BandProfileComponent, ProjectManagerComponent, AbovenavComponent, MercNavbarComponent],
+        MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent, ChatComponent, SelectBandComponent, BandProfileComponent, ProjectManagerComponent, AbovenavComponent, MercNavbarComponent, MyBandsComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })

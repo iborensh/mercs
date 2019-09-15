@@ -3,7 +3,6 @@ import {Router} from '@angular/router';
 import {routerTransition} from '../router.animations';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-import {AuthService} from "../auth.service";
 import {DataService} from "../data.service";
 import * as _ from 'lodash';
 
@@ -16,7 +15,7 @@ import * as _ from 'lodash';
 })
 export class LoginComponent implements OnInit {
     constructor(public router: Router, private formBuilder: FormBuilder, private http: HttpClient,
-                private auth: AuthService, private dataService: DataService) {
+                private dataService: DataService) {
     }
 
     messageForm: FormGroup;
@@ -39,22 +38,20 @@ export class LoginComponent implements OnInit {
             return;
         }
         this.success = true;
-
-        this.http.get('/api/users/' + this.messageForm.controls.name.value).subscribe(data => {
+        let userData = {"name": this.messageForm.controls.name.value, "password": this.messageForm.controls.password.value};
+        this.http.post('/api/login', userData).subscribe(data => {
                 if (Object.keys(data).length === 0) {
                     this.wrongName = true;
                     return
                 }
-                else if (data[0].password != this.messageForm.controls.password.value) {
+                else if (data["password"] === false) {
                     this.wrongPassword = true;
                     return
                 }
+                delete data["password"];
                 localStorage.setItem('isLoggedin', 'true');
-                sessionStorage.setItem('user', JSON.stringify(data));
-                delete data[0]["password"];
-                this.auth.UserName = this.messageForm.controls.name.value;
-                this.dataService.UserData = data[0];
-                this.router.navigate(['home', data[0]._id]);
+                this.dataService.UserData = data;
+                this.router.navigate(['home', data["_id"]]);
             },
             error => {
                 console.log("Error", error);

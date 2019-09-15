@@ -5,6 +5,7 @@
     -o-transition: margin-left 0.2s ease-in-out;
     transition: margin-left 0.2s ease-in-out;
 }
+
 .main-container {
     margin-top: 56px;
     margin-left: 235px;
@@ -15,14 +16,17 @@
     position: relative;
     overflow: hidden;
 }
+
 .collapsed {
     margin-left: 100px;
 }
+
 @media screen and (max-width: 992px) {
     .main-container {
         margin-left: 0px !important;
     }
 }
+
 @media print {
     .main-container {
         margin-top: 0px !important;
@@ -44,5 +48,18 @@
 }
 
 .myCustomModalClass .modal-dialog {
-  max-width: 565px;
+    max-width: 565px;
+}
+
+.btn-squared-default {
+    width: 15vw !important;
+    height: 15vw !important;
+    font-size: 40px;
+    border: 2px solid black;
+    margin: 5px;
+}
+
+.btn-squared-default:hover {
+    border: 3px solid black;
+    font-weight: 800;
 }

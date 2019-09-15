@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from "../../../auth.service";
 import { DataService} from "../../../data.service";
 
 @Component({
@@ -12,10 +11,11 @@ import { DataService} from "../../../data.service";
 export class HeaderComponent implements OnInit {
     pushRightClass: string = 'push-right';
 
-    constructor(private translate: TranslateService, public router: Router, public auth: AuthService, private dataService: DataService) {
+    constructor(private translate: TranslateService, public router: Router, private dataService: DataService) {
 
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
         this.translate.setDefaultLang('en');
+
         const browserLang = this.translate.getBrowserLang();
         this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de|zh-CHS/) ? browserLang : 'en');
         this.router.events.subscribe(val => {
@@ -28,6 +28,8 @@ export class HeaderComponent implements OnInit {
             }
         });
     }
+
+    userName = this.dataService.UserData['name'];
 
     ngOnInit() {}
 
@@ -47,9 +49,10 @@ export class HeaderComponent implements OnInit {
     }
 
     onLoggedout() {
+        this.userName = "";
         localStorage.removeItem('isLoggedin');
+        sessionStorage.removeItem('user');
         this.dataService.UserData = {};
-        this.auth.UserName = "Guest"
     }
 
     changeLang(language: string) {

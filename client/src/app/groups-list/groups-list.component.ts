@@ -9,6 +9,7 @@ import {NgbdModalContent} from "../band-profile/band-profile.component";
 @Component({
   selector: 'ngbd-modal-band-info',
   templateUrl: "../modals/band-info.html",
+    styleUrls: ['../modals/band-info.scss']
 })
 export class NgbdModalBandInfo {
     @Input() band;
@@ -27,52 +28,7 @@ export class GroupsListComponent implements OnInit {
 
   bands;
   users;
-  /////////////////////   need to delete /////////////
-  project = {
-    "status" : "started",
-    "paths" : [
-        [
-            "develop",
-            "ecommerce",
-            "website",
-            "android"
-        ]
-    ],
-    "project_name" : "good",
-    "calculate" : true,
-    "skills" : {
-        "SW_General" : {
-            "required_by" : [
-                "application",
-                "testing",
-                "website",
-                "game"
-            ],
-            "base_cost" : 3
-        }
-    },
-    "content" : {
-        "field" : [
-            "ecommerce"
-        ],
-        "outcome" : [
-            "website"
-        ],
-        "type" : [
-            "develop"
-        ],
-        "time" : [
-            "two weeks"
-        ],
-        "attributes" : [
-            "android"
-        ]
-    },
-    "user" : "5c0046688673b26b599f0771",
-    "reward" : 100.0,
-    "name" : "good"
-};
-  ////////////////////////////
+  chosenProject;
   sorting = [{"label": "Sort by", "value": "sort_by", "options_type": "checkbox", "options":[{"label": "Recommended", "value": "recommended"},
       {"label": "Cheapest", "value": "cheapest"},
       {"label": "Star rating", "value": "star_rating"}
@@ -88,12 +44,11 @@ export class GroupsListComponent implements OnInit {
       ]}];
 
   ngOnInit() {
-      ////////////////////
-      // this.project = this.dataService.ChosenProject;
-      /////////////////////////////
-      console.log(this.project);
+      this.chosenProject = this.dataService.ChosenProject;
+      console.log(this.chosenProject);
       this.http.get('/api/band_with_users_data').subscribe(data => {
           this.bands = data;
+          console.log(this.bands)
             },
             error => {
                 console.log("Error", error);

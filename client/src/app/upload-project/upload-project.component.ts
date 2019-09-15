@@ -158,7 +158,7 @@ export class UploadProjectComponent implements OnInit {
             "label": "Attributes",
             "value": "attributes",
             "father": "type",
-            "pic": "assets/images/map_4.jpg",
+            "pic": "assets/images/map_3.png",
             "next": "time",
             "multiple": true,
             "options":
@@ -211,7 +211,7 @@ export class UploadProjectComponent implements OnInit {
             "label": "Time",
             "value": "time",
             "next": "finish",
-            "pic": "assets/images/map_5.png",
+            "pic": "assets/images/map-7.png",
             "multiple": true,
             "options":
 
@@ -225,7 +225,7 @@ export class UploadProjectComponent implements OnInit {
                 ]
         },
         {
-            "label": "Finish", "value": "finish", "next": "", "pic": "assets/images/map_5.png", "options":
+            "label": "Finish", "value": "finish", "next": "", "pic": "assets/images/map-7.png", "options":
                 []
         }];
     projectName = '';
