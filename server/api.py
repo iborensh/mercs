@@ -43,6 +43,10 @@ def users(id=None):
         pass
     return jsonify({'id': id})
 
+@app.route("/api/login", methods=['POST'])
+def login():
+    data = json.loads(request.data, strict=False)
+    return jsonify(db_functions.login_user(data['name'], data['password']))
 
 @app.route("/api/projects", methods=['GET', 'POST', 'DELETE'])
 @app.route("/api/projects/<id>", methods=['GET', 'POST', 'PUT', 'DELETE'])
@@ -63,7 +67,10 @@ def projects(id=None):
         calculate = Map2reward(data)
         require_skills = calculate.calculate()
         data.update(require_skills)
-        print 'data = ', data
+        content = data['content']
+        description = 'Make {} on a {} in {} for {} purposes'.format(content['type'], content['attributes'],
+                                                                     content['outcome'], content['field'])
+        data.update({'description': description})
         return db_functions.insert_project(data)
     elif request.method == 'PUT':
         data = json.loads(request.data, strict=False)
@@ -139,7 +146,6 @@ def merc_profile(user_id):
     elif request.method == 'PUT':
         data = json.loads(request.data, strict=False)
         data['chosen'] = [{'value': "usr_class", 'chosen': data['character']}] + data['chosen']
-        pprint.pprint(data)
         ranking = getattr(merc, 'add_{}'.format(data['field']))(*[param['chosen'] for param in data['chosen']])
         data = {"profile":{"skills":[{data['field']: {param['value']: param['chosen'] for param in data['chosen']},
                                       "ranking": ranking, "approve": False, "status": "start"}],

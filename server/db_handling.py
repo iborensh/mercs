@@ -13,6 +13,7 @@ sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 class DbHandling(object):
     def __init__(self):
         self.client = MongoClient()
+        print 'open new connection'
         self.db_projects = self.client['grouplink']['projects']
         self.db_users = self.client['grouplink']['users']
         self.db_bands = self.client['grouplink']['bands']
@@ -35,10 +36,21 @@ class DbHandling(object):
             else:
                 proj = self.db_users.find({})
         projects = [{k: str(v) if k == '_id' else v for k, v in i.iteritems()} for i in proj]
-        if not collection:
-            return projects
+        return projects
+
+
+    def login_user(self, name, password):
+        user = self.db_users.find({'name': name})
+        users = [{k: str(v) if k == '_id' else v for k, v in i.iteritems()} for i in user]
+        if len(users) > 0:
+            if password == users[0]['password']:
+                users[0]['password'] = True
+                return users[0]
+            else:
+                return {'password': False}
         else:
-            return projects
+            return []
+
 
     def get_user_by_id(self, user_id):
         user = self.db_users.find({'_id': ObjectId(user_id)}, {'_id': False})
