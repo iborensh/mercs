@@ -110,8 +110,21 @@ def bands(id=None):
             return jsonify({'number_of_removed_projects': 5})
     return jsonify({'id': id})
 
+@app.route("/api/user-bands/<user_id>", methods=['GET'])
+def user_bands(user_id):
+    """
+
+    :param user_id:
+    :return:
+    """
+    return jsonify(db_functions.get_bands_by_user_id(user_id))
+
 @app.route("/api/band_with_users_data", methods=['GET'])
 def band_with_users_data():
+    """
+
+    :return:
+    """
     return jsonify(db_functions.get_band_with_users_data(None))
 
 @app.route("/api/user-projects", methods=['GET', 'POST', 'PUT', 'DELETE'])

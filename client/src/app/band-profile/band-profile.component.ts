@@ -34,6 +34,7 @@ export class BandProfileComponent implements OnInit {
 
   }
     // id = '';
+    activate_ids = [];
     current = {"label": "Add member", "value": "add_member", "show": "users"};
   actions = [
         {"label": "Add member", "value": "add_member", "show": "users"},
@@ -43,14 +44,16 @@ export class BandProfileComponent implements OnInit {
         {"label": "Projects", "value": "projects", "show": "projects"}];
 
   ngOnInit() {
+      console.log('user_id', this.userId);
       let profile = _.get(this.dataService.UserData, 'profile', '');
         this.character = profile.character;
         console.log(profile);
         if (profile) {
             this.bandSkills = profile;
         }
-        this.http.get('/api/bands').subscribe(data => {
+        this.http.get('/api/user-bands/'+this.userId).subscribe(data => {
           this.data["bands"] = data;
+          console.log('bands', data)
             },
             error => {
                 console.log("Error", error);

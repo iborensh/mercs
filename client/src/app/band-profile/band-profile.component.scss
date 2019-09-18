@@ -15,6 +15,23 @@
     width: 40px;
     height: 40px;
 }
+/deep/ ngb-accordion{
+
+  .btn-link{
+    margin-bottom: 0;
+    color: #656565;
+    font-size: x-large;
+    font-weight: normal;
+    background-color: transparent;
+    text-decoration: none!important;
+
+  }
+
+ .btn-link:hover{
+     font-weight: bold;
+    text-decoration: none!important;
+  }
+}
 
 .tag {
     float: left;
@@ -335,8 +352,8 @@ select.form-control:focus {
 
 .avatar {
   vertical-align: middle;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
     margin-left: 35%;
 }

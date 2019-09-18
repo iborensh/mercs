@@ -185,7 +185,7 @@ class DbHandling(object):
 
     def get_band(self, band_id):
         """
-        get project by id
+        get band by id
         :param project_id:
         :param collection:
         :return:
@@ -197,8 +197,26 @@ class DbHandling(object):
         bands = [{k: str(v) if k == '_id' else v for k, v in i.iteritems()} for i in band]
         return bands
 
-    def get_band_with_users_data(self, band_id):
-        bands = self.get_band(band_id)
+    def get_bands_by_user_id(self, user_id, with_users=True):
+        """
+
+        :param user_id:
+        :return:
+        """
+        return [self.get_band_with_users_data('', ready_band=[band])[0] for band in
+                self.db_bands.find({"users_id":{"$in": [user_id]}}, {'_id': False})] if with_users else \
+            list(self.db_bands.find({"users_id":{"$in": [user_id]}}, {'_id': False}))
+
+
+    def get_band_with_users_data(self, band_id, ready_band=None):
+        """
+        return band with user data - can pass band id or the band data
+        :param band_id:
+        :param ready_band:
+        :return:
+        """
+
+        bands = ready_band if ready_band else self.get_band(band_id)
         for i, band in enumerate(bands):
             users = []
             for user_id in band['users_id']:

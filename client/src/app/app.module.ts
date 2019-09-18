@@ -30,6 +30,7 @@ import {SelectBandComponent} from './select-band/select-band.component';
 import {BandProfileComponent, NgbdModalContent} from './band-profile/band-profile.component';
 import {ProjectManagerComponent} from './project-manager/project-manager.component';
 import {NgbdModalBandInfo} from "./groups-list/groups-list.component";
+import {NgbAccordionModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatButtonModule, MatSelectModule} from '@angular/material';
 import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -64,6 +65,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         NgbModule.forRoot(),
         NgbModalModule,
         MatInputModule,
+        NgbAccordionModule,
         NgbDropdownModule.forRoot(),
         NgbCarouselModule.forRoot(),
         NgbRatingModule.forRoot(),
@@ -81,7 +83,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     entryComponents: [NgbdModalContent, NgbdModalBandInfo],
     declarations: [AppComponent, NgbdModalContent, NgbdModalBandInfo, NewUserComponent, HomeComponent, HeaderComponent, UserTypeComponent, GroupsListComponent,
         UploadProjectComponent, ClickColorDirective, SearchProjectComponent, EditProjectComponent, MyProjectsWarlordComponent,
-        MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent, ChatComponent, SelectBandComponent, BandProfileComponent, ProjectManagerComponent, AbovenavComponent, MercNavbarComponent, MyBandsComponent],
+        MyProjectsMerceneryComponent, EditProfileMerceneryComponent, EditSkillsComponent, ChatComponent, SelectBandComponent,
+        BandProfileComponent, ProjectManagerComponent, AbovenavComponent, MercNavbarComponent, MyBandsComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
